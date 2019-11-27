@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="szerszamgepModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="beszerzesek">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datum" Type="DateTime" Nullable="false" />
+    <Property Name="beszerzes_Tipus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EKAR_Szam" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="szamla" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VAM" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fuvar" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CMR" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="megrendeles" Relationship="Self.megrendeles_ibfk_1" FromRole="beszerzesek" ToRole="megrendeles" />
+  </EntityType>
+  <EntityType Name="eladasok">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datum" Type="DateTime" Nullable="false" />
+    <Property Name="tipus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="szamlaszam" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EKAR_Szam" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="megrendeles" Relationship="Self.megrendeles_ibfk_2" FromRole="eladasok" ToRole="megrendeles" />
+  </EntityType>
+  <EntityType Name="felhasznalo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="felhasznalonev" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jelszo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gepek">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cikkszam" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="megnevezes" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipus" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="gyarto" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="megrendeles" Relationship="Self.megrendeles_ibfk_4" FromRole="gepek" ToRole="megrendeles" />
+  </EntityType>
+  <EntityType Name="megrendeles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gep_Id" Type="Int32" Nullable="false" />
+    <Property Name="vevo_Id" Type="Int32" Nullable="false" />
+    <Property Name="beszerzes_Id" Type="Int32" Nullable="false" />
+    <Property Name="eladas_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="beszerzesek" Relationship="Self.megrendeles_ibfk_1" FromRole="megrendeles" ToRole="beszerzesek" />
+    <NavigationProperty Name="eladasok" Relationship="Self.megrendeles_ibfk_2" FromRole="megrendeles" ToRole="eladasok" />
+    <NavigationProperty Name="gepek" Relationship="Self.megrendeles_ibfk_4" FromRole="megrendeles" ToRole="gepek" />
+    <NavigationProperty Name="vevok" Relationship="Self.megrendeles_ibfk_3" FromRole="megrendeles" ToRole="vevok" />
+  </EntityType>
+  <EntityType Name="vevok">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nev" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="orszag" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="varos" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="megrendeles" Relationship="Self.megrendeles_ibfk_3" FromRole="vevok" ToRole="megrendeles" />
+  </EntityType>
+  <Association Name="megrendeles_ibfk_1">
+    <End Role="beszerzesek" Type="Self.beszerzesek" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="beszerzesek">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="beszerzes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="megrendeles_ibfk_2">
+    <End Role="eladasok" Type="Self.eladasok" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eladasok">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="eladas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="megrendeles_ibfk_4">
+    <End Role="gepek" Type="Self.gepek" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gepek">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="gep_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="megrendeles_ibfk_3">
+    <End Role="vevok" Type="Self.vevok" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vevok">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="vevo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="szerszamgepContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="beszerzesek" EntityType="Self.beszerzesek" />
+    <EntitySet Name="eladasok" EntityType="Self.eladasok" />
+    <EntitySet Name="felhasznalo" EntityType="Self.felhasznalo" />
+    <EntitySet Name="gepek" EntityType="Self.gepek" />
+    <EntitySet Name="megrendeles" EntityType="Self.megrendeles" />
+    <EntitySet Name="vevok" EntityType="Self.vevok" />
+    <AssociationSet Name="megrendeles_ibfk_1" Association="Self.megrendeles_ibfk_1">
+      <End Role="beszerzesek" EntitySet="beszerzesek" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+    <AssociationSet Name="megrendeles_ibfk_2" Association="Self.megrendeles_ibfk_2">
+      <End Role="eladasok" EntitySet="eladasok" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+    <AssociationSet Name="megrendeles_ibfk_4" Association="Self.megrendeles_ibfk_4">
+      <End Role="gepek" EntitySet="gepek" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+    <AssociationSet Name="megrendeles_ibfk_3" Association="Self.megrendeles_ibfk_3">
+      <End Role="vevok" EntitySet="vevok" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="szerszamgepModelStoreContainer" CdmEntityContainer="szerszamgepContext">
+    <EntitySetMapping Name="beszerzesek">
+      <EntityTypeMapping TypeName="szerszamgepModel.beszerzesek">
+        <MappingFragment StoreEntitySet="beszerzesek">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="beszerzes_Tipus" ColumnName="beszerzes_Tipus" />
+          <ScalarProperty Name="EKAR_Szam" ColumnName="EKAR_Szam" />
+          <ScalarProperty Name="szamla" ColumnName="szamla" />
+          <ScalarProperty Name="VAM" ColumnName="VAM" />
+          <ScalarProperty Name="fuvar" ColumnName="fuvar" />
+          <ScalarProperty Name="CMR" ColumnName="CMR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eladasok">
+      <EntityTypeMapping TypeName="szerszamgepModel.eladasok">
+        <MappingFragment StoreEntitySet="eladasok">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="tipus" ColumnName="tipus" />
+          <ScalarProperty Name="szamlaszam" ColumnName="szamlaszam" />
+          <ScalarProperty Name="EKAR_Szam" ColumnName="EKAR_Szam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="felhasznalo">
+      <EntityTypeMapping TypeName="szerszamgepModel.felhasznalo">
+        <MappingFragment StoreEntitySet="felhasznalo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="felhasznalonev" ColumnName="felhasznalonev" />
+          <ScalarProperty Name="jelszo" ColumnName="jelszo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gepek">
+      <EntityTypeMapping TypeName="szerszamgepModel.gepek">
+        <MappingFragment StoreEntitySet="gepek">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cikkszam" ColumnName="cikkszam" />
+          <ScalarProperty Name="megnevezes" ColumnName="megnevezes" />
+          <ScalarProperty Name="tipus" ColumnName="tipus" />
+          <ScalarProperty Name="gyarto" ColumnName="gyarto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="megrendeles">
+      <EntityTypeMapping TypeName="szerszamgepModel.megrendeles">
+        <MappingFragment StoreEntitySet="megrendeles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gep_Id" ColumnName="gep_Id" />
+          <ScalarProperty Name="vevo_Id" ColumnName="vevo_Id" />
+          <ScalarProperty Name="beszerzes_Id" ColumnName="beszerzes_Id" />
+          <ScalarProperty Name="eladas_Id" ColumnName="eladas_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vevok">
+      <EntityTypeMapping TypeName="szerszamgepModel.vevok">
+        <MappingFragment StoreEntitySet="vevok">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nev" ColumnName="nev" />
+          <ScalarProperty Name="orszag" ColumnName="orszag" />
+          <ScalarProperty Name="varos" ColumnName="varos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

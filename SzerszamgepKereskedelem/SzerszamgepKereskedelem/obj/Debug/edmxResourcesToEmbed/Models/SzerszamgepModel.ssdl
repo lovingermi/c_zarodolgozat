@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="szerszamgepModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="beszerzesek">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datum" Type="date" Nullable="false" />
+    <Property Name="beszerzes_Tipus" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="EKAR_Szam" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="szamla" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="VAM" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="fuvar" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="CMR" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eladasok">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datum" Type="date" Nullable="false" />
+    <Property Name="tipus" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="szamlaszam" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="EKAR_Szam" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="felhasznalo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="felhasznalonev" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="jelszo" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gepek">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cikkszam" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="megnevezes" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="tipus" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="gyarto" Type="varchar" MaxLength="120" Nullable="false" />
+  </EntityType>
+  <EntityType Name="megrendeles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gep_Id" Type="int" Nullable="false" />
+    <Property Name="vevo_Id" Type="int" Nullable="false" />
+    <Property Name="beszerzes_Id" Type="int" Nullable="false" />
+    <Property Name="eladas_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vevok">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nev" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="orszag" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="varos" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <Association Name="megrendeles_ibfk_1">
+    <End Role="beszerzesek" Type="Self.beszerzesek" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="beszerzesek">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="beszerzes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="megrendeles_ibfk_2">
+    <End Role="eladasok" Type="Self.eladasok" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eladasok">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="eladas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="megrendeles_ibfk_3">
+    <End Role="vevok" Type="Self.vevok" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vevok">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="vevo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="megrendeles_ibfk_4">
+    <End Role="gepek" Type="Self.gepek" Multiplicity="1" />
+    <End Role="megrendeles" Type="Self.megrendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gepek">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="megrendeles">
+        <PropertyRef Name="gep_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="szerszamgepModelStoreContainer">
+    <EntitySet Name="beszerzesek" EntityType="Self.beszerzesek" Schema="szerszamgep2" store:Type="Tables" />
+    <EntitySet Name="eladasok" EntityType="Self.eladasok" Schema="szerszamgep2" store:Type="Tables" />
+    <EntitySet Name="felhasznalo" EntityType="Self.felhasznalo" Schema="szerszamgep2" store:Type="Tables" />
+    <EntitySet Name="gepek" EntityType="Self.gepek" Schema="szerszamgep2" store:Type="Tables" />
+    <EntitySet Name="megrendeles" EntityType="Self.megrendeles" Schema="szerszamgep2" store:Type="Tables" />
+    <EntitySet Name="vevok" EntityType="Self.vevok" Schema="szerszamgep2" store:Type="Tables" />
+    <AssociationSet Name="megrendeles_ibfk_1" Association="Self.megrendeles_ibfk_1">
+      <End Role="beszerzesek" EntitySet="beszerzesek" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+    <AssociationSet Name="megrendeles_ibfk_2" Association="Self.megrendeles_ibfk_2">
+      <End Role="eladasok" EntitySet="eladasok" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+    <AssociationSet Name="megrendeles_ibfk_3" Association="Self.megrendeles_ibfk_3">
+      <End Role="vevok" EntitySet="vevok" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+    <AssociationSet Name="megrendeles_ibfk_4" Association="Self.megrendeles_ibfk_4">
+      <End Role="gepek" EntitySet="gepek" />
+      <End Role="megrendeles" EntitySet="megrendeles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
