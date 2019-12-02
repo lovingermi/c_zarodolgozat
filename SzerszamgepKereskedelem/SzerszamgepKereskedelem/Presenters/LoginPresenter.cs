@@ -31,7 +31,7 @@ namespace SzerszamgepKereskedelem.Presenters
             else
             {
                 var user = db.felhasznalo.SingleOrDefault(x => x.felhasznalonev == view.UserName &&
-                 x.jelszo == view.Password);
+                 x.jelszo == view.Password && x.modositas==true);
 
                 if (user!=null)
                 {

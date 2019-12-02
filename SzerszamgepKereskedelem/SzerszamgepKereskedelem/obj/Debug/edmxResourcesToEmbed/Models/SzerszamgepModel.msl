@@ -29,6 +29,7 @@
     <EntitySetMapping Name="felhasznalo">
       <EntityTypeMapping TypeName="szerszamgepModel.felhasznalo">
         <MappingFragment StoreEntitySet="felhasznalo">
+          <ScalarProperty Name="modositas" ColumnName="modositas" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="felhasznalonev" ColumnName="felhasznalonev" />
           <ScalarProperty Name="jelszo" ColumnName="jelszo" />
@@ -60,6 +61,7 @@
     <EntitySetMapping Name="vevok">
       <EntityTypeMapping TypeName="szerszamgepModel.vevok">
         <MappingFragment StoreEntitySet="vevok">
+          <ScalarProperty Name="aktiv" ColumnName="aktiv" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nev" ColumnName="nev" />
           <ScalarProperty Name="orszag" ColumnName="orszag" />

@@ -30,7 +30,6 @@ namespace SzerszamgepKereskedelem.Models
         public string CMR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
         public virtual ICollection<megrendeles> megrendeles { get; set; }
 
         public bool szamlaUresE(beszerzesek beszerzes)
@@ -73,10 +72,11 @@ namespace SzerszamgepKereskedelem.Models
                 return false;
             }
             else
+
             {
                 return true;
             }
+
         }
     }
-    
 }

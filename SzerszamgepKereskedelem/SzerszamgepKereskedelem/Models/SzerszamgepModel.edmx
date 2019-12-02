@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="szerszamgepModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="szerszamgepModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="beszerzesek">
           <Key>
             <PropertyRef Name="id" />
@@ -35,6 +35,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="felhasznalonev" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="jelszo" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="modositas" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="gepek">
           <Key>
@@ -42,7 +43,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cikkszam" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="megnevezes" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="megnevezes" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="tipus" Type="varchar" MaxLength="120" Nullable="false" />
           <Property Name="gyarto" Type="varchar" MaxLength="120" Nullable="false" />
         </EntityType>
@@ -64,6 +65,7 @@
           <Property Name="nev" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="orszag" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="varos" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="aktiv" Type="bool" Nullable="false" />
         </EntityType>
         <Association Name="megrendeles_ibfk_1">
           <End Role="beszerzesek" Type="Self.beszerzesek" Multiplicity="1" />
@@ -137,8 +139,7 @@
             <End Role="megrendeles" EntitySet="megrendeles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="szerszamgepModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -174,6 +175,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="felhasznalonev" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="jelszo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="modositas" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="gepek">
           <Key>
@@ -209,6 +211,7 @@
           <Property Name="orszag" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="varos" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="megrendeles" Relationship="Self.megrendeles_ibfk_3" FromRole="vevok" ToRole="megrendeles" />
+          <Property Name="aktiv" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="megrendeles_ibfk_1">
           <End Role="beszerzesek" Type="Self.beszerzesek" Multiplicity="1" />
@@ -316,6 +319,7 @@
           <EntitySetMapping Name="felhasznalo">
             <EntityTypeMapping TypeName="szerszamgepModel.felhasznalo">
               <MappingFragment StoreEntitySet="felhasznalo">
+                <ScalarProperty Name="modositas" ColumnName="modositas" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="felhasznalonev" ColumnName="felhasznalonev" />
                 <ScalarProperty Name="jelszo" ColumnName="jelszo" />
@@ -347,6 +351,7 @@
           <EntitySetMapping Name="vevok">
             <EntityTypeMapping TypeName="szerszamgepModel.vevok">
               <MappingFragment StoreEntitySet="vevok">
+                <ScalarProperty Name="aktiv" ColumnName="aktiv" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nev" ColumnName="nev" />
                 <ScalarProperty Name="orszag" ColumnName="orszag" />

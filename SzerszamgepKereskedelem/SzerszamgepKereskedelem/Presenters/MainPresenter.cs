@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,7 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void LoadData()
         {
+            dataTableFoTabla.Clear();
             foreach (megrendeles megrendeles in db.megrendeles)
             {
                 gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
@@ -72,8 +74,33 @@ namespace SzerszamgepKereskedelem.Presenters
                     eladas.szamlaszam,
                     eladas.EKAR_Szam);
             }
+            
             view.dataTableFoTabla = dataTableFoTabla;
         }
-        
+        public void DeleteMegrendeles(int id)
+        {
+            var megrendeles = db.megrendeles.Find(id);
+            var gep = db.gepek.Find(megrendeles.gep_Id);
+            var beszerzes = db.beszerzesek.Find(megrendeles.beszerzes_Id);
+            var eladas = db.eladasok.Find(megrendeles.eladas_Id);
+
+            if (megrendeles != null)
+            {
+                //db.megrendeles.Remove(megrendeles);
+                //db.g
+                view.teszt = Convert.ToString(megrendeles.id);
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+
+            LoadData();
+        }
     }
 }

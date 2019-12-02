@@ -17,5 +17,6 @@ namespace SzerszamgepKereskedelem.Models
         public int Id { get; set; }
         public string felhasznalonev { get; set; }
         public string jelszo { get; set; }
+        public bool modositas { get; set; }
     }
 }

@@ -32,6 +32,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="felhasznalonev" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="jelszo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="modositas" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="gepek">
     <Key>
@@ -67,6 +68,7 @@
     <Property Name="orszag" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="varos" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="megrendeles" Relationship="Self.megrendeles_ibfk_3" FromRole="vevok" ToRole="megrendeles" />
+    <Property Name="aktiv" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="megrendeles_ibfk_1">
     <End Role="beszerzesek" Type="Self.beszerzesek" Multiplicity="1" />

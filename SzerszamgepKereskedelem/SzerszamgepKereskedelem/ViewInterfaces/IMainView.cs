@@ -13,6 +13,10 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         //List<gepek> gepekLista { set; }
         DataTable dataTableFoTabla { set; }
         gepek gepek { get; set; }
-        
+        megrendeles megrendeles { get; set; }
+        beszerzesek beszerzesek { get; set; }
+        eladasok eladasok { get; set; }
+        string teszt { get; set; }
+
     }
 }

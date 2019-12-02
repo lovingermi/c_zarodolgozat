@@ -25,7 +25,7 @@ namespace SzerszamgepKereskedelem.Views
         public DataTable dataTableFoTabla
         {
             set
-            {
+            {               
                 dataGridViewMainTable.DataSource = value;  
             }
         }
@@ -40,6 +40,35 @@ namespace SzerszamgepKereskedelem.Views
 
             }
         }
+
+        public megrendeles megrendeles
+        {
+            get
+            {
+                return new megrendeles();
+            }
+            set
+            {
+
+            }
+        }
+        public beszerzesek beszerzesek { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public eladasok eladasok { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string teszt
+        {
+            get
+            {
+                return null;
+            }
+            set
+            {
+                labeltorles.Text = value;
+            }
+            
+
+
+        }
+
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -50,7 +79,7 @@ namespace SzerszamgepKereskedelem.Views
             dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#9CFABD");
             dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#DFEFE5");
 
-            dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkBlue;
+            dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridViewMainTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -139,6 +168,19 @@ namespace SzerszamgepKereskedelem.Views
             {
 
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            
+            int selectedRowIndex = dataGridViewMainTable.SelectedCells[0].RowIndex;
+            if (selectedRowIndex < 0)
+            {
+                return;
+            }
+            DataGridViewRow selectedRow = dataGridViewMainTable.Rows[selectedRowIndex];
+            int idToDelete = Convert.ToInt32(selectedRow.Cells[0].Value);
+            presenter.DeleteMegrendeles(idToDelete);
         }
     }
 }

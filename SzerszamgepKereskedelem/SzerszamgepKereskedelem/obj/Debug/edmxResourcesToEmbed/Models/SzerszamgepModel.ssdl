@@ -30,6 +30,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="felhasznalonev" Type="varchar" MaxLength="60" Nullable="false" />
     <Property Name="jelszo" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="modositas" Type="bool" Nullable="false" />
   </EntityType>
   <EntityType Name="gepek">
     <Key>
@@ -37,7 +38,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cikkszam" Type="varchar" MaxLength="64" Nullable="false" />
-    <Property Name="megnevezes" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="megnevezes" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="tipus" Type="varchar" MaxLength="120" Nullable="false" />
     <Property Name="gyarto" Type="varchar" MaxLength="120" Nullable="false" />
   </EntityType>
@@ -59,6 +60,7 @@
     <Property Name="nev" Type="varchar" MaxLength="64" Nullable="false" />
     <Property Name="orszag" Type="varchar" MaxLength="64" Nullable="false" />
     <Property Name="varos" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="aktiv" Type="bool" Nullable="false" />
   </EntityType>
   <Association Name="megrendeles_ibfk_1">
     <End Role="beszerzesek" Type="Self.beszerzesek" Multiplicity="1" />

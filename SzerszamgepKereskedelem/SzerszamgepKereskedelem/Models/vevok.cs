@@ -24,6 +24,7 @@ namespace SzerszamgepKereskedelem.Models
         public string nev { get; set; }
         public string orszag { get; set; }
         public string varos { get; set; }
+        public bool aktiv { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<megrendeles> megrendeles { get; set; }
