@@ -19,10 +19,10 @@ namespace SzerszamgepKereskedelem.Presenters
         private BeszerzesRepository beszerzesRepository = new BeszerzesRepository();
         private EladasRepository eladasRepository = new EladasRepository();
         private szerszamgepContext db;
-        private IMainView view;
+        private IMainView mainView;
         public MainPresenter(IMainView param)
         {
-            view = param;
+            mainView = param;
             db = new szerszamgepContext();
             
             CreateDataTable();
@@ -75,7 +75,7 @@ namespace SzerszamgepKereskedelem.Presenters
                     eladas.EKAR_Szam);
             }
             
-            view.dataTableFoTabla = dataTableFoTabla;
+            mainView.dataTableFoTabla = dataTableFoTabla;
         }
         public void DeleteMegrendeles(int id)
         {
@@ -88,7 +88,7 @@ namespace SzerszamgepKereskedelem.Presenters
             {
                 //db.megrendeles.Remove(megrendeles);
                 //db.g
-                view.teszt = Convert.ToString(megrendeles.id);
+                mainView.teszt = Convert.ToString(megrendeles.id);
             }
 
             try

@@ -11,13 +11,14 @@ namespace SzerszamgepKereskedelem.Repositories
     {
         private List<gepek> gepekLista;
         private szerszamgepContext db;
-
+        private List<string> gyartok;
         public GepRepository()
         {
             gepekLista = new List<gepek>();
+            gyartok = new List<string>();
             db = new szerszamgepContext();
             gepekLista = db.gepek.ToList();
-
+            
         }
         public gepek getGepById(int gepId)
         {
@@ -30,6 +31,16 @@ namespace SzerszamgepKereskedelem.Repositories
             {
                 return gepekLista.Find(g => g.id == gepId);
             }
+        }
+        public List<string> getGyartokLista()
+        {
+            
+            foreach (var item in gepekLista)
+            {
+                gyartok.Add(item.gyarto);
+            }
+            gyartok=gyartok.Distinct().OrderBy(gy=>gy) .ToList();
+            return gyartok;
         }
     }
 }

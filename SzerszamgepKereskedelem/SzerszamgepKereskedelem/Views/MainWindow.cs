@@ -15,11 +15,11 @@ namespace SzerszamgepKereskedelem.Views
 {
     public partial class MainWindow : Form, IMainView
     {
-        private MainPresenter presenter;
+        private MainPresenter mainPresenter;
         public MainWindow()
         {
             InitializeComponent();
-            presenter = new MainPresenter(this);
+            mainPresenter = new MainPresenter(this);
         }
 
         public DataTable dataTableFoTabla
@@ -68,7 +68,6 @@ namespace SzerszamgepKereskedelem.Views
 
 
         }
-
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -163,7 +162,9 @@ namespace SzerszamgepKereskedelem.Views
 
         private void buttonModify_Click(object sender, EventArgs e)
         {
-            ModifyWindow modifywindow = new ModifyWindow();
+
+             ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
+            
             if (modifywindow.ShowDialog() == DialogResult.OK)
             {
 
@@ -172,15 +173,18 @@ namespace SzerszamgepKereskedelem.Views
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            
+             mainPresenter.DeleteMegrendeles(getSelectedMegrendelesId());
+        }
+        private int getSelectedMegrendelesId()
+        {
             int selectedRowIndex = dataGridViewMainTable.SelectedCells[0].RowIndex;
             if (selectedRowIndex < 0)
             {
-                return;
+                return -1;
             }
             DataGridViewRow selectedRow = dataGridViewMainTable.Rows[selectedRowIndex];
-            int idToDelete = Convert.ToInt32(selectedRow.Cells[0].Value);
-            presenter.DeleteMegrendeles(idToDelete);
+            int megrenelesId = Convert.ToInt32(selectedRow.Cells[0].Value);
+            return megrenelesId;
         }
     }
 }
