@@ -10,11 +10,13 @@ namespace SzerszamgepKereskedelem.Repositories
     class VevoRepository
     {
         private List<vevok> vevokLista;
+        private List<string> vevoNevLista;
         private szerszamgepContext db;
 
         public VevoRepository()
         {
             vevokLista = new List<vevok>();
+            vevoNevLista = new List<string>();
             db = new szerszamgepContext();
             vevokLista = db.vevok.ToList();
         }
@@ -28,6 +30,16 @@ namespace SzerszamgepKereskedelem.Repositories
             {
                 return vevokLista.Find(v => v.id == vevoId);
             }
+        }
+        public List<string> getVevoNevLista()
+        {
+
+            foreach (var item in vevokLista)
+            {
+                vevoNevLista.Add(item.nev);
+            }
+            vevoNevLista = vevoNevLista.Distinct().OrderBy(t => t).ToList();
+            return vevoNevLista;
         }
     }
 }

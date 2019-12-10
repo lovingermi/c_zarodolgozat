@@ -10,10 +10,12 @@ namespace SzerszamgepKereskedelem.Repositories
     class EladasRepository
     {
         private List<eladasok> eladasokLista;
+        private List<string> eladasTipusLista;
         private szerszamgepContext db;
         public EladasRepository()
         {
             eladasokLista = new List<eladasok>();
+            eladasTipusLista = new List<string>();
             db = new szerszamgepContext();
             eladasokLista = db.eladasok.ToList();
         }
@@ -27,6 +29,14 @@ namespace SzerszamgepKereskedelem.Repositories
             {
                 return eladasokLista.Find(e => e.id == eladasId);
             }
+        }
+        public List<String> getEladasTipusLista()
+        {
+            eladasTipusLista.Add("Belföldi");
+            eladasTipusLista.Add("Export");
+            eladasTipusLista.Add("Közösségi");
+            eladasTipusLista.Add("Háromszögügylet");
+            return eladasTipusLista;
         }
     }
 }

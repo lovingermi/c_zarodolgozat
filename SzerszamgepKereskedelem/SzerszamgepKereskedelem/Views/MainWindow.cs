@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,8 +26,9 @@ namespace SzerszamgepKereskedelem.Views
         public DataTable dataTableFoTabla
         {
             set
-            {               
-                dataGridViewMainTable.DataSource = value;  
+            {
+                dataGridViewMainTable.DataSource = value;
+ 
             }
         }
         public gepek gepek
@@ -54,20 +56,8 @@ namespace SzerszamgepKereskedelem.Views
         }
         public beszerzesek beszerzesek { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public eladasok eladasok { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string teszt
-        {
-            get
-            {
-                return null;
-            }
-            set
-            {
-                labeltorles.Text = value;
-            }
-            
-
-
-        }
+        
+       
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -75,8 +65,8 @@ namespace SzerszamgepKereskedelem.Views
         private void TableColumnsAndFontSetup()
         {
 
-            dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#9CFABD");
-            dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#DFEFE5");
+            dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
+            dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
 
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;
@@ -108,7 +98,6 @@ namespace SzerszamgepKereskedelem.Views
             dataGridViewMainTable.Columns[4].Width = 80;
             dataGridViewMainTable.Columns[4].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dataGridViewFoTabla.Columns[4].DefaultCellStyle.Format = "c0";
             dataGridViewMainTable.Columns[4].DefaultCellStyle.ForeColor = Color.Blue;
             dataGridViewMainTable.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -157,9 +146,17 @@ namespace SzerszamgepKereskedelem.Views
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            if (!System.Windows.Forms.SystemInformation.TerminalServerSession)//táblázat görgetés gyorsabb: double buffering https://10tec.com/articles/why-datagridview-slow.aspx
+            {
+                Type dgvType = dataGridViewMainTable.GetType();
+                PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                  BindingFlags.Instance | BindingFlags.NonPublic);
+                pi.SetValue(dataGridViewMainTable, true, null);
+            }
             TableColumnsAndFontSetup();
-        }
+            emptyCells();
 
+        }
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
@@ -185,6 +182,37 @@ namespace SzerszamgepKereskedelem.Views
             DataGridViewRow selectedRow = dataGridViewMainTable.Rows[selectedRowIndex];
             int megrenelesId = Convert.ToInt32(selectedRow.Cells[0].Value);
             return megrenelesId;
+        }
+        private void emptyCells()
+        {
+            int count = 0;
+            foreach (DataGridViewRow row in dataGridViewMainTable.Rows)
+            {
+                bool o7 = Convert.ToBoolean(row.Cells[7].Value);
+                bool o8 = Convert.ToBoolean(row.Cells[8].Value);
+                bool o9 = Convert.ToBoolean(row.Cells[9].Value);
+                bool o10 = Convert.ToBoolean(row.Cells[10].Value);
+                if (!o7)
+                {
+                    row.Cells[7].Style.BackColor = Color.Salmon;
+
+                }
+                if (!o8)
+                {
+                    row.Cells[8].Style.BackColor = Color.Salmon;
+
+                }
+                if (!o9)
+                {
+                    row.Cells[9].Style.BackColor = Color.Salmon;
+                }
+                if (!o10)
+                {
+                    row.Cells[10].Style.BackColor = Color.Salmon;
+
+                }
+                count++;
+            }
         }
     }
 }

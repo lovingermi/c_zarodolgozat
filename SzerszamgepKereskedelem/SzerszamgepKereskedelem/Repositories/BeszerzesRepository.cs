@@ -10,10 +10,12 @@ namespace SzerszamgepKereskedelem.Repositories
     class BeszerzesRepository
     {
         private List<beszerzesek> beszerzesekLista;
+        private List<string> beszerzesTipusLista;
         private szerszamgepContext db;
         public BeszerzesRepository()
         {
             beszerzesekLista = new List<beszerzesek>();
+            beszerzesTipusLista = new List<string>();
             db = new szerszamgepContext();
             beszerzesekLista = db.beszerzesek.ToList();
         }
@@ -27,6 +29,14 @@ namespace SzerszamgepKereskedelem.Repositories
             {
                 return beszerzesekLista.Find(b => b.id == id);
             }
+        }
+        public List<String> getBeszerzesTipusLista()
+        {
+            beszerzesTipusLista.Add("Belföldi");
+            beszerzesTipusLista.Add("Import");
+            beszerzesTipusLista.Add("Közösségi");
+            beszerzesTipusLista.Add("Háromszögügylet");
+            return beszerzesTipusLista;
         }
     }
 }

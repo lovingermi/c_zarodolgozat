@@ -12,10 +12,12 @@ namespace SzerszamgepKereskedelem.Repositories
         private List<gepek> gepekLista;
         private szerszamgepContext db;
         private List<string> gyartok;
+        private List<string> tipusok;
         public GepRepository()
         {
             gepekLista = new List<gepek>();
             gyartok = new List<string>();
+            tipusok = new List<string>();
             db = new szerszamgepContext();
             gepekLista = db.gepek.ToList();
             
@@ -41,6 +43,16 @@ namespace SzerszamgepKereskedelem.Repositories
             }
             gyartok=gyartok.Distinct().OrderBy(gy=>gy) .ToList();
             return gyartok;
+        }
+        public List<string> getTipusokLista()
+        {
+
+            foreach (var item in gepekLista)
+            {
+                tipusok.Add(item.tipus);
+            }
+            tipusok = tipusok.Distinct().OrderBy(t => t).ToList();
+            return tipusok;
         }
     }
 }

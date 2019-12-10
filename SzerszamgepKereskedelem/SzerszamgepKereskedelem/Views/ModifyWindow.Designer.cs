@@ -55,6 +55,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panelGepek = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxTipus = new System.Windows.Forms.TextBox();
+            this.textBoxGyarto = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxTipus = new System.Windows.Forms.ComboBox();
@@ -362,6 +366,10 @@
             // panelGepek
             // 
             this.panelGepek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGepek.Controls.Add(this.label6);
+            this.panelGepek.Controls.Add(this.label5);
+            this.panelGepek.Controls.Add(this.textBoxTipus);
+            this.panelGepek.Controls.Add(this.textBoxGyarto);
             this.panelGepek.Controls.Add(this.label12);
             this.panelGepek.Controls.Add(this.label11);
             this.panelGepek.Controls.Add(this.comboBoxTipus);
@@ -377,10 +385,44 @@
             this.panelGepek.Size = new System.Drawing.Size(433, 313);
             this.panelGepek.TabIndex = 29;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(301, 216);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Típus lista";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(301, 151);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Gyártó lista";
+            // 
+            // textBoxTipus
+            // 
+            this.textBoxTipus.Location = new System.Drawing.Point(16, 232);
+            this.textBoxTipus.Name = "textBoxTipus";
+            this.textBoxTipus.Size = new System.Drawing.Size(154, 20);
+            this.textBoxTipus.TabIndex = 16;
+            // 
+            // textBoxGyarto
+            // 
+            this.textBoxGyarto.Location = new System.Drawing.Point(16, 167);
+            this.textBoxGyarto.Name = "textBoxGyarto";
+            this.textBoxGyarto.Size = new System.Drawing.Size(154, 20);
+            this.textBoxGyarto.TabIndex = 15;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(268, 188);
+            this.label12.Location = new System.Drawing.Point(67, 216);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
@@ -390,7 +432,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(55, 188);
+            this.label11.Location = new System.Drawing.Point(67, 151);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 13);
@@ -400,25 +442,25 @@
             // comboBoxTipus
             // 
             this.comboBoxTipus.FormattingEnabled = true;
-            this.comboBoxTipus.Location = new System.Drawing.Point(236, 212);
+            this.comboBoxTipus.Location = new System.Drawing.Point(260, 232);
             this.comboBoxTipus.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTipus.Name = "comboBoxTipus";
-            this.comboBoxTipus.Size = new System.Drawing.Size(107, 21);
+            this.comboBoxTipus.Size = new System.Drawing.Size(154, 21);
             this.comboBoxTipus.TabIndex = 7;
             // 
             // comboBoxGyarto
             // 
             this.comboBoxGyarto.FormattingEnabled = true;
-            this.comboBoxGyarto.Location = new System.Drawing.Point(16, 212);
+            this.comboBoxGyarto.Location = new System.Drawing.Point(260, 166);
             this.comboBoxGyarto.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxGyarto.Name = "comboBoxGyarto";
-            this.comboBoxGyarto.Size = new System.Drawing.Size(114, 21);
+            this.comboBoxGyarto.Size = new System.Drawing.Size(154, 21);
             this.comboBoxGyarto.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 101);
+            this.label4.Location = new System.Drawing.Point(251, 48);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 13);
@@ -427,7 +469,7 @@
             // 
             // textBoxGepMegnevezes
             // 
-            this.textBoxGepMegnevezes.Location = new System.Drawing.Point(16, 119);
+            this.textBoxGepMegnevezes.Location = new System.Drawing.Point(184, 64);
             this.textBoxGepMegnevezes.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxGepMegnevezes.Multiline = true;
             this.textBoxGepMegnevezes.Name = "textBoxGepMegnevezes";
@@ -518,7 +560,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(269, 48);
+            this.label10.Location = new System.Drawing.Point(304, 48);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
@@ -528,7 +570,7 @@
             // comboBoxVevoNevLista
             // 
             this.comboBoxVevoNevLista.FormattingEnabled = true;
-            this.comboBoxVevoNevLista.Location = new System.Drawing.Point(214, 64);
+            this.comboBoxVevoNevLista.Location = new System.Drawing.Point(254, 63);
             this.comboBoxVevoNevLista.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxVevoNevLista.Name = "comboBoxVevoNevLista";
             this.comboBoxVevoNevLista.Size = new System.Drawing.Size(159, 21);
@@ -537,7 +579,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(65, 150);
+            this.label9.Location = new System.Drawing.Point(77, 152);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
@@ -546,16 +588,16 @@
             // 
             // textBoxVevoTelepules
             // 
-            this.textBoxVevoTelepules.Location = new System.Drawing.Point(16, 167);
+            this.textBoxVevoTelepules.Location = new System.Drawing.Point(16, 169);
             this.textBoxVevoTelepules.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoTelepules.Name = "textBoxVevoTelepules";
-            this.textBoxVevoTelepules.Size = new System.Drawing.Size(143, 20);
+            this.textBoxVevoTelepules.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoTelepules.TabIndex = 9;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(65, 101);
+            this.label8.Location = new System.Drawing.Point(82, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
@@ -567,13 +609,13 @@
             this.textBoxVevoOrszag.Location = new System.Drawing.Point(16, 119);
             this.textBoxVevoOrszag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoOrszag.Name = "textBoxVevoOrszag";
-            this.textBoxVevoOrszag.Size = new System.Drawing.Size(143, 20);
+            this.textBoxVevoOrszag.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoOrszag.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(65, 48);
+            this.label7.Location = new System.Drawing.Point(90, 48);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 13);
@@ -597,7 +639,7 @@
             this.textBoxVevoNev.Location = new System.Drawing.Point(16, 64);
             this.textBoxVevoNev.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoNev.Name = "textBoxVevoNev";
-            this.textBoxVevoNev.Size = new System.Drawing.Size(143, 20);
+            this.textBoxVevoNev.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoNev.TabIndex = 1;
             // 
             // ModifyWindow
@@ -610,6 +652,7 @@
             this.Controls.Add(this.panelGepek);
             this.Controls.Add(this.panelVevo);
             this.Name = "ModifyWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModifyWindow";
             this.panelEladas.ResumeLayout(false);
             this.panelEladas.PerformLayout();
@@ -674,5 +717,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxVevoNev;
+        private System.Windows.Forms.TextBox textBoxTipus;
+        private System.Windows.Forms.TextBox textBoxGyarto;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }

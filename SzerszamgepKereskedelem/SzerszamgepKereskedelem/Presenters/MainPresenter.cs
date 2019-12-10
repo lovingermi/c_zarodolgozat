@@ -24,7 +24,7 @@ namespace SzerszamgepKereskedelem.Presenters
         {
             mainView = param;
             db = new szerszamgepContext();
-            
+
             CreateDataTable();
             LoadData();
             
@@ -88,7 +88,7 @@ namespace SzerszamgepKereskedelem.Presenters
             {
                 //db.megrendeles.Remove(megrendeles);
                 //db.g
-                mainView.teszt = Convert.ToString(megrendeles.id);
+                
             }
 
             try
