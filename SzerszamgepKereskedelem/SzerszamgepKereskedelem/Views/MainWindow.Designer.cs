@@ -54,14 +54,16 @@
             // dataGridViewMainTable
             // 
             this.dataGridViewMainTable.AllowUserToAddRows = false;
+            this.dataGridViewMainTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewMainTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridViewMainTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMainTable.Location = new System.Drawing.Point(12, 31);
             this.dataGridViewMainTable.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewMainTable.MultiSelect = false;
             this.dataGridViewMainTable.Name = "dataGridViewMainTable";
             this.dataGridViewMainTable.ReadOnly = true;
             this.dataGridViewMainTable.RowTemplate.Height = 24;
-            this.dataGridViewMainTable.Size = new System.Drawing.Size(1349, 323);
+            this.dataGridViewMainTable.Size = new System.Drawing.Size(1333, 334);
             this.dataGridViewMainTable.TabIndex = 1;
             // 
             // buttonModify
@@ -95,6 +97,7 @@
             this.buttonAddProjekt.TabIndex = 0;
             this.buttonAddProjekt.Text = "Hozzáadás";
             this.buttonAddProjekt.UseVisualStyleBackColor = false;
+            this.buttonAddProjekt.Click += new System.EventHandler(this.buttonAddProjekt_Click);
             // 
             // buttonDelete
             // 
@@ -119,7 +122,7 @@
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
             this.buttonExit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit.Image")));
             this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(1192, 518);
+            this.buttonExit.Location = new System.Drawing.Point(1177, 517);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonExit.Size = new System.Drawing.Size(168, 44);
@@ -170,7 +173,7 @@
             this.panel1.Controls.Add(this.buttonModify);
             this.panel1.Controls.Add(this.buttonAddProjekt);
             this.panel1.Controls.Add(this.buttonDelete);
-            this.panel1.Location = new System.Drawing.Point(12, 369);
+            this.panel1.Location = new System.Drawing.Point(12, 384);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(636, 178);
             this.panel1.TabIndex = 34;
@@ -230,7 +233,7 @@
             this.kilépésToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1372, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1361, 24);
             this.menuStrip1.TabIndex = 35;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -245,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1372, 568);
+            this.ClientSize = new System.Drawing.Size(1361, 568);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewMainTable);

@@ -22,3 +22,4 @@ C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\Szerszamgep
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csproj.CopyComplete
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.MainWindow.resources
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.ModifyWindow.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.AddWindow.resources

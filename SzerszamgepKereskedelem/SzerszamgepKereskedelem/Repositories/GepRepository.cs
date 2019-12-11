@@ -19,12 +19,12 @@ namespace SzerszamgepKereskedelem.Repositories
             gyartok = new List<string>();
             tipusok = new List<string>();
             db = new szerszamgepContext();
-            gepekLista = db.gepek.ToList();
-            
+                
         }
         public gepek getGepById(int gepId)
         {
 
+            gepekLista = db.gepek.ToList();
             if (gepekLista.FindIndex(g => g.id == gepId) < 0)
             {
                 return null;
@@ -41,7 +41,7 @@ namespace SzerszamgepKereskedelem.Repositories
             {
                 gyartok.Add(item.gyarto);
             }
-            gyartok=gyartok.Distinct().OrderBy(gy=>gy) .ToList();
+            gyartok=gyartok.Distinct().OrderBy(gy=>gy).ToList();
             return gyartok;
         }
         public List<string> getTipusokLista()

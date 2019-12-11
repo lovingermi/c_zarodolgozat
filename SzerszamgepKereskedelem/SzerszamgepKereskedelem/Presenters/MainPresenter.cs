@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace SzerszamgepKereskedelem.Presenters
 {
     class MainPresenter
     {
+        
         private DataTable dataTableFoTabla = new DataTable();
         private GepRepository gepRepository = new GepRepository();
         private VevoRepository vevoRepository = new VevoRepository();
@@ -24,7 +26,6 @@ namespace SzerszamgepKereskedelem.Presenters
         {
             mainView = param;
             db = new szerszamgepContext();
-
             CreateDataTable();
             LoadData();
             
@@ -51,9 +52,11 @@ namespace SzerszamgepKereskedelem.Presenters
         public void LoadData()
         {
             dataTableFoTabla.Clear();
-            foreach (megrendeles megrendeles in db.megrendeles)
+            
+            foreach (megrendeles megrendeles in db.megrendeles.OrderBy(x => x.id).Skip(10).Take(10))//gombhoz!!!
             {
-                gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
+                
+                gepek gep =gepRepository.getGepById(megrendeles.gep_Id);
                 vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
                 beszerzesek beszerzes = beszerzesRepository.getBeszerzesById(megrendeles.beszerzes_Id);
                 eladasok eladas = eladasRepository.getEladasById(megrendeles.eladas_Id);
@@ -102,5 +105,6 @@ namespace SzerszamgepKereskedelem.Presenters
 
             LoadData();
         }
+      
     }
 }

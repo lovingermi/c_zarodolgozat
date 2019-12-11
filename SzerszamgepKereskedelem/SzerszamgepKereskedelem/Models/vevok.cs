@@ -18,6 +18,8 @@ namespace SzerszamgepKereskedelem.Models
         public vevok()
         {
             this.megrendeles = new HashSet<megrendeles>();
+
+
         }
     
         public int id { get; set; }

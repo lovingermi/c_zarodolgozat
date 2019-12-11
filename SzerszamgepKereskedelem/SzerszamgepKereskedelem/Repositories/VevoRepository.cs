@@ -15,13 +15,14 @@ namespace SzerszamgepKereskedelem.Repositories
 
         public VevoRepository()
         {
-            vevokLista = new List<vevok>();
+            
             vevoNevLista = new List<string>();
             db = new szerszamgepContext();
             vevokLista = db.vevok.ToList();
         }
         public vevok getVevoById(int vevoId)
         {
+            
             if (vevokLista.FindIndex(v => v.id == vevoId) < 0)
             {
                 return null;

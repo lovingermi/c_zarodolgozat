@@ -1,6 +1,6 @@
 ﻿namespace SzerszamgepKereskedelem.Views
 {
-    partial class ModifyWindow
+    partial class AddWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -81,6 +81,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxVevoNev = new System.Windows.Forms.TextBox();
+            this.buttonSaveAndClose = new System.Windows.Forms.Button();
             this.panelEladas.SuspendLayout();
             this.panelBeszerzes.SuspendLayout();
             this.panelGepek.SuspendLayout();
@@ -103,7 +104,7 @@
             this.panelEladas.Margin = new System.Windows.Forms.Padding(2);
             this.panelEladas.Name = "panelEladas";
             this.panelEladas.Size = new System.Drawing.Size(433, 313);
-            this.panelEladas.TabIndex = 32;
+            this.panelEladas.TabIndex = 36;
             // 
             // label21
             // 
@@ -217,7 +218,7 @@
             this.panelBeszerzes.Margin = new System.Windows.Forms.Padding(2);
             this.panelBeszerzes.Name = "panelBeszerzes";
             this.panelBeszerzes.Size = new System.Drawing.Size(433, 313);
-            this.panelBeszerzes.TabIndex = 31;
+            this.panelBeszerzes.TabIndex = 35;
             // 
             // comboBoxBeszerzesTipus
             // 
@@ -383,7 +384,7 @@
             this.panelGepek.Margin = new System.Windows.Forms.Padding(2);
             this.panelGepek.Name = "panelGepek";
             this.panelGepek.Size = new System.Drawing.Size(433, 313);
-            this.panelGepek.TabIndex = 29;
+            this.panelGepek.TabIndex = 33;
             // 
             // label6
             // 
@@ -525,7 +526,7 @@
             this.panelVevo.Margin = new System.Windows.Forms.Padding(2);
             this.panelVevo.Name = "panelVevo";
             this.panelVevo.Size = new System.Drawing.Size(433, 313);
-            this.panelVevo.TabIndex = 30;
+            this.panelVevo.TabIndex = 34;
             // 
             // buttonVevoModify
             // 
@@ -642,18 +643,28 @@
             this.textBoxVevoNev.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoNev.TabIndex = 1;
             // 
-            // ModifyWindow
+            // buttonSaveAndClose
+            // 
+            this.buttonSaveAndClose.Location = new System.Drawing.Point(724, 681);
+            this.buttonSaveAndClose.Name = "buttonSaveAndClose";
+            this.buttonSaveAndClose.Size = new System.Drawing.Size(115, 23);
+            this.buttonSaveAndClose.TabIndex = 37;
+            this.buttonSaveAndClose.Text = "Mentés és bezárás";
+            this.buttonSaveAndClose.UseVisualStyleBackColor = true;
+            this.buttonSaveAndClose.Click += new System.EventHandler(this.buttonSaveAndClose_Click);
+            // 
+            // AddWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 733);
+            this.Controls.Add(this.buttonSaveAndClose);
             this.Controls.Add(this.panelEladas);
             this.Controls.Add(this.panelBeszerzes);
             this.Controls.Add(this.panelGepek);
             this.Controls.Add(this.panelVevo);
-            this.Name = "ModifyWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModifyWindow";
+            this.Name = "AddWindow";
+            this.Text = "AddWindow";
             this.panelEladas.ResumeLayout(false);
             this.panelEladas.PerformLayout();
             this.panelBeszerzes.ResumeLayout(false);
@@ -695,6 +706,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panelGepek;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxTipus;
+        private System.Windows.Forms.TextBox textBoxGyarto;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxTipus;
@@ -717,9 +732,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxVevoNev;
-        private System.Windows.Forms.TextBox textBoxTipus;
-        private System.Windows.Forms.TextBox textBoxGyarto;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonSaveAndClose;
     }
 }

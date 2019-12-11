@@ -85,6 +85,8 @@
     <Compile Include="Models\megrendeles.cs">
       <DependentUpon>SzerszamgepModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\gepek_Partial.cs" />
+    <Compile Include="Models\Partials\vevok_Partial.cs" />
     <Compile Include="Models\SzerszamgepModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +105,8 @@
     <Compile Include="Models\vevok.cs">
       <DependentUpon>SzerszamgepModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\megrendeles_Partial.cs" />
+    <Compile Include="Presenters\AddPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\ModifyPresenter.cs" />
@@ -112,9 +116,16 @@
     <Compile Include="Repositories\EladasRepository.cs" />
     <Compile Include="Repositories\GepRepository.cs" />
     <Compile Include="Repositories\VevoRepository.cs" />
+    <Compile Include="ViewInterfaces\IAddView.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IMainView.cs" />
     <Compile Include="ViewInterfaces\IModifyView.cs" />
+    <Compile Include="Views\AddWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddWindow.Designer.cs">
+      <DependentUpon>AddWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +154,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AddWindow.resx">
+      <DependentUpon>AddWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

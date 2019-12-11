@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +7,11 @@ using SzerszamgepKereskedelem.Models;
 
 namespace SzerszamgepKereskedelem.ViewInterfaces
 {
-    interface IMainView
+    interface IAddView
     {
-        DataTable dataTableFoTabla { set; }
+        string gepCikkszam { get; }
+        string gepMegnevezes { get; }
         gepek gepek { get; set; }
-        beszerzesek beszerzesek { get; set; }
-        eladasok eladasok { get; set; }
-        
-
+       
     }
 }

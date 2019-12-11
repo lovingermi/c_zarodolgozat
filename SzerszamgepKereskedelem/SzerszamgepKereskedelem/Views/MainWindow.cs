@@ -47,7 +47,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return new megrendeles();
+                return megrendeles ;
             }
             set
             {
@@ -160,7 +160,7 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
-             ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
+            ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
             
             if (modifywindow.ShowDialog() == DialogResult.OK)
             {
@@ -213,6 +213,17 @@ namespace SzerszamgepKereskedelem.Views
                 }
                 count++;
             }
+        }
+
+        private void buttonAddProjekt_Click(object sender, EventArgs e)
+        {
+            AddWindow addWindow = new AddWindow();
+            if (addWindow.ShowDialog() == DialogResult.OK)
+            {
+                mainPresenter.LoadData();
+                
+            }
+            
         }
     }
 }
