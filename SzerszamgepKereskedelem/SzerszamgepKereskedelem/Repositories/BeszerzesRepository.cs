@@ -21,6 +21,7 @@ namespace SzerszamgepKereskedelem.Repositories
         }
         public beszerzesek getBeszerzesById(int id)
         {
+            beszerzesekLista = db.beszerzesek.ToList();
             if (beszerzesekLista.FindIndex(b => b.id == id) < 0)
             {
                 return null;

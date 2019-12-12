@@ -63,7 +63,7 @@
             this.dataGridViewMainTable.Name = "dataGridViewMainTable";
             this.dataGridViewMainTable.ReadOnly = true;
             this.dataGridViewMainTable.RowTemplate.Height = 24;
-            this.dataGridViewMainTable.Size = new System.Drawing.Size(1333, 334);
+            this.dataGridViewMainTable.Size = new System.Drawing.Size(1352, 334);
             this.dataGridViewMainTable.TabIndex = 1;
             // 
             // buttonModify
@@ -233,7 +233,7 @@
             this.kilépésToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1361, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1375, 24);
             this.menuStrip1.TabIndex = 35;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1361, 568);
+            this.ClientSize = new System.Drawing.Size(1375, 568);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewMainTable);

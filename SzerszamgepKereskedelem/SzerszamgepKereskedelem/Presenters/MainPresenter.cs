@@ -53,7 +53,7 @@ namespace SzerszamgepKereskedelem.Presenters
         {
             dataTableFoTabla.Clear();
             
-            foreach (megrendeles megrendeles in db.megrendeles.OrderBy(x => x.id).Skip(10).Take(10))//gombhoz!!!
+            foreach (megrendeles megrendeles in db.megrendeles)//.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!!
             {
                 
                 gepek gep =gepRepository.getGepById(megrendeles.gep_Id);
@@ -82,15 +82,18 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void DeleteMegrendeles(int id)
         {
-            var megrendeles = db.megrendeles.Find(id);
-            var gep = db.gepek.Find(megrendeles.gep_Id);
-            var beszerzes = db.beszerzesek.Find(megrendeles.beszerzes_Id);
-            var eladas = db.eladasok.Find(megrendeles.eladas_Id);
+            var tmegrendeles = db.megrendeles.Find(id);
+            var gep = db.gepek.Find(tmegrendeles.gep_Id);
+            var beszerzes = db.beszerzesek.Find(tmegrendeles.beszerzes_Id);
+            var eladas = db.eladasok.Find(tmegrendeles.eladas_Id);
 
-            if (megrendeles != null)
+            if (tmegrendeles != null)
             {
-                //db.megrendeles.Remove(megrendeles);
-                //db.g
+                
+                db.megrendeles.Remove(tmegrendeles);
+                db.gepek.Remove(gep);
+                db.beszerzesek.Remove(beszerzes);
+                db.eladasok.Remove(eladas);
                 
             }
 

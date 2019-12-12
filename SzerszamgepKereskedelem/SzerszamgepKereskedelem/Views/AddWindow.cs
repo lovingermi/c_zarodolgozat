@@ -18,8 +18,9 @@ namespace SzerszamgepKereskedelem.Views
         private AddPresenter addPresenter;
         public AddWindow()
         {
-            addPresenter = new AddPresenter(this);
             InitializeComponent();
+            addPresenter = new AddPresenter(this);
+            addPresenter.addMegrendeles();
         }
 
         public string gepCikkszam
@@ -39,23 +40,27 @@ namespace SzerszamgepKereskedelem.Views
             }
         }
 
-        public gepek gepek
+        public List<string> gyartok
         {
-            get
-            {
-                return gepek;
-            }
             set
             {
-                gepek = value;
+                comboBoxGyarto.DataSource = value;
             }
-            
         }
 
+        public List<string> tipusok
+        {
+            set
+            {
+                comboBoxTipus.DataSource = value;
+            }
+        }
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
-            addPresenter.addMegrendeles();
+            //addPresenter.addMegrendeles();
             DialogResult = DialogResult.OK;
         }
+
+       
     }
 }

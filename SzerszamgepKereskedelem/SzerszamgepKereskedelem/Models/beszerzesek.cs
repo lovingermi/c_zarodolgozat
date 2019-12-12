@@ -32,51 +32,6 @@ namespace SzerszamgepKereskedelem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<megrendeles> megrendeles { get; set; }
 
-        public bool szamlaUresE(beszerzesek beszerzes)
-        {
-            if (string.IsNullOrEmpty(beszerzes.szamla))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        public bool vamUresE(beszerzesek beszerzes)
-        {
-            if (string.IsNullOrEmpty(beszerzes.VAM))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        public bool fuvarUresE(beszerzesek beszerzes)
-        {
-            if (string.IsNullOrEmpty(beszerzes.fuvar))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        public bool cmrUresE(beszerzesek beszerzes)
-        {
-            if (string.IsNullOrEmpty(beszerzes.CMR))
-            {
-                return false;
-            }
-            else
-
-            {
-                return true;
-            }
-
-        }
+        
     }
 }

@@ -85,6 +85,8 @@
     <Compile Include="Models\megrendeles.cs">
       <DependentUpon>SzerszamgepModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\beszerzesek_Partial.cs" />
+    <Compile Include="Models\Partials\eladasok_Partial.cs" />
     <Compile Include="Models\Partials\gepek_Partial.cs" />
     <Compile Include="Models\Partials\vevok_Partial.cs" />
     <Compile Include="Models\SzerszamgepModel.Context.cs">

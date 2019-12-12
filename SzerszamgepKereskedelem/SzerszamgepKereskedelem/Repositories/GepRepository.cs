@@ -19,7 +19,7 @@ namespace SzerszamgepKereskedelem.Repositories
             gyartok = new List<string>();
             tipusok = new List<string>();
             db = new szerszamgepContext();
-                
+            gepekLista = db.gepek.ToList();
         }
         public gepek getGepById(int gepId)
         {
@@ -46,7 +46,7 @@ namespace SzerszamgepKereskedelem.Repositories
         }
         public List<string> getTipusokLista()
         {
-
+            
             foreach (var item in gepekLista)
             {
                 tipusok.Add(item.tipus);

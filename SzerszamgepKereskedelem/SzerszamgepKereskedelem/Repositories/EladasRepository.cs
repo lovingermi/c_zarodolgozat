@@ -21,6 +21,7 @@ namespace SzerszamgepKereskedelem.Repositories
         }
         public eladasok getEladasById(int eladasId)
         {
+            eladasokLista = db.eladasok.ToList();
             if (eladasokLista.FindIndex(e => e.id == eladasId) < 0)
             {
                 return null;

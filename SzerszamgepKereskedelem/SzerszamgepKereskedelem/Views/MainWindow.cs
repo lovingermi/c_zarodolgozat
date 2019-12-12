@@ -65,8 +65,15 @@ namespace SzerszamgepKereskedelem.Views
         private void TableColumnsAndFontSetup()
         {
 
-            dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
-            dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
+            dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
+            dataGridViewMainTable.DefaultCellStyle.BackColor = Color.Beige;
+            dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+            dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = Color.Black;
+            dataGridViewMainTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
+            //dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
+            //dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
 
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;
@@ -171,6 +178,7 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonDelete_Click(object sender, EventArgs e)
         {
              mainPresenter.DeleteMegrendeles(getSelectedMegrendelesId());
+            dataGridViewMainTable.ClearSelection();
         }
         private int getSelectedMegrendelesId()
         {
