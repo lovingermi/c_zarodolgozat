@@ -65,15 +65,15 @@ namespace SzerszamgepKereskedelem.Views
         private void TableColumnsAndFontSetup()
         {
 
-            dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
-            dataGridViewMainTable.DefaultCellStyle.BackColor = Color.Beige;
+           // dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
+            //dataGridViewMainTable.DefaultCellStyle.BackColor = Color.Beige;
             dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.Yellow;
             dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = Color.Black;
             dataGridViewMainTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
-            //dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
-            //dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
+            dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
+            dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
 
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;

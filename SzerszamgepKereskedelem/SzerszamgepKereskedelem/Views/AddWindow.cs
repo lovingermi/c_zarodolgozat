@@ -55,9 +55,54 @@ namespace SzerszamgepKereskedelem.Views
                 comboBoxTipus.DataSource = value;
             }
         }
+
+        public string gepTipus
+        {
+            get
+            {
+                return textBoxTipus.Text;
+            }
+        }
+        public string gepGyatro
+        {
+            get
+            {
+                return textBoxGyarto.Text;
+            }
+        }
+
+        public List<string> vevok
+        {
+            set
+            {
+                comboBoxVevoNevLista.DataSource = value;
+            }
+        }
+
+        /*public string vevoNev
+        {
+            get
+            {
+                return textBoxVevoNev.Text;
+            }
+        }
+        public string vevoOrszag
+        {
+            get
+            {
+                return textBoxVevoOrszag.Text;
+            }
+        }
+        public string vevoTelepules
+        {
+            get
+            {
+                return textBoxVevoTelepules.Text;
+            }
+        }*/
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
-            //addPresenter.addMegrendeles();
+            addPresenter.saveMegrendeles();
             DialogResult = DialogResult.OK;
         }
 

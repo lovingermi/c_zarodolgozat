@@ -29,13 +29,29 @@ namespace SzerszamgepKereskedelem.Presenters
 
             addView.gyartok = gepRepository.getGyartokLista();
             addView.tipusok = gepRepository.getTipusokLista();
+            addView.vevok = vevoRepository.getVevoNevLista();
+            
+
+        }
+        public void saveMegrendeles()
+        {
             int megrendelesId = db.megrendeles.Select(m => m.id).DefaultIfEmpty(0).Max() + 1; // Ha üres a tábla, akkor az alapértelmezett érték 0
-            int gepId = db.gepek.Select(g => g.id).DefaultIfEmpty(0).Max()+1;
-            int beszerzesId= db.beszerzesek.Select(b => b.id).DefaultIfEmpty(0).Max() + 1;
-            int eladasId= db.eladasok.Select(e => e.id).DefaultIfEmpty(0).Max() + 1;
-            gepek newGep = new gepek(gepId, "cikkii", "2222222222222", "tititip", "gyartooo");
-            beszerzesek beszerzes = new beszerzesek(beszerzesId, new DateTime(2019,01,01), "btipus", "ekar11", "szamla", "Vám11", "", "");
-            eladasok eladas = new eladasok(eladasId, new DateTime(2019,02,02), "eladas tipus", "eszamla", "eekar");
+            int gepId = db.gepek.Select(g => g.id).DefaultIfEmpty(0).Max() + 1;
+            int beszerzesId = db.beszerzesek.Select(b => b.id).DefaultIfEmpty(0).Max() + 1;
+            int eladasId = db.eladasok.Select(e => e.id).DefaultIfEmpty(0).Max() + 1;
+
+            //---------------gépek---------------
+            string cikkszam = addView.gepCikkszam;
+            string megnevezes = addView.gepMegnevezes;
+            string gyarto = addView.gepGyatro;
+            string tipus = addView.gepTipus;
+            gepek newGep = new gepek(gepId, cikkszam, megnevezes, tipus, gyarto);
+            //-------------vevő------------------
+            string vevoNev;
+            string vevoOrszag;
+            string vevoTelepules;
+            beszerzesek beszerzes = new beszerzesek(beszerzesId, new DateTime(2019, 01, 01), "btipus", "ekar11", "szamla", "Vám11", "", "");
+            eladasok eladas = new eladasok(eladasId, new DateTime(2019, 02, 02), "eladas tipus", "eszamla", "eekar");
 
             db.beszerzesek.Add(beszerzes);
             db.eladasok.Add(eladas);
@@ -45,16 +61,15 @@ namespace SzerszamgepKereskedelem.Presenters
             try
             {
                 // Adatbázis frissítése
-                
+
                 db.SaveChanges();
-               
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-
         }
     }
 }

@@ -11,8 +11,17 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
     {
         string gepCikkszam { get; }
         string gepMegnevezes { get; }
+        string gepTipus { get; }
+        string gepGyatro { get; }
         List<String> gyartok { set; }
         List<String> tipusok { set; }
+
+        /*ring vevoNev { get; }
+        string vevoOrszag { get; }
+        string vevoTelepules { get; }*/
+        List<String> vevok{ set; }
+
+
 
     }
 }

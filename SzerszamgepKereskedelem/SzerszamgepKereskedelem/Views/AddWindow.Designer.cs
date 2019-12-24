@@ -592,6 +592,7 @@
             this.textBoxVevoTelepules.Location = new System.Drawing.Point(16, 169);
             this.textBoxVevoTelepules.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoTelepules.Name = "textBoxVevoTelepules";
+            this.textBoxVevoTelepules.ReadOnly = true;
             this.textBoxVevoTelepules.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoTelepules.TabIndex = 9;
             // 
@@ -610,6 +611,7 @@
             this.textBoxVevoOrszag.Location = new System.Drawing.Point(16, 119);
             this.textBoxVevoOrszag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoOrszag.Name = "textBoxVevoOrszag";
+            this.textBoxVevoOrszag.ReadOnly = true;
             this.textBoxVevoOrszag.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoOrszag.TabIndex = 7;
             // 
@@ -640,6 +642,7 @@
             this.textBoxVevoNev.Location = new System.Drawing.Point(16, 64);
             this.textBoxVevoNev.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoNev.Name = "textBoxVevoNev";
+            this.textBoxVevoNev.ReadOnly = true;
             this.textBoxVevoNev.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoNev.TabIndex = 1;
             // 
