@@ -39,6 +39,8 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.panelBeszerzes = new System.Windows.Forms.Panel();
+            this.textBoxBeszerzesDatum = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.comboBoxBeszerzesTipus = new System.Windows.Forms.ComboBox();
             this.textBoxBeszerzesCMR = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -82,6 +84,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxVevoNev = new System.Windows.Forms.TextBox();
             this.buttonSaveAndClose = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.textBoxEladasDatum = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panelEladas.SuspendLayout();
             this.panelBeszerzes.SuspendLayout();
             this.panelGepek.SuspendLayout();
@@ -91,6 +96,8 @@
             // panelEladas
             // 
             this.panelEladas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelEladas.Controls.Add(this.textBoxEladasDatum);
+            this.panelEladas.Controls.Add(this.label23);
             this.panelEladas.Controls.Add(this.label21);
             this.panelEladas.Controls.Add(this.textBoxEladasEKARSzam);
             this.panelEladas.Controls.Add(this.comboBoxEladasTipus);
@@ -140,11 +147,13 @@
             // 
             // dateTimePickerEladasDatum
             // 
+            this.dateTimePickerEladasDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerEladasDatum.Location = new System.Drawing.Point(14, 66);
             this.dateTimePickerEladasDatum.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerEladasDatum.Name = "dateTimePickerEladasDatum";
             this.dateTimePickerEladasDatum.Size = new System.Drawing.Size(173, 20);
             this.dateTimePickerEladasDatum.TabIndex = 20;
+            this.dateTimePickerEladasDatum.CloseUp += new System.EventHandler(this.dateTimePickerEladasDatum_CloseUp);
             // 
             // label25
             // 
@@ -199,6 +208,8 @@
             // panelBeszerzes
             // 
             this.panelBeszerzes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBeszerzes.Controls.Add(this.textBoxBeszerzesDatum);
+            this.panelBeszerzes.Controls.Add(this.label22);
             this.panelBeszerzes.Controls.Add(this.comboBoxBeszerzesTipus);
             this.panelBeszerzes.Controls.Add(this.textBoxBeszerzesCMR);
             this.panelBeszerzes.Controls.Add(this.label19);
@@ -220,6 +231,25 @@
             this.panelBeszerzes.Size = new System.Drawing.Size(433, 313);
             this.panelBeszerzes.TabIndex = 35;
             // 
+            // textBoxBeszerzesDatum
+            // 
+            this.textBoxBeszerzesDatum.Location = new System.Drawing.Point(265, 67);
+            this.textBoxBeszerzesDatum.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxBeszerzesDatum.Name = "textBoxBeszerzesDatum";
+            this.textBoxBeszerzesDatum.ReadOnly = true;
+            this.textBoxBeszerzesDatum.Size = new System.Drawing.Size(143, 20);
+            this.textBoxBeszerzesDatum.TabIndex = 30;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(291, 48);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(93, 13);
+            this.label22.TabIndex = 29;
+            this.label22.Text = "Kiválasztott dátum";
+            // 
             // comboBoxBeszerzesTipus
             // 
             this.comboBoxBeszerzesTipus.FormattingEnabled = true;
@@ -236,7 +266,7 @@
             // 
             // textBoxBeszerzesCMR
             // 
-            this.textBoxBeszerzesCMR.Location = new System.Drawing.Point(271, 195);
+            this.textBoxBeszerzesCMR.Location = new System.Drawing.Point(265, 249);
             this.textBoxBeszerzesCMR.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBeszerzesCMR.Name = "textBoxBeszerzesCMR";
             this.textBoxBeszerzesCMR.Size = new System.Drawing.Size(143, 20);
@@ -245,7 +275,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(326, 179);
+            this.label19.Location = new System.Drawing.Point(320, 233);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(31, 13);
@@ -254,7 +284,7 @@
             // 
             // textBoxBeszerzesFuvar
             // 
-            this.textBoxBeszerzesFuvar.Location = new System.Drawing.Point(271, 151);
+            this.textBoxBeszerzesFuvar.Location = new System.Drawing.Point(265, 205);
             this.textBoxBeszerzesFuvar.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBeszerzesFuvar.Name = "textBoxBeszerzesFuvar";
             this.textBoxBeszerzesFuvar.Size = new System.Drawing.Size(143, 20);
@@ -263,7 +293,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(326, 135);
+            this.label20.Location = new System.Drawing.Point(320, 189);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(34, 13);
@@ -272,7 +302,7 @@
             // 
             // textBoxBeszerzesVam
             // 
-            this.textBoxBeszerzesVam.Location = new System.Drawing.Point(271, 107);
+            this.textBoxBeszerzesVam.Location = new System.Drawing.Point(265, 161);
             this.textBoxBeszerzesVam.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBeszerzesVam.Name = "textBoxBeszerzesVam";
             this.textBoxBeszerzesVam.Size = new System.Drawing.Size(143, 20);
@@ -281,7 +311,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(327, 91);
+            this.label18.Location = new System.Drawing.Point(321, 145);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 13);
@@ -290,7 +320,7 @@
             // 
             // textBoxBeszerzesSzamlaszam
             // 
-            this.textBoxBeszerzesSzamlaszam.Location = new System.Drawing.Point(271, 67);
+            this.textBoxBeszerzesSzamlaszam.Location = new System.Drawing.Point(265, 121);
             this.textBoxBeszerzesSzamlaszam.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBeszerzesSzamlaszam.Name = "textBoxBeszerzesSzamlaszam";
             this.textBoxBeszerzesSzamlaszam.Size = new System.Drawing.Size(143, 20);
@@ -298,16 +328,18 @@
             // 
             // dateTimePickerBeszerzesDatum
             // 
+            this.dateTimePickerBeszerzesDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBeszerzesDatum.Location = new System.Drawing.Point(14, 66);
             this.dateTimePickerBeszerzesDatum.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerBeszerzesDatum.Name = "dateTimePickerBeszerzesDatum";
             this.dateTimePickerBeszerzesDatum.Size = new System.Drawing.Size(173, 20);
             this.dateTimePickerBeszerzesDatum.TabIndex = 20;
+            this.dateTimePickerBeszerzesDatum.CloseUp += new System.EventHandler(this.dateTimePickerBeszerzesDatum_CloseUp);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(307, 48);
+            this.label13.Location = new System.Drawing.Point(301, 102);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 13);
@@ -576,6 +608,7 @@
             this.comboBoxVevoNevLista.Name = "comboBoxVevoNevLista";
             this.comboBoxVevoNevLista.Size = new System.Drawing.Size(159, 21);
             this.comboBoxVevoNevLista.TabIndex = 11;
+            this.comboBoxVevoNevLista.SelectedValueChanged += new System.EventHandler(this.comboBoxVevoNevLista_SelectedValueChanged);
             // 
             // label9
             // 
@@ -648,7 +681,7 @@
             // 
             // buttonSaveAndClose
             // 
-            this.buttonSaveAndClose.Location = new System.Drawing.Point(724, 681);
+            this.buttonSaveAndClose.Location = new System.Drawing.Point(633, 683);
             this.buttonSaveAndClose.Name = "buttonSaveAndClose";
             this.buttonSaveAndClose.Size = new System.Drawing.Size(115, 23);
             this.buttonSaveAndClose.TabIndex = 37;
@@ -656,11 +689,41 @@
             this.buttonSaveAndClose.UseVisualStyleBackColor = true;
             this.buttonSaveAndClose.Click += new System.EventHandler(this.buttonSaveAndClose_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(764, 683);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(115, 23);
+            this.buttonCancel.TabIndex = 38;
+            this.buttonCancel.Text = "Mégse";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // textBoxEladasDatum
+            // 
+            this.textBoxEladasDatum.Location = new System.Drawing.Point(278, 67);
+            this.textBoxEladasDatum.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEladasDatum.Name = "textBoxEladasDatum";
+            this.textBoxEladasDatum.ReadOnly = true;
+            this.textBoxEladasDatum.Size = new System.Drawing.Size(143, 20);
+            this.textBoxEladasDatum.TabIndex = 33;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(304, 48);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(93, 13);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Kiválasztott dátum";
+            // 
             // AddWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 733);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSaveAndClose);
             this.Controls.Add(this.panelEladas);
             this.Controls.Add(this.panelBeszerzes);
@@ -736,5 +799,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxVevoNev;
         private System.Windows.Forms.Button buttonSaveAndClose;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.TextBox textBoxBeszerzesDatum;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBoxEladasDatum;
+        private System.Windows.Forms.Label label23;
     }
 }

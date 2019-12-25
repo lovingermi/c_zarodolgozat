@@ -31,7 +31,7 @@ namespace SzerszamgepKereskedelem.Views
  
             }
         }
-        public gepek gepek
+        /*public gepek gepek
         {
             get
             {
@@ -55,9 +55,9 @@ namespace SzerszamgepKereskedelem.Views
             }
         }
         public beszerzesek beszerzesek { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public eladasok eladasok { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        
-       
+        public eladasok eladasok { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }*/
+
+
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -67,15 +67,15 @@ namespace SzerszamgepKereskedelem.Views
 
            // dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
             //dataGridViewMainTable.DefaultCellStyle.BackColor = Color.Beige;
-            dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.Yellow;
-            dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = Color.Black;
+            dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             dataGridViewMainTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
             dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
             dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
 
-            dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSlateGray;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridViewMainTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -157,7 +157,7 @@ namespace SzerszamgepKereskedelem.Views
             {
                 Type dgvType = dataGridViewMainTable.GetType();
                 PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
-                  BindingFlags.Instance | BindingFlags.NonPublic);
+                BindingFlags.Instance | BindingFlags.NonPublic);
                 pi.SetValue(dataGridViewMainTable, true, null);
             }
             TableColumnsAndFontSetup();
@@ -167,29 +167,55 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
-            ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
-            
-            if (modifywindow.ShowDialog() == DialogResult.OK)
+            int id = getSelectedMegrendelesId();
+            if (id > -1)
             {
+                ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
 
+                if (modifywindow.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
+            else
+            {
+                errorProviderModify.SetError(buttonModify, "Nincs megrendelés kiválasztva!");
+            }
+
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-             mainPresenter.DeleteMegrendeles(getSelectedMegrendelesId());
-            dataGridViewMainTable.ClearSelection();
+            errorProviderModify.Clear();
+            int id = getSelectedMegrendelesId();
+            if (id > -1)
+            {
+                mainPresenter.DeleteMegrendeles(getSelectedMegrendelesId());
+                dataGridViewMainTable.ClearSelection();
+            }
+            else
+            {
+                errorProviderModify.SetError(buttonDelete, "Nincs megrendelés kiválasztva!");
+            }
+            
         }
         private int getSelectedMegrendelesId()
         {
-            int selectedRowIndex = dataGridViewMainTable.SelectedCells[0].RowIndex;
-            if (selectedRowIndex < 0)
+            errorProviderModify.Clear();
+            int selectedRowIndex;
+            try
+            {
+                selectedRowIndex = dataGridViewMainTable.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewMainTable.Rows[selectedRowIndex];
+                int megrenelesId = Convert.ToInt32(selectedRow.Cells[0].Value);
+                return megrenelesId;
+            }
+            catch (Exception)
             {
                 return -1;
             }
-            DataGridViewRow selectedRow = dataGridViewMainTable.Rows[selectedRowIndex];
-            int megrenelesId = Convert.ToInt32(selectedRow.Cells[0].Value);
-            return megrenelesId;
+            
+
         }
         private void emptyCells()
         {

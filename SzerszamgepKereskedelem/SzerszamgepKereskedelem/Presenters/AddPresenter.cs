@@ -18,6 +18,7 @@ namespace SzerszamgepKereskedelem.Presenters
         private EladasRepository eladasRepository = new EladasRepository();
         private szerszamgepContext db;
         private IAddView addView;
+        private vevok selectedVevo;
         public AddPresenter(IAddView param)
         {
             db = new szerszamgepContext();
@@ -47,16 +48,36 @@ namespace SzerszamgepKereskedelem.Presenters
             string tipus = addView.gepTipus;
             gepek newGep = new gepek(gepId, cikkszam, megnevezes, tipus, gyarto);
             //-------------vevő------------------
-            string vevoNev;
-            string vevoOrszag;
-            string vevoTelepules;
-            beszerzesek beszerzes = new beszerzesek(beszerzesId, new DateTime(2019, 01, 01), "btipus", "ekar11", "szamla", "Vám11", "", "");
-            eladasok eladas = new eladasok(eladasId, new DateTime(2019, 02, 02), "eladas tipus", "eszamla", "eekar");
+            int vevoId;
+            if (selectedVevo != null)//ha van kiválasztott vevő
+            {
+                vevoId = selectedVevo.id;
+            }
+            else
+            {
+                vevoId = -1; //ha nincs kiválasztott vevő, a vevő táblából az üres rekordra mutat;
+            }
+            //----------beszerzés------------------
+            DateTime bDatum = addView.bDatum;
+            string bTipus = addView.bTipus;
+            string bEKAR = addView.bEKAR;
+            string bSzamla = addView.bSzamla;
+            string bVAM = addView.bVAM;
+            string bFuvar = addView.bFuvar;
+            string bCMR = addView.bCMR;
+            beszerzesek beszerzes = new beszerzesek(beszerzesId, bDatum, bTipus, bEKAR, bSzamla, bVAM, bFuvar, bCMR);
+            //----------eladás------------------
+            DateTime edatum = addView.eDatum;
+            string eTipus = addView.eTipus;
+            string eSzamla = addView.eSzamla;
+            string eEKAR = addView.eEKAR;
+            eladasok eladas = new eladasok(eladasId, edatum, eTipus, eSzamla, eEKAR);
 
             db.beszerzesek.Add(beszerzes);
             db.eladasok.Add(eladas);
             db.gepek.Add(newGep);
-            megrendeles newMegrendeles = new megrendeles(megrendelesId, gepId, 1, beszerzesId, eladasId);//addView.megrendeles;
+
+            megrendeles newMegrendeles; newMegrendeles = new megrendeles(megrendelesId, gepId, vevoId, beszerzesId, eladasId);
             db.megrendeles.Add(newMegrendeles);
             try
             {
@@ -70,6 +91,25 @@ namespace SzerszamgepKereskedelem.Presenters
 
                 throw;
             }
+        }
+        public void GetVevoFromNevLista(string vevoNev)
+        {
+            selectedVevo = (from v in db.vevok where v.nev == vevoNev select v).FirstOrDefault();
+            if (selectedVevo != null)
+            {
+                addView.vevoNev = selectedVevo.nev;
+                addView.vevoOrszag = selectedVevo.orszag;
+                addView.vevoTelepules = selectedVevo.varos;
+               
+            }
+            else
+            {
+                addView.vevoNev = "";
+                addView.vevoOrszag = "";
+                addView.vevoTelepules = "";
+                
+            }
+           
         }
     }
 }

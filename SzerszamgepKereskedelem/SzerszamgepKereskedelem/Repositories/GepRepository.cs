@@ -39,9 +39,13 @@ namespace SzerszamgepKereskedelem.Repositories
             
             foreach (var item in gepekLista)
             {
-                gyartok.Add(item.gyarto);
+                if (item.gyarto != "")
+                {
+                    gyartok.Add(item.gyarto);
+                }          
             }
             gyartok=gyartok.Distinct().OrderBy(gy=>gy).ToList();
+            gyartok.Insert(0, "-------Kérem válasszon-------");
             return gyartok;
         }
         public List<string> getTipusokLista()
@@ -49,9 +53,13 @@ namespace SzerszamgepKereskedelem.Repositories
             
             foreach (var item in gepekLista)
             {
-                tipusok.Add(item.tipus);
+                if (item.tipus != "")
+                {
+                    tipusok.Add(item.tipus);
+                }
             }
             tipusok = tipusok.Distinct().OrderBy(t => t).ToList();
+            tipusok.Insert(0, "-------Kérem válasszon-------");
             return tipusok;
         }
     }

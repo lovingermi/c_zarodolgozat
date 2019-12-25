@@ -16,12 +16,22 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         List<String> gyartok { set; }
         List<String> tipusok { set; }
 
-        /*ring vevoNev { get; }
-        string vevoOrszag { get; }
-        string vevoTelepules { get; }*/
+        string vevoNev { set; }
+        string vevoOrszag { set; }
+        string vevoTelepules { set; }
         List<String> vevok{ set; }
 
+        DateTime bDatum { get; }
+        string bTipus { get; }
+        string bEKAR { get; }
+        string bSzamla { get; }
+        string bVAM { get; }
+        string bFuvar { get; }
+        string bCMR { get; }
 
-
+        DateTime eDatum { get; }
+        string eTipus { get; }
+        string eEKAR { get; }
+        string eSzamla { get; }
     }
 }

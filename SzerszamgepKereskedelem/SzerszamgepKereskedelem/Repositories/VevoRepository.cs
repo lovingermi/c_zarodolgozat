@@ -37,9 +37,13 @@ namespace SzerszamgepKereskedelem.Repositories
 
             foreach (var item in vevokLista)
             {
-                vevoNevLista.Add(item.nev);
+                if (item.nev != "")
+                {
+                    vevoNevLista.Add(item.nev);
+                }
             }
             vevoNevLista = vevoNevLista.Distinct().OrderBy(t => t).ToList();
+            vevoNevLista.Insert(0, "-------Kérem válasszon-------");
             return vevoNevLista;
         }
     }

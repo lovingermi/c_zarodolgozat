@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
             this.buttonModify = new System.Windows.Forms.Button();
@@ -44,11 +45,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kilépésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProviderModify = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewMainTable
@@ -243,6 +246,10 @@
             this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.kilépésToolStripMenuItem.Text = "Kilépés";
             // 
+            // errorProviderModify
+            // 
+            this.errorProviderModify.ContainerControl = this;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +295,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem kilépésToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProviderModify;
     }
 }

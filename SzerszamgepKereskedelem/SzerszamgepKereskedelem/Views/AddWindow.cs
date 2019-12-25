@@ -79,33 +79,151 @@ namespace SzerszamgepKereskedelem.Views
             }
         }
 
-        /*public string vevoNev
+        public string vevoNev
         {
-            get
+            set
             {
-                return textBoxVevoNev.Text;
+                textBoxVevoNev.Text = value;
             }
         }
         public string vevoOrszag
         {
-            get
+            set
             {
-                return textBoxVevoOrszag.Text;
+                textBoxVevoOrszag.Text = value;
             }
         }
         public string vevoTelepules
         {
+            set
+            {
+                textBoxVevoTelepules.Text = value;
+            }
+        }
+
+        public string bTipus
+        {
             get
             {
-                return textBoxVevoTelepules.Text;
+                return comboBoxBeszerzesTipus.Text;
             }
-        }*/
+        }
+
+        public DateTime bDatum
+        {
+            get
+            {
+                if (textBoxBeszerzesDatum.Text != "")
+                {
+                    return Convert.ToDateTime(textBoxBeszerzesDatum.Text);
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+            }
+        }
+
+        public string bEKAR
+        {
+            get
+            {
+                return textBoxBeszerzesEKAR.Text;
+            }
+        }
+
+        public string bSzamla
+        {
+            get
+            {
+                return textBoxBeszerzesSzamlaszam.Text;
+            }
+        }
+
+        public string bVAM
+        {
+            get
+            {
+                return textBoxBeszerzesVam.Text;
+            }
+        }
+
+        public string bFuvar
+        {
+            get
+            {
+                return textBoxBeszerzesFuvar.Text;
+            }
+        }
+        public string bCMR
+        {
+            get
+            {
+                return textBoxBeszerzesCMR.Text;
+            }
+        }
+        public DateTime eDatum
+        {
+            get
+            {
+                if (textBoxEladasDatum.Text != "")
+                {
+                    return Convert.ToDateTime(textBoxEladasDatum.Text);
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+            }
+        }
+        public string eTipus
+        {
+            get
+            {
+                return comboBoxEladasTipus.Text;
+            }
+        }
+
+        public string eEKAR
+        {
+            get
+            {
+                return textBoxEladasEKARSzam.Text;
+            }
+        }
+
+        public string eSzamla
+        {
+            get
+            {
+                return textBoxEladasSzamlaszam.Text;
+            }
+        }
+
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
             addPresenter.saveMegrendeles();
             DialogResult = DialogResult.OK;
         }
+        private void comboBoxVevoNevLista_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string vevoNev = comboBoxVevoNevLista.Text;
+            addPresenter.GetVevoFromNevLista(vevoNev);
+        }
 
-       
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void dateTimePickerBeszerzesDatum_CloseUp(object sender, EventArgs e)
+        {
+            textBoxBeszerzesDatum.Text = dateTimePickerBeszerzesDatum.Value.ToShortDateString();
+        }
+
+        private void dateTimePickerEladasDatum_CloseUp(object sender, EventArgs e)
+        {
+            textBoxEladasDatum.Text = dateTimePickerEladasDatum.Value.ToShortDateString();
+        }
     }
 }

@@ -21,5 +21,13 @@ namespace SzerszamgepKereskedelem.Models
         {
 
         }
+        public megrendeles(int pId, int pGep_Id, int pBeszerzes_Id, int pEladas_Id)//Ha még nincs vevő
+        {
+
+            id = pId;
+            gep_Id = pGep_Id;
+            beszerzes_Id = pBeszerzes_Id;
+            eladas_Id = pEladas_Id;
+        }
     }
 }

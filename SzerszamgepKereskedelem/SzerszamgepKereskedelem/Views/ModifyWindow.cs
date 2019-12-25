@@ -203,7 +203,15 @@ namespace SzerszamgepKereskedelem.Views
             }
             set
             {
-                dateTimePickerBeszerzesDatum.Value = value;
+
+                if (value == DateTime.MinValue)
+                {
+                    dateTimePickerBeszerzesDatum.Value = new DateTime(1900, 01, 01);
+                }
+                else
+                {
+                    dateTimePickerBeszerzesDatum.Value = value;
+                }
             }
             
 
