@@ -10,18 +10,18 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
     {
         string gepCikkszam { get; set; }
         string gepMegnevezes { get; set; }
-        List<String> gyartok { get; set; }
-        string selectedGyarto { get; set; }
+        List<String> gyartok { set; }
+        string selectedGyarto { set; }
         string selectedGyartoTexbox { get; set; }
-        List<String> tipusok { get; set; }
-        string selectedTipus { get; set; }
+        List<String> tipusok { set; }
+        string selectedTipus { set; }
         string selectedTipusTexbox { get; set; }
 
         string selectedVevoNev { get; set; }
         string selectedVevoOrszag { get; set; }
         string selectedVevoTelepules { get; set; }
-        string selectedVevonevCombobox { get; set; }
-        List<String> vevok { get; set; }
+        string selectedVevonevCombobox { set; }
+        List<String> vevok { set; }
 
         List<String> beszerzesTipusLista { get; set; }
         string selectedBeszerzesTipus { get; set; }

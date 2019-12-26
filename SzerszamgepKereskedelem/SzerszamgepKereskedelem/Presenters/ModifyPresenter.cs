@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace SzerszamgepKereskedelem.Presenters
         private EladasRepository eladasRepository = new EladasRepository();
         private szerszamgepContext db;
         private IModifyView modifyView;
+        private megrendeles modifyMegrendeles;
+        private gepek modifyGep;
+        private beszerzesek modifyBeszerzes;
+        private eladasok modifyEladas;
+        private vevok modifyVevo;
         public ModifyPresenter(IModifyView param)
         {
             db = new szerszamgepContext();
@@ -25,40 +31,87 @@ namespace SzerszamgepKereskedelem.Presenters
         
         public void ModifyMegrendeles(int id)
         {
-            var megrendeles = db.megrendeles.Find(id);
-            var gep = db.gepek.Find(megrendeles.gep_Id);
-            var beszerzes = db.beszerzesek.Find(megrendeles.beszerzes_Id);
-            var eladas = db.eladasok.Find(megrendeles.eladas_Id);
-            var vevo = db.vevok.Find(megrendeles.vevo_Id);
-            modifyView.gepCikkszam = gep.cikkszam;
-            modifyView.gepMegnevezes = gep.megnevezes;
+            modifyMegrendeles = db.megrendeles.Find(id);
+            modifyGep = db.gepek.Find(modifyMegrendeles.gep_Id);
+            modifyBeszerzes = db.beszerzesek.Find(modifyMegrendeles.beszerzes_Id);
+            modifyEladas = db.eladasok.Find(modifyMegrendeles.eladas_Id);
+            modifyVevo = db.vevok.Find(modifyMegrendeles.vevo_Id);
+            modifyView.gepCikkszam = modifyGep.cikkszam;
+            modifyView.gepMegnevezes = modifyGep.megnevezes;
             modifyView.gyartok = gepRepository.getGyartokLista();
-            modifyView.selectedGyarto = gep.gyarto;
-            modifyView.selectedGyartoTexbox = gep.gyarto;
+            modifyView.selectedGyarto = modifyGep.gyarto;
+            modifyView.selectedGyartoTexbox = modifyGep.gyarto;
             modifyView.tipusok = gepRepository.getTipusokLista();
-            modifyView.selectedTipus = gep.tipus;
-            modifyView.selectedTipusTexbox = gep.tipus;
+            modifyView.selectedTipus = modifyGep.tipus;
+            modifyView.selectedTipusTexbox = modifyGep.tipus;
 
-            modifyView.selectedVevoNev = vevo.nev;
-            modifyView.selectedVevoOrszag = vevo.orszag;
-            modifyView.selectedVevoTelepules = vevo.varos;
+            modifyView.selectedVevoNev = modifyVevo.nev;
+            modifyView.selectedVevoOrszag = modifyVevo.orszag;
+            modifyView.selectedVevoTelepules = modifyVevo.varos;
             modifyView.vevok = vevoRepository.getVevoNevLista();
-            modifyView.selectedVevonevCombobox = vevo.nev;
+            modifyView.selectedVevonevCombobox = modifyVevo.nev;
+            
 
             modifyView.beszerzesTipusLista = beszerzesRepository.getBeszerzesTipusLista();
-            modifyView.selectedBeszerzesTipus = beszerzes.beszerzes_Tipus;
-            modifyView.beszerzesDatum = beszerzes.datum;
-            modifyView.beszrzesCMR = beszerzes.CMR;
-            modifyView.beszrzesEKARSZAM = beszerzes.EKAR_Szam;
-            modifyView.beszrzesFuvar = beszerzes.fuvar;
-            modifyView.beszrzesSzamlaszam = beszerzes.szamla;
-            modifyView.beszrzesVAM = beszerzes.VAM;
+            modifyView.selectedBeszerzesTipus = modifyBeszerzes.beszerzes_Tipus;
+            modifyView.beszerzesDatum = modifyBeszerzes.datum;
+            modifyView.beszrzesCMR = modifyBeszerzes.CMR;
+            modifyView.beszrzesEKARSZAM = modifyBeszerzes.EKAR_Szam;
+            modifyView.beszrzesFuvar = modifyBeszerzes.fuvar;
+            modifyView.beszrzesSzamlaszam = modifyBeszerzes.szamla;
+            modifyView.beszrzesVAM = modifyBeszerzes.VAM;
 
             modifyView.eladasTipusLista = eladasRepository.getEladasTipusLista();
-            modifyView.selectedeladasTipus = eladas.tipus;
-            modifyView.eladasDatum = eladas.datum;
-            modifyView.eladasEKARSZAM = eladas.EKAR_Szam;
-            modifyView.eladasSzamlaszam = eladas.szamlaszam;
+            modifyView.selectedeladasTipus = modifyEladas.tipus;
+            modifyView.eladasDatum = modifyEladas.datum;
+            modifyView.eladasEKARSZAM = modifyEladas.EKAR_Szam;
+            modifyView.eladasSzamlaszam = modifyEladas.szamlaszam;
+        }
+        public void saveModify()
+        {
+            //-----------------gépek------------------
+            modifyGep.cikkszam = modifyView.gepCikkszam;
+            modifyGep.megnevezes = modifyView.gepMegnevezes;
+            modifyGep.gyarto = modifyView.selectedGyartoTexbox;
+            modifyGep.tipus = modifyView.selectedTipusTexbox;
+            db.Entry(modifyGep).State = EntityState.Detached;
+            db.Entry(modifyGep).State = EntityState.Modified;
+            //---------------vevők--------------------------
+            modifyVevo.nev = modifyView.selectedVevoNev;
+            modifyVevo.orszag = modifyView.selectedVevoOrszag;
+            modifyVevo.varos = modifyView.selectedVevoTelepules;
+            db.Entry(modifyVevo).State = EntityState.Detached;
+            db.Entry(modifyVevo).State = EntityState.Modified;
+            try
+            {
+                // Adatbázis frissítése
+                db.SaveChanges();
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public void GetVevoFromNevLista(string vevoNev)
+        {
+            vevok selectedVevo = (from v in db.vevok where v.nev == vevoNev select v).FirstOrDefault();
+            if (selectedVevo != null)
+            {
+                modifyView.selectedVevoNev = selectedVevo.nev;
+                modifyView.selectedVevoOrszag = selectedVevo.orszag;
+                modifyView.selectedVevoTelepules = selectedVevo.varos;
+
+            }
+            else
+            {
+                modifyView.selectedVevoNev = "";
+                modifyView.selectedVevoOrszag = "";
+                modifyView.selectedVevoTelepules = "";
+
+            }
+
         }
     }
 }

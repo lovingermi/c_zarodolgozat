@@ -17,12 +17,13 @@ namespace SzerszamgepKereskedelem.Repositories
         {
             
             vevoNevLista = new List<string>();
-            db = new szerszamgepContext();
-            vevokLista = db.vevok.ToList();
+            //db = new szerszamgepContext();
+            //vevokLista = db.vevok.ToList();
         }
         public vevok getVevoById(int vevoId)
         {
-            
+            db = new szerszamgepContext();
+            vevokLista = db.vevok.ToList();
             if (vevokLista.FindIndex(v => v.id == vevoId) < 0)
             {
                 return null;
@@ -34,7 +35,8 @@ namespace SzerszamgepKereskedelem.Repositories
         }
         public List<string> getVevoNevLista()
         {
-
+            db = new szerszamgepContext();
+            vevokLista = db.vevok.ToList();
             foreach (var item in vevokLista)
             {
                 if (item.nev != "")

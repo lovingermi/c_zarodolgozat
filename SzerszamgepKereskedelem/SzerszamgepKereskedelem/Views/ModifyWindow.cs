@@ -26,7 +26,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxGepCikkszam.Text;
             }
             set
             {
@@ -38,7 +38,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxGepMegnevezes.Text;
             }
             set
             {
@@ -48,10 +48,10 @@ namespace SzerszamgepKereskedelem.Views
 
         public List<string> gyartok
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxGyarto.DataSource = value;
@@ -61,7 +61,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxGyarto.Text;
             }
             set
             {
@@ -70,10 +70,10 @@ namespace SzerszamgepKereskedelem.Views
         }
         public string selectedGyarto
         {
-            get
+            /*get
             {
-                return null;
-            }
+                return null;//!!!!!!!!!!!!!!!
+            }*/
             set
             {
                 comboBoxGyarto.Text = value;
@@ -82,10 +82,10 @@ namespace SzerszamgepKereskedelem.Views
 
         public List<string> tipusok
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxTipus.DataSource = value;
@@ -93,10 +93,10 @@ namespace SzerszamgepKereskedelem.Views
         }
         public string selectedTipus
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxTipus.Text = value;
@@ -106,7 +106,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxTipus.Text;
             }
             set
             {
@@ -117,7 +117,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxVevoNev.Text;
             }
             set
             {
@@ -129,7 +129,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxVevoOrszag.Text;
             }
             set
             {
@@ -140,7 +140,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return textBoxVevoTelepules.Text;
             }
             set
             {
@@ -149,10 +149,10 @@ namespace SzerszamgepKereskedelem.Views
         }
         public List<string> vevok
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxVevoNevLista.DataSource = value;
@@ -161,10 +161,10 @@ namespace SzerszamgepKereskedelem.Views
 
         public string selectedVevonevCombobox
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxVevoNevLista.Text = value;
@@ -304,7 +304,15 @@ namespace SzerszamgepKereskedelem.Views
             }
             set
             {
-                dateTimePickerEladasDatum.Value = value;
+                if (value == DateTime.MinValue)
+                {
+                    dateTimePickerEladasDatum.Value = DateTime.Now;
+                }
+                else
+                {
+                    dateTimePickerEladasDatum.Value = value;
+                }
+                
             }
         }
         public string eladasEKARSZAM
@@ -328,6 +336,33 @@ namespace SzerszamgepKereskedelem.Views
             {
                 textBoxEladasSzamlaszam.Text = value;
             }
+        }
+
+        private void buttonSaveAndClose_Click(object sender, EventArgs e)
+        {
+            modifyPresenter.saveModify();
+            DialogResult = DialogResult.OK;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void comboBoxGyarto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            textBoxGyarto.Text = comboBoxGyarto.Text;
+        }
+
+        private void comboBoxVevoNevLista_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string vevoNev = comboBoxVevoNevLista.Text;
+            modifyPresenter.GetVevoFromNevLista(vevoNev);
+        }
+
+        private void comboBoxTipus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            textBoxTipus.Text = comboBoxTipus.Text;
         }
     }
 }

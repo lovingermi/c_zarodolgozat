@@ -84,7 +84,6 @@ namespace SzerszamgepKereskedelem.Presenters
                 // Adatbázis frissítése
 
                 db.SaveChanges();
-
             }
             catch (Exception)
             {

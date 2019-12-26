@@ -19,7 +19,7 @@ namespace SzerszamgepKereskedelem.Models
         {
             this.megrendeles = new HashSet<megrendeles>();
         }
-          
+    
         public int id { get; set; }
         public string cikkszam { get; set; }
         public string megnevezes { get; set; }

@@ -81,6 +81,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxVevoNev = new System.Windows.Forms.TextBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSaveAndClose = new System.Windows.Forms.Button();
             this.panelEladas.SuspendLayout();
             this.panelBeszerzes.SuspendLayout();
             this.panelGepek.SuspendLayout();
@@ -447,6 +449,7 @@
             this.comboBoxTipus.Name = "comboBoxTipus";
             this.comboBoxTipus.Size = new System.Drawing.Size(154, 21);
             this.comboBoxTipus.TabIndex = 7;
+            this.comboBoxTipus.SelectedValueChanged += new System.EventHandler(this.comboBoxTipus_SelectedValueChanged);
             // 
             // comboBoxGyarto
             // 
@@ -456,6 +459,7 @@
             this.comboBoxGyarto.Name = "comboBoxGyarto";
             this.comboBoxGyarto.Size = new System.Drawing.Size(154, 21);
             this.comboBoxGyarto.TabIndex = 6;
+            this.comboBoxGyarto.SelectedValueChanged += new System.EventHandler(this.comboBoxGyarto_SelectedValueChanged);
             // 
             // label4
             // 
@@ -575,6 +579,7 @@
             this.comboBoxVevoNevLista.Name = "comboBoxVevoNevLista";
             this.comboBoxVevoNevLista.Size = new System.Drawing.Size(159, 21);
             this.comboBoxVevoNevLista.TabIndex = 11;
+            this.comboBoxVevoNevLista.SelectedValueChanged += new System.EventHandler(this.comboBoxVevoNevLista_SelectedValueChanged);
             // 
             // label9
             // 
@@ -642,11 +647,33 @@
             this.textBoxVevoNev.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoNev.TabIndex = 1;
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(764, 698);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(115, 23);
+            this.buttonCancel.TabIndex = 40;
+            this.buttonCancel.Text = "Mégse";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSaveAndClose
+            // 
+            this.buttonSaveAndClose.Location = new System.Drawing.Point(633, 698);
+            this.buttonSaveAndClose.Name = "buttonSaveAndClose";
+            this.buttonSaveAndClose.Size = new System.Drawing.Size(115, 23);
+            this.buttonSaveAndClose.TabIndex = 39;
+            this.buttonSaveAndClose.Text = "Mentés és bezárás";
+            this.buttonSaveAndClose.UseVisualStyleBackColor = true;
+            this.buttonSaveAndClose.Click += new System.EventHandler(this.buttonSaveAndClose_Click);
+            // 
             // ModifyWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 733);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonSaveAndClose);
             this.Controls.Add(this.panelEladas);
             this.Controls.Add(this.panelBeszerzes);
             this.Controls.Add(this.panelGepek);
@@ -721,5 +748,7 @@
         private System.Windows.Forms.TextBox textBoxGyarto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSaveAndClose;
     }
 }

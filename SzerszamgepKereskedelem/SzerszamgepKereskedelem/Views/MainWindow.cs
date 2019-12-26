@@ -171,16 +171,17 @@ namespace SzerszamgepKereskedelem.Views
             if (id > -1)
             {
                 ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
-
                 if (modifywindow.ShowDialog() == DialogResult.OK)
                 {
-
+                    mainPresenter.LoadData();
                 }
+                
             }
             else
             {
                 errorProviderModify.SetError(buttonModify, "Nincs megrendelés kiválasztva!");
             }
+            
 
         }
 

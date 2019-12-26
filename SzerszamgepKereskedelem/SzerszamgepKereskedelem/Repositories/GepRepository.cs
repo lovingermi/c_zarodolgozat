@@ -23,7 +23,7 @@ namespace SzerszamgepKereskedelem.Repositories
         }
         public gepek getGepById(int gepId)
         {
-
+            db = new szerszamgepContext();
             gepekLista = db.gepek.ToList();
             if (gepekLista.FindIndex(g => g.id == gepId) < 0)
             {
