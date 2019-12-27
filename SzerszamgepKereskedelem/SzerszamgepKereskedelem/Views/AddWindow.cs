@@ -200,6 +200,22 @@ namespace SzerszamgepKereskedelem.Views
             }
         }
 
+        public List<string> bTipusLista
+        {
+            set
+            {
+                comboBoxBeszerzesTipus.DataSource = value;
+            }
+        }
+
+        public List<string> eTipusLista
+        {
+            set
+            {
+                comboBoxEladasTipus.DataSource = value;
+            }
+        }
+
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
             addPresenter.saveMegrendeles();
@@ -224,6 +240,31 @@ namespace SzerszamgepKereskedelem.Views
         private void dateTimePickerEladasDatum_CloseUp(object sender, EventArgs e)
         {
             textBoxEladasDatum.Text = dateTimePickerEladasDatum.Value.ToShortDateString();
+        }
+
+        private void comboBoxGyarto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxGyarto.SelectedIndex != 0)//-------Kérem válasszon-------
+            {
+                textBoxGyarto.Text = comboBoxGyarto.Text;
+            }
+            else
+            {
+                textBoxGyarto.Text = "";
+            }
+
+        }
+
+        private void comboBoxTipus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTipus.SelectedIndex != 0)//-------Kérem válasszon-------
+            {
+                textBoxTipus.Text = comboBoxTipus.Text;
+            }
+            else
+            {
+                textBoxTipus.Text = "";
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         string selectedVevonevCombobox { set; }
         List<String> vevok { set; }
 
-        List<String> beszerzesTipusLista { get; set; }
+        List<String> beszerzesTipusLista { set; }
         string selectedBeszerzesTipus { get; set; }
         DateTime beszerzesDatum { get; set; }
         string beszrzesEKARSZAM { get; set; }
@@ -32,8 +32,8 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         string beszrzesFuvar { get; set; }
         string beszrzesCMR { get; set; }
 
-        List<String> eladasTipusLista { get; set; }
-        string selectedeladasTipus { get; set; }
+        List<String> eladasTipusLista { set; }
+        string selectedEladasTipus { get; set; }
         DateTime eladasDatum { get; set; }
         string eladasEKARSZAM { get; set; }
         string eladasSzamlaszam { get; set; }

@@ -62,7 +62,7 @@ namespace SzerszamgepKereskedelem.Presenters
             modifyView.beszrzesVAM = modifyBeszerzes.VAM;
 
             modifyView.eladasTipusLista = eladasRepository.getEladasTipusLista();
-            modifyView.selectedeladasTipus = modifyEladas.tipus;
+            modifyView.selectedEladasTipus = modifyEladas.tipus;
             modifyView.eladasDatum = modifyEladas.datum;
             modifyView.eladasEKARSZAM = modifyEladas.EKAR_Szam;
             modifyView.eladasSzamlaszam = modifyEladas.szamlaszam;
@@ -76,12 +76,38 @@ namespace SzerszamgepKereskedelem.Presenters
             modifyGep.tipus = modifyView.selectedTipusTexbox;
             db.Entry(modifyGep).State = EntityState.Detached;
             db.Entry(modifyGep).State = EntityState.Modified;
+
             //---------------vevők--------------------------
-            modifyVevo.nev = modifyView.selectedVevoNev;
+            /*modifyVevo.nev = modifyView.selectedVevoNev;
             modifyVevo.orszag = modifyView.selectedVevoOrszag;
             modifyVevo.varos = modifyView.selectedVevoTelepules;
             db.Entry(modifyVevo).State = EntityState.Detached;
-            db.Entry(modifyVevo).State = EntityState.Modified;
+            db.Entry(modifyVevo).State = EntityState.Modified;*/
+
+            //--------------beszerzések----------------------
+            modifyBeszerzes.datum = modifyView.beszerzesDatum;
+            modifyBeszerzes.beszerzes_Tipus = modifyView.selectedBeszerzesTipus;
+            modifyBeszerzes.EKAR_Szam = modifyView.beszrzesEKARSZAM;
+            modifyBeszerzes.szamla = modifyView.beszrzesSzamlaszam;
+            modifyBeszerzes.VAM = modifyView.beszrzesVAM;
+            modifyBeszerzes.fuvar = modifyView.beszrzesFuvar;
+            modifyBeszerzes.CMR = modifyView.beszrzesCMR;
+            db.Entry(modifyBeszerzes).State = EntityState.Detached;
+            db.Entry(modifyBeszerzes).State = EntityState.Modified;
+
+            //--------------eladások------------------------
+            modifyEladas.datum = modifyView.eladasDatum;
+            modifyEladas.tipus = modifyView.selectedEladasTipus;
+            modifyEladas.szamlaszam = modifyView.eladasSzamlaszam;
+            modifyEladas.EKAR_Szam = modifyView.eladasEKARSZAM;
+            db.Entry(modifyEladas).State = EntityState.Detached;
+            db.Entry(modifyEladas).State = EntityState.Modified;
+
+            //--------------megrendeles------------------------
+            vevok selectedVevo = (from v in db.vevok where v.nev == modifyView.selectedVevoNev select v).FirstOrDefault();
+            modifyMegrendeles.vevo_Id = selectedVevo.id;
+            db.Entry(modifyMegrendeles).State = EntityState.Detached;
+            db.Entry(modifyMegrendeles).State = EntityState.Modified;
             try
             {
                 // Adatbázis frissítése

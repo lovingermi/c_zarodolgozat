@@ -16,11 +16,12 @@ namespace SzerszamgepKereskedelem.Repositories
         {
             beszerzesekLista = new List<beszerzesek>();
             beszerzesTipusLista = new List<string>();
-            db = new szerszamgepContext();
-            beszerzesekLista = db.beszerzesek.ToList();
+            //db = new szerszamgepContext();
+            //beszerzesekLista = db.beszerzesek.ToList();
         }
         public beszerzesek getBeszerzesById(int id)
         {
+            db = new szerszamgepContext();
             beszerzesekLista = db.beszerzesek.ToList();
             if (beszerzesekLista.FindIndex(b => b.id == id) < 0)
             {
@@ -33,6 +34,7 @@ namespace SzerszamgepKereskedelem.Repositories
         }
         public List<String> getBeszerzesTipusLista()
         {
+            beszerzesTipusLista.Add("");
             beszerzesTipusLista.Add("Belföldi");
             beszerzesTipusLista.Add("Import");
             beszerzesTipusLista.Add("Közösségi");

@@ -173,10 +173,10 @@ namespace SzerszamgepKereskedelem.Views
 
         public List<string> beszerzesTipusLista
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxBeszerzesTipus.DataSource = value;
@@ -187,11 +187,18 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return null;
+                return comboBoxBeszerzesTipus.Text;
             }
             set
             {
-                comboBoxBeszerzesTipus.Text = value;
+                if (string.IsNullOrEmpty(value))
+                {
+                    comboBoxBeszerzesTipus.Text ="";
+                }
+                else
+                {
+                    comboBoxBeszerzesTipus.Text = value;
+                }
             }
         }
 
@@ -199,22 +206,28 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return dateTimePickerBeszerzesDatum.Value.Date;
+                if (textBoxBeszerzesDatum.Text != "")
+                {
+                    return Convert.ToDateTime(textBoxBeszerzesDatum.Text);
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
             }
             set
             {
-
                 if (value == DateTime.MinValue)
                 {
-                    dateTimePickerBeszerzesDatum.Value = new DateTime(1900, 01, 01);
+                    dateTimePickerBeszerzesDatum.Value = DateTime.Now;
+                    textBoxBeszerzesDatum.Text = "";
                 }
                 else
                 {
                     dateTimePickerBeszerzesDatum.Value = value;
                 }
-            }
-            
 
+            }
         }
 
         public string beszrzesEKARSZAM
@@ -275,17 +288,17 @@ namespace SzerszamgepKereskedelem.Views
 
         public List<string> eladasTipusLista
         {
-            get
+            /*get
             {
                 return null;
-            }
+            }*/
             set
             {
                 comboBoxEladasTipus.DataSource = value;
             }
 
         }
-        public string selectedeladasTipus
+        public string selectedEladasTipus
         {
             get
             {
@@ -300,19 +313,27 @@ namespace SzerszamgepKereskedelem.Views
         {
             get
             {
-                return dateTimePickerEladasDatum.Value.Date;
+                if (textBoxEladasDatum.Text != "")
+                {
+                    return Convert.ToDateTime(textBoxEladasDatum.Text);
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
             }
             set
             {
                 if (value == DateTime.MinValue)
                 {
                     dateTimePickerEladasDatum.Value = DateTime.Now;
+                    textBoxEladasDatum.Text = "";
                 }
                 else
                 {
                     dateTimePickerEladasDatum.Value = value;
                 }
-                
+
             }
         }
         public string eladasEKARSZAM
@@ -351,7 +372,14 @@ namespace SzerszamgepKereskedelem.Views
 
         private void comboBoxGyarto_SelectedValueChanged(object sender, EventArgs e)
         {
-            textBoxGyarto.Text = comboBoxGyarto.Text;
+            if (comboBoxGyarto.SelectedIndex != 0)//-------Kérem válasszon-------
+            {
+                textBoxGyarto.Text = comboBoxGyarto.Text;
+            }
+            else
+            {
+                textBoxGyarto.Text = "";
+            }
         }
 
         private void comboBoxVevoNevLista_SelectedValueChanged(object sender, EventArgs e)
@@ -362,7 +390,24 @@ namespace SzerszamgepKereskedelem.Views
 
         private void comboBoxTipus_SelectedValueChanged(object sender, EventArgs e)
         {
-            textBoxTipus.Text = comboBoxTipus.Text;
+            if (comboBoxTipus.SelectedIndex != 0)//-------Kérem válasszon-------
+            {
+                textBoxTipus.Text = comboBoxTipus.Text;
+            }
+            else
+            {
+                textBoxTipus.Text = "";
+            }
+        }
+        private void dateTimePickerBeszerzesDatum_ValueChanged(object sender, EventArgs e)
+        {
+              
+             textBoxBeszerzesDatum.Text = dateTimePickerBeszerzesDatum.Value.ToShortDateString();   
+        }
+
+        private void dateTimePickerEladasDatum_ValueChanged(object sender, EventArgs e)
+        {
+             textBoxEladasDatum.Text = dateTimePickerEladasDatum.Value.ToShortDateString();
         }
     }
 }

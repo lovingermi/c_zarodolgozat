@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelEladas = new System.Windows.Forms.Panel();
+            this.textBoxEladasDatum = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxEladasEKARSzam = new System.Windows.Forms.TextBox();
             this.comboBoxEladasTipus = new System.Windows.Forms.ComboBox();
@@ -85,8 +87,6 @@
             this.textBoxVevoNev = new System.Windows.Forms.TextBox();
             this.buttonSaveAndClose = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.textBoxEladasDatum = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.panelEladas.SuspendLayout();
             this.panelBeszerzes.SuspendLayout();
             this.panelGepek.SuspendLayout();
@@ -113,6 +113,25 @@
             this.panelEladas.Size = new System.Drawing.Size(433, 313);
             this.panelEladas.TabIndex = 36;
             // 
+            // textBoxEladasDatum
+            // 
+            this.textBoxEladasDatum.Location = new System.Drawing.Point(278, 67);
+            this.textBoxEladasDatum.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEladasDatum.Name = "textBoxEladasDatum";
+            this.textBoxEladasDatum.ReadOnly = true;
+            this.textBoxEladasDatum.Size = new System.Drawing.Size(143, 20);
+            this.textBoxEladasDatum.TabIndex = 33;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(304, 48);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(93, 13);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Kiválasztott dátum";
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -134,11 +153,6 @@
             // comboBoxEladasTipus
             // 
             this.comboBoxEladasTipus.FormattingEnabled = true;
-            this.comboBoxEladasTipus.Items.AddRange(new object[] {
-            "Belföldi",
-            "Közösségi",
-            "Háromszög ügylet",
-            "Export"});
             this.comboBoxEladasTipus.Location = new System.Drawing.Point(14, 119);
             this.comboBoxEladasTipus.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxEladasTipus.Name = "comboBoxEladasTipus";
@@ -253,11 +267,6 @@
             // comboBoxBeszerzesTipus
             // 
             this.comboBoxBeszerzesTipus.FormattingEnabled = true;
-            this.comboBoxBeszerzesTipus.Items.AddRange(new object[] {
-            "Belföldi",
-            "Import",
-            "Közösségi",
-            "Háromszög ügylet"});
             this.comboBoxBeszerzesTipus.Location = new System.Drawing.Point(14, 119);
             this.comboBoxBeszerzesTipus.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxBeszerzesTipus.Name = "comboBoxBeszerzesTipus";
@@ -480,6 +489,7 @@
             this.comboBoxTipus.Name = "comboBoxTipus";
             this.comboBoxTipus.Size = new System.Drawing.Size(154, 21);
             this.comboBoxTipus.TabIndex = 7;
+            this.comboBoxTipus.SelectedValueChanged += new System.EventHandler(this.comboBoxTipus_SelectedValueChanged);
             // 
             // comboBoxGyarto
             // 
@@ -489,6 +499,7 @@
             this.comboBoxGyarto.Name = "comboBoxGyarto";
             this.comboBoxGyarto.Size = new System.Drawing.Size(154, 21);
             this.comboBoxGyarto.TabIndex = 6;
+            this.comboBoxGyarto.SelectedValueChanged += new System.EventHandler(this.comboBoxGyarto_SelectedValueChanged);
             // 
             // label4
             // 
@@ -698,25 +709,6 @@
             this.buttonCancel.Text = "Mégse";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // textBoxEladasDatum
-            // 
-            this.textBoxEladasDatum.Location = new System.Drawing.Point(278, 67);
-            this.textBoxEladasDatum.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxEladasDatum.Name = "textBoxEladasDatum";
-            this.textBoxEladasDatum.ReadOnly = true;
-            this.textBoxEladasDatum.Size = new System.Drawing.Size(143, 20);
-            this.textBoxEladasDatum.TabIndex = 33;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(304, 48);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(93, 13);
-            this.label23.TabIndex = 32;
-            this.label23.Text = "Kiválasztott dátum";
             // 
             // AddWindow
             // 

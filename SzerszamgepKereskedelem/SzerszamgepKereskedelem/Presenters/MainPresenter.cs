@@ -25,7 +25,7 @@ namespace SzerszamgepKereskedelem.Presenters
         public MainPresenter(IMainView param)
         {
             mainView = param;
-            db = new szerszamgepContext();
+            //db = new szerszamgepContext();
             CreateDataTable();
             LoadData();
             
@@ -52,7 +52,7 @@ namespace SzerszamgepKereskedelem.Presenters
         public void LoadData()
         {
             dataTableFoTabla.Clear();
-            
+            db = new szerszamgepContext();
             foreach (megrendeles megrendeles in db.megrendeles)//.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!!
             {
                 
@@ -82,6 +82,7 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void DeleteMegrendeles(int id)
         {
+            db = new szerszamgepContext();
             var tmegrendeles = db.megrendeles.Find(id);
             var gep = db.gepek.Find(tmegrendeles.gep_Id);
             var beszerzes = db.beszerzesek.Find(tmegrendeles.beszerzes_Id);

@@ -105,7 +105,7 @@ namespace SzerszamgepKereskedelem.Views
             dataGridViewMainTable.Columns[4].Width = 80;
             dataGridViewMainTable.Columns[4].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewMainTable.Columns[4].DefaultCellStyle.ForeColor = Color.Blue;
+            dataGridViewMainTable.Columns[4].DefaultCellStyle.ForeColor = Color.DarkBlue;
             dataGridViewMainTable.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dataGridViewMainTable.Columns[5].Width = 100;
@@ -136,7 +136,7 @@ namespace SzerszamgepKereskedelem.Views
             dataGridViewMainTable.Columns[11].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[11].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;///
             dataGridViewMainTable.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewMainTable.Columns[11].DefaultCellStyle.ForeColor = Color.Blue;
+            dataGridViewMainTable.Columns[11].DefaultCellStyle.ForeColor = Color.DarkBlue;
 
             dataGridViewMainTable.Columns[12].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[12].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;

@@ -21,6 +21,7 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         string vevoTelepules { set; }
         List<String> vevok{ set; }
 
+        List<String> bTipusLista { set; }
         DateTime bDatum { get; }
         string bTipus { get; }
         string bEKAR { get; }
@@ -29,6 +30,7 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         string bFuvar { get; }
         string bCMR { get; }
 
+        List<String> eTipusLista { set; }
         DateTime eDatum { get; }
         string eTipus { get; }
         string eEKAR { get; }

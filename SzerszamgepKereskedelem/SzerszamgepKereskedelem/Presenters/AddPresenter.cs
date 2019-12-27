@@ -31,7 +31,8 @@ namespace SzerszamgepKereskedelem.Presenters
             addView.gyartok = gepRepository.getGyartokLista();
             addView.tipusok = gepRepository.getTipusokLista();
             addView.vevok = vevoRepository.getVevoNevLista();
-            
+            addView.bTipusLista = beszerzesRepository.getBeszerzesTipusLista();
+            addView.eTipusLista = eladasRepository.getEladasTipusLista();
 
         }
         public void saveMegrendeles()
