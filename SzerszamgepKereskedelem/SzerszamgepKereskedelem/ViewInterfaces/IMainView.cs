@@ -11,7 +11,7 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
     interface IMainView
     {
         DataTable dataTableFoTabla { set; }
-        
+        string query { get; }
        /* gepek gepek { get; set; }
         beszerzesek beszerzesek { get; set; }
         eladasok eladasok { get; set; }*/

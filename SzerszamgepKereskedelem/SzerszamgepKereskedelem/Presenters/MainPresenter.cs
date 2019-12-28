@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,13 @@ namespace SzerszamgepKereskedelem.Presenters
         private EladasRepository eladasRepository = new EladasRepository();
         private szerszamgepContext db;
         private IMainView mainView;
+        private IQueryable query;
         public MainPresenter(IMainView param)
         {
             mainView = param;
-            //db = new szerszamgepContext();
+            db = new szerszamgepContext();
             CreateDataTable();
+            query = db.megrendeles;
             LoadData();
             
         }
@@ -53,7 +56,7 @@ namespace SzerszamgepKereskedelem.Presenters
         {
             dataTableFoTabla.Clear();
             db = new szerszamgepContext();
-            foreach (megrendeles megrendeles in db.megrendeles)//.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!!
+            foreach (megrendeles megrendeles in query)//.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!! db.megrendeles
             {
                 
                 gepek gep =gepRepository.getGepById(megrendeles.gep_Id);
@@ -109,6 +112,19 @@ namespace SzerszamgepKereskedelem.Presenters
 
             LoadData();
         }
-      
+        public void getCikkszam()
+        {
+
+            string cikkszam = mainView.query;
+            query = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam);
+            LoadData();
+        }
+        public void getVevo()
+        {
+
+            string vevoNev = mainView.query;
+            query = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev);
+            LoadData();
+        }
     }
 }

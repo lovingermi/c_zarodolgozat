@@ -39,8 +39,8 @@
             this.buttonSaveToFile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBoxKeres = new System.Windows.Forms.TextBox();
+            this.comboBoxKeres = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -184,8 +184,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.textBoxKeres);
+            this.panel2.Controls.Add(this.comboBoxKeres);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(415, 35);
@@ -193,20 +193,24 @@
             this.panel2.Size = new System.Drawing.Size(200, 132);
             this.panel2.TabIndex = 35;
             // 
-            // textBox1
+            // textBoxKeres
             // 
-            this.textBox1.Location = new System.Drawing.Point(43, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 38;
+            this.textBoxKeres.Location = new System.Drawing.Point(43, 98);
+            this.textBoxKeres.Name = "textBoxKeres";
+            this.textBoxKeres.Size = new System.Drawing.Size(121, 20);
+            this.textBoxKeres.TabIndex = 38;
+            this.textBoxKeres.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxkeres_KeyUp);
             // 
-            // comboBox1
+            // comboBoxKeres
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(43, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 37;
+            this.comboBoxKeres.FormattingEnabled = true;
+            this.comboBoxKeres.Items.AddRange(new object[] {
+            "Vevő",
+            "Cikkszám"});
+            this.comboBoxKeres.Location = new System.Drawing.Point(43, 51);
+            this.comboBoxKeres.Name = "comboBoxKeres";
+            this.comboBoxKeres.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxKeres.TabIndex = 37;
             // 
             // label1
             // 
@@ -289,8 +293,8 @@
         private System.Windows.Forms.Button buttonSaveToFile;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBoxKeres;
+        private System.Windows.Forms.ComboBox comboBoxKeres;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;

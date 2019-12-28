@@ -21,6 +21,7 @@ namespace SzerszamgepKereskedelem.Views
         {
             InitializeComponent();
             mainPresenter = new MainPresenter(this);
+            
         }
 
         public DataTable dataTableFoTabla
@@ -31,32 +32,15 @@ namespace SzerszamgepKereskedelem.Views
  
             }
         }
-        /*public gepek gepek
+
+        public string query
         {
+            
             get
             {
-                return new gepek();
-            }
-            set
-            {
-
+                return textBoxKeres.Text;
             }
         }
-
-        public megrendeles megrendeles
-        {
-            get
-            {
-                return megrendeles ;
-            }
-            set
-            {
-
-            }
-        }
-        public beszerzesek beszerzesek { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public eladasok eladasok { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }*/
-
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -259,6 +243,23 @@ namespace SzerszamgepKereskedelem.Views
                 
             }
             
+        }
+
+        private void textBoxkeres_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (comboBoxKeres.Text == "Vevő")
+            {
+                mainPresenter.getVevo();
+                //mainPresenter.LoadData();
+            }
+            else
+            if (comboBoxKeres.Text == "Cikkszám")
+            {
+                mainPresenter.getCikkszam();
+                //mainPresenter.LoadData();
+            }
+            
+
         }
     }
 }
