@@ -12,10 +12,9 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
     {
         DataTable dataTableFoTabla { set; }
         string query { get; }
-       /* gepek gepek { get; set; }
-        beszerzesek beszerzesek { get; set; }
-        eladasok eladasok { get; set; }*/
-        
-
+        DateTime kezdoDatum { get; }
+        DateTime zaroDatum { get; }
+        int lapok { set; }
+        int aktualisLap { get; }
     }
 }

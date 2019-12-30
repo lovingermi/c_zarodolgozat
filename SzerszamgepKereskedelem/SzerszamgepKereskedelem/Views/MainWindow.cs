@@ -17,6 +17,8 @@ namespace SzerszamgepKereskedelem.Views
     public partial class MainWindow : Form, IMainView
     {
         private MainPresenter mainPresenter;
+        private int lapokSzama;
+        private int aktualisLapSzam;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,12 +36,44 @@ namespace SzerszamgepKereskedelem.Views
         }
 
         public string query
-        {
-            
+        { 
             get
             {
                 return textBoxKeres.Text;
             }
+        }
+
+        public DateTime kezdoDatum
+        {
+            get
+            {
+                return dateTimePickerTol.Value;
+            }
+        }
+
+        public DateTime zaroDatum
+        {
+            get
+            {
+                return dateTimePickerIg.Value;
+            }
+        }
+
+        public int lapok
+        {
+            set
+            {
+                lapokSzama = value;
+            }
+        }
+
+        public int aktualisLap
+        {
+            get
+            {
+                return aktualisLapSzam;
+            }
+            
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -49,8 +83,10 @@ namespace SzerszamgepKereskedelem.Views
         private void TableColumnsAndFontSetup()
         {
 
-           // dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
+            // dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
             //dataGridViewMainTable.DefaultCellStyle.BackColor = Color.Beige;
+            dataGridViewMainTable.RowTemplate.Resizable = DataGridViewTriState.True;
+            dataGridViewMainTable.RowTemplate.MinimumHeight = 30;
             dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.White;
             dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             dataGridViewMainTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -62,7 +98,7 @@ namespace SzerszamgepKereskedelem.Views
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSlateGray;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridViewMainTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridViewMainTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewMainTable.RowHeadersVisible = false;
 
             dataGridViewMainTable.Columns[0].Width = 50;
@@ -145,6 +181,7 @@ namespace SzerszamgepKereskedelem.Views
                 pi.SetValue(dataGridViewMainTable, true, null);
             }
             TableColumnsAndFontSetup();
+            comboBoxKeres.Text = "Teljes lista";
             emptyCells();
 
         }
@@ -249,17 +286,125 @@ namespace SzerszamgepKereskedelem.Views
         {
             if (comboBoxKeres.Text == "Vevő")
             {
-                mainPresenter.getVevo();
-                //mainPresenter.LoadData();
+                mainPresenter.getVevo(aktualisLapSzam);
             }
             else
             if (comboBoxKeres.Text == "Cikkszám")
             {
-                mainPresenter.getCikkszam();
-                //mainPresenter.LoadData();
+                mainPresenter.getCikkszam(aktualisLapSzam);
             }
-            
+            else
+            if (comboBoxKeres.Text == "Gyártó")
+            {
+                mainPresenter.getGyarto(aktualisLapSzam);
+            }
 
         }
+
+        private void comboBoxKeres_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            if (textBoxKeres.Text != "")
+            {
+                textBoxKeres.Text = "";
+                
+            }
+            aktualisLapSzam = 0;
+            if (comboBoxKeres.Text == "Beszerzés dátum" || comboBoxKeres.Text == "Eladás dátum")
+            {
+                textBoxKeres.ReadOnly = true;
+                dateTimePickerTol.Enabled = true;
+                dateTimePickerIg.Enabled = true;
+                buttonKeres.ForeColor = Color.Green;
+                buttonKeres.Enabled = true;
+            }
+            else
+            {
+                textBoxKeres.ReadOnly = false;
+                dateTimePickerTol.Enabled = false;
+                dateTimePickerIg.Enabled = false;
+                buttonKeres.ForeColor = Color.Black;
+                buttonKeres.Enabled = false;
+            }
+            mainPresenter.getAlapLista(aktualisLapSzam);
+        }
+
+        private void buttonKeres_Click(object sender, EventArgs e)
+        {
+            if (comboBoxKeres.Text == "Beszerzés dátum")
+            {
+                mainPresenter.getBeszerzesDatum(aktualisLapSzam);
+            }
+            if (comboBoxKeres.Text == "Eladás dátum")
+            {
+                mainPresenter.getEladasDatum(aktualisLapSzam);
+            }
+        }
+
+        private void buttonLapFel_Click(object sender, EventArgs e)
+        {
+            if (aktualisLapSzam < lapokSzama-1)
+            {
+                aktualisLapSzam++;
+                if (comboBoxKeres.Text == "Teljes lista")
+                {
+                    mainPresenter.getAlapLista(aktualisLapSzam);
+                }
+                else
+                if (comboBoxKeres.Text == "Vevő")
+                {
+                    mainPresenter.getVevo(aktualisLapSzam);
+                }
+                else
+                if (comboBoxKeres.Text == "Cikkszám")
+                {
+                    mainPresenter.getCikkszam(aktualisLapSzam);
+                }
+                else
+                if (comboBoxKeres.Text == "Gyártó")
+                {
+                    mainPresenter.getGyarto(aktualisLapSzam);
+                }
+                if (comboBoxKeres.Text == "Beszerzés dátum")
+                {
+                    mainPresenter.getBeszerzesDatum(aktualisLapSzam);
+                }
+                else
+                if (comboBoxKeres.Text == "Eladás dátum")
+                {
+                    mainPresenter.getEladasDatum(aktualisLapSzam);
+                }
+
+            }
+        }
+
+        private void buttonLapLe_Click(object sender, EventArgs e)
+        {
+            if (aktualisLapSzam >0)
+            {
+                aktualisLapSzam--;
+                if (comboBoxKeres.Text == "Teljes lista")
+                {
+                    mainPresenter.getAlapLista(aktualisLapSzam);
+                }
+                else
+                if (comboBoxKeres.Text == "Vevő")
+                {
+                    mainPresenter.getVevo(aktualisLapSzam);
+                }
+                else
+            if (comboBoxKeres.Text == "Cikkszám")
+                {
+                    mainPresenter.getCikkszam(aktualisLapSzam);
+                }
+                else
+            if (comboBoxKeres.Text == "Gyártó")
+                {
+                    mainPresenter.getGyarto(aktualisLapSzam);
+                }
+
+            }
+        }
+
     }
 }

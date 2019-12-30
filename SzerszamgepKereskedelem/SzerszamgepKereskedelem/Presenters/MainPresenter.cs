@@ -24,14 +24,15 @@ namespace SzerszamgepKereskedelem.Presenters
         private szerszamgepContext db;
         private IMainView mainView;
         private IQueryable query;
+        private IQueryable query_2;
         public MainPresenter(IMainView param)
         {
             mainView = param;
             db = new szerszamgepContext();
             CreateDataTable();
-            query = db.megrendeles;
-            LoadData();
-            
+            query = db.megrendeles.OrderBy(x => x.id);
+            query_2 = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id).Skip(0).Take(10);
+            LoadData();          
         }
         public void CreateDataTable()
         {
@@ -54,12 +55,49 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void LoadData()
         {
-            dataTableFoTabla.Clear();
+            //dataTableFoTabla.Clear();
             db = new szerszamgepContext();
-            foreach (megrendeles megrendeles in query)//.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!! db.megrendeles
+            double sorok = 0;
+            foreach (megrendeles megrendeles in query) //.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!! db.megrendeles
             {
+
+                sorok++;
+
+               /* gepek gep =gepRepository.getGepById(megrendeles.gep_Id);
+                vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
+                beszerzesek beszerzes = beszerzesRepository.getBeszerzesById(megrendeles.beszerzes_Id);
+                eladasok eladas = eladasRepository.getEladasById(megrendeles.eladas_Id);
+                dataTableFoTabla.Rows.Add(
+                    megrendeles.id,
+                    gep.cikkszam,
+                    gep.megnevezes,
+                    vevo.nev,
+                    beszerzes.datum,
+                    beszerzes.beszerzes_Tipus,
+                    beszerzes.EKAR_Szam,
+                    beszerzes.szamlaUresE(beszerzes),
+                    beszerzes.vamUresE(beszerzes),
+                    beszerzes.fuvarUresE(beszerzes),
+                    beszerzes.cmrUresE(beszerzes),
+                    eladas.datum,
+                    eladas.tipus,
+                    eladas.szamlaszam,
+                    eladas.EKAR_Szam);*/
+            }
+            double lapok = Math.Ceiling(sorok / 10);
+            mainView.lapok = Convert.ToInt32(lapok);
+            LoadData_2();
+           // mainView.dataTableFoTabla = dataTableFoTabla;
+        }
+        public void LoadData_2()
+        {
+            dataTableFoTabla.Clear();
+            foreach (megrendeles megrendeles in query_2) //.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!! db.megrendeles
+            {
+
                 
-                gepek gep =gepRepository.getGepById(megrendeles.gep_Id);
+
+                gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
                 vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
                 beszerzesek beszerzes = beszerzesRepository.getBeszerzesById(megrendeles.beszerzes_Id);
                 eladasok eladas = eladasRepository.getEladasById(megrendeles.eladas_Id);
@@ -80,7 +118,6 @@ namespace SzerszamgepKereskedelem.Presenters
                     eladas.szamlaszam,
                     eladas.EKAR_Szam);
             }
-            
             mainView.dataTableFoTabla = dataTableFoTabla;
         }
         public void DeleteMegrendeles(int id)
@@ -92,15 +129,12 @@ namespace SzerszamgepKereskedelem.Presenters
             var eladas = db.eladasok.Find(tmegrendeles.eladas_Id);
 
             if (tmegrendeles != null)
-            {
-                
+            {               
                 db.megrendeles.Remove(tmegrendeles);
                 db.gepek.Remove(gep);
                 db.beszerzesek.Remove(beszerzes);
-                db.eladasok.Remove(eladas);
-                
+                db.eladasok.Remove(eladas);               
             }
-
             try
             {
                 db.SaveChanges();
@@ -112,19 +146,61 @@ namespace SzerszamgepKereskedelem.Presenters
 
             LoadData();
         }
-        public void getCikkszam()
+        public void getCikkszam(int aktualisLapSzam)
         {
 
             string cikkszam = mainView.query;
             query = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam);
             LoadData();
+            query_2 = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam).Skip(aktualisLapSzam * 10).Take(10);
+            LoadData_2();
         }
-        public void getVevo()
+        public void getVevo(int aktualisLapSzam)
         {
 
             string vevoNev = mainView.query;
             query = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev);
             LoadData();
+            query_2 = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev).Skip(aktualisLapSzam * 10).Take(10);
+            LoadData_2();
+        }
+        public void getGyarto(int aktualisLapSzam)
+        {
+
+            string gyarto = mainView.query;
+            query = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto);
+            LoadData();
+            query_2 = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto).Skip(aktualisLapSzam * 10).Take(10); 
+            LoadData_2();
+        }
+        public void getAlapLista(int aktualisLapSzam)
+        {
+
+            query = db.megrendeles.OrderBy(x => x.id);
+            LoadData();
+            query_2 = db.megrendeles.OrderBy(x => x.id).Skip(aktualisLapSzam*10).Take(10);
+            LoadData_2();
+        }
+        public void getBeszerzesDatum(int aktualisLapSzam)
+        {
+            DateTime kezdoDatum = mainView.kezdoDatum;
+            DateTime zaroDatum = mainView.zaroDatum;
+            query = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum &&  m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum);
+            LoadData();
+            query_2 = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum).
+                Skip(aktualisLapSzam * 10).Take(10);
+            LoadData_2();
+        }
+        public void getEladasDatum(int aktualisLapSzam)
+        {
+
+            DateTime kezdoDatum = mainView.kezdoDatum;
+            DateTime zaroDatum = mainView.zaroDatum;
+            query = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum);
+            LoadData();
+            query_2 = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum).
+                Skip(aktualisLapSzam * 10).Take(10);
+            LoadData_2();
         }
     }
 }
