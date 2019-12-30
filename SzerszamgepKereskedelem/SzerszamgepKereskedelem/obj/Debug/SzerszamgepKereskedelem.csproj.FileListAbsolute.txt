@@ -1,13 +1,15 @@
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csprojAssemblyReference.cache
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Properties.Resources.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.AddWindow.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.Login.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.MainWindow.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.ModifyWindow.resources
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csproj.GenerateResource.cache
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csproj.CoreCompileInputs.cache
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.exe
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.pdb
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\SzerszamgepKereskedelem.exe.config
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\SzerszamgepKereskedelem.exe
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\SzerszamgepKereskedelem.pdb
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.exe
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.pdb
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.Login.resources
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\EntityFramework.dll
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\MySql.Data.dll
@@ -20,6 +22,4 @@ C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\Szerszamgep
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\MySql.Data.xml
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\MySql.Data.EntityFramework.xml
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csproj.CopyComplete
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.MainWindow.resources
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.ModifyWindow.resources
-C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.AddWindow.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csprojAssemblyReference.cache

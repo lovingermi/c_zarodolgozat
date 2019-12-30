@@ -54,11 +54,15 @@
             this.errorProviderModify = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonLapFel = new System.Windows.Forms.Button();
             this.buttonLapLe = new System.Windows.Forms.Button();
+            this.numericUpDownOldalszam = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxOldalszam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOldalszam)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewMainTable
@@ -345,7 +349,7 @@
             // 
             this.buttonLapFel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLapFel.Image = ((System.Drawing.Image)(resources.GetObject("buttonLapFel.Image")));
-            this.buttonLapFel.Location = new System.Drawing.Point(653, 383);
+            this.buttonLapFel.Location = new System.Drawing.Point(747, 380);
             this.buttonLapFel.Name = "buttonLapFel";
             this.buttonLapFel.Size = new System.Drawing.Size(60, 45);
             this.buttonLapFel.TabIndex = 36;
@@ -356,19 +360,51 @@
             // 
             this.buttonLapLe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLapLe.Image = ((System.Drawing.Image)(resources.GetObject("buttonLapLe.Image")));
-            this.buttonLapLe.Location = new System.Drawing.Point(565, 383);
+            this.buttonLapLe.Location = new System.Drawing.Point(519, 380);
             this.buttonLapLe.Name = "buttonLapLe";
             this.buttonLapLe.Size = new System.Drawing.Size(60, 45);
             this.buttonLapLe.TabIndex = 37;
             this.buttonLapLe.UseVisualStyleBackColor = true;
             this.buttonLapLe.Click += new System.EventHandler(this.buttonLapLe_Click);
             // 
+            // numericUpDownOldalszam
+            // 
+            this.numericUpDownOldalszam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDownOldalszam.Location = new System.Drawing.Point(605, 389);
+            this.numericUpDownOldalszam.Name = "numericUpDownOldalszam";
+            this.numericUpDownOldalszam.Size = new System.Drawing.Size(48, 26);
+            this.numericUpDownOldalszam.TabIndex = 38;
+            this.numericUpDownOldalszam.ValueChanged += new System.EventHandler(this.numericUpDownOldalszam_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(659, 389);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 26);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "/";
+            // 
+            // textBoxOldalszam
+            // 
+            this.textBoxOldalszam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxOldalszam.Location = new System.Drawing.Point(684, 390);
+            this.textBoxOldalszam.Name = "textBoxOldalszam";
+            this.textBoxOldalszam.ReadOnly = true;
+            this.textBoxOldalszam.Size = new System.Drawing.Size(48, 26);
+            this.textBoxOldalszam.TabIndex = 40;
+            this.textBoxOldalszam.Text = " ";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1375, 663);
+            this.ClientSize = new System.Drawing.Size(1375, 670);
+            this.Controls.Add(this.textBoxOldalszam);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numericUpDownOldalszam);
             this.Controls.Add(this.buttonLapLe);
             this.Controls.Add(this.buttonLapFel);
             this.Controls.Add(this.panel1);
@@ -388,6 +424,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOldalszam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,5 +456,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonLapFel;
         private System.Windows.Forms.Button buttonLapLe;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDownOldalszam;
+        private System.Windows.Forms.TextBox textBoxOldalszam;
     }
 }

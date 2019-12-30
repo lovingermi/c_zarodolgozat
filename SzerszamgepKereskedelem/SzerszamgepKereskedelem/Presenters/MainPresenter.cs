@@ -55,48 +55,21 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void LoadData()
         {
-            //dataTableFoTabla.Clear();
             db = new szerszamgepContext();
             double sorok = 0;
-            foreach (megrendeles megrendeles in query) //.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!! db.megrendeles
+            foreach (megrendeles megrendeles in query) //Az aktuális lekérdezés sorainak megszámolása
             {
-
                 sorok++;
-
-               /* gepek gep =gepRepository.getGepById(megrendeles.gep_Id);
-                vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
-                beszerzesek beszerzes = beszerzesRepository.getBeszerzesById(megrendeles.beszerzes_Id);
-                eladasok eladas = eladasRepository.getEladasById(megrendeles.eladas_Id);
-                dataTableFoTabla.Rows.Add(
-                    megrendeles.id,
-                    gep.cikkszam,
-                    gep.megnevezes,
-                    vevo.nev,
-                    beszerzes.datum,
-                    beszerzes.beszerzes_Tipus,
-                    beszerzes.EKAR_Szam,
-                    beszerzes.szamlaUresE(beszerzes),
-                    beszerzes.vamUresE(beszerzes),
-                    beszerzes.fuvarUresE(beszerzes),
-                    beszerzes.cmrUresE(beszerzes),
-                    eladas.datum,
-                    eladas.tipus,
-                    eladas.szamlaszam,
-                    eladas.EKAR_Szam);*/
             }
-            double lapok = Math.Ceiling(sorok / 10);
-            mainView.lapok = Convert.ToInt32(lapok);
+            double lapok = Math.Ceiling(sorok / 10);//A sorok alapján oldalakra bontás (tizessével) és felkerekítés (8 sor = 1 oldal).
+            mainView.lapok = Convert.ToInt32(lapok);// Main form felé elküldeve a lapok száma
             LoadData_2();
-           // mainView.dataTableFoTabla = dataTableFoTabla;
         }
         public void LoadData_2()
         {
             dataTableFoTabla.Clear();
-            foreach (megrendeles megrendeles in query_2) //.OrderBy(x => x.id).Skip(10).Take(10) gombhoz!!! db.megrendeles
+            foreach (megrendeles megrendeles in query_2) //Az aktuális lekérdezés oldalakra bontott megjelenítése .Skip(aktualisLapSzam * 10).Take(10);
             {
-
-                
-
                 gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
                 vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
                 beszerzesek beszerzes = beszerzesRepository.getBeszerzesById(megrendeles.beszerzes_Id);

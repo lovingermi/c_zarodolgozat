@@ -15,6 +15,6 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         DateTime kezdoDatum { get; }
         DateTime zaroDatum { get; }
         int lapok { set; }
-        int aktualisLap { get; }
+        
     }
 }
