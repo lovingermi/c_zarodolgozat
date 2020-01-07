@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelEladas = new System.Windows.Forms.Panel();
+            this.textBoxEladasDatum = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxEladasEKARSzam = new System.Windows.Forms.TextBox();
             this.comboBoxEladasTipus = new System.Windows.Forms.ComboBox();
@@ -85,12 +88,12 @@
             this.textBoxVevoNev = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSaveAndClose = new System.Windows.Forms.Button();
-            this.textBoxEladasDatum = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
+            this.errorProviderCikkszam = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelEladas.SuspendLayout();
             this.panelBeszerzes.SuspendLayout();
             this.panelGepek.SuspendLayout();
             this.panelVevo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCikkszam)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEladas
@@ -112,6 +115,25 @@
             this.panelEladas.Name = "panelEladas";
             this.panelEladas.Size = new System.Drawing.Size(433, 313);
             this.panelEladas.TabIndex = 32;
+            // 
+            // textBoxEladasDatum
+            // 
+            this.textBoxEladasDatum.Location = new System.Drawing.Point(278, 67);
+            this.textBoxEladasDatum.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEladasDatum.Name = "textBoxEladasDatum";
+            this.textBoxEladasDatum.ReadOnly = true;
+            this.textBoxEladasDatum.Size = new System.Drawing.Size(143, 20);
+            this.textBoxEladasDatum.TabIndex = 34;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(304, 48);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(93, 13);
+            this.label23.TabIndex = 33;
+            this.label23.Text = "Kiválasztott dátum";
             // 
             // label21
             // 
@@ -688,24 +710,9 @@
             this.buttonSaveAndClose.UseVisualStyleBackColor = true;
             this.buttonSaveAndClose.Click += new System.EventHandler(this.buttonSaveAndClose_Click);
             // 
-            // textBoxEladasDatum
+            // errorProviderCikkszam
             // 
-            this.textBoxEladasDatum.Location = new System.Drawing.Point(278, 67);
-            this.textBoxEladasDatum.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxEladasDatum.Name = "textBoxEladasDatum";
-            this.textBoxEladasDatum.ReadOnly = true;
-            this.textBoxEladasDatum.Size = new System.Drawing.Size(143, 20);
-            this.textBoxEladasDatum.TabIndex = 34;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(304, 48);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(93, 13);
-            this.label23.TabIndex = 33;
-            this.label23.Text = "Kiválasztott dátum";
+            this.errorProviderCikkszam.ContainerControl = this;
             // 
             // ModifyWindow
             // 
@@ -729,6 +736,7 @@
             this.panelGepek.PerformLayout();
             this.panelVevo.ResumeLayout(false);
             this.panelVevo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCikkszam)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -794,5 +802,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBoxEladasDatum;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ErrorProvider errorProviderCikkszam;
     }
 }

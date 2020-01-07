@@ -16,11 +16,11 @@ namespace SzerszamgepKereskedelem.Views
     {
         private ModifyPresenter modifyPresenter;
         
-        public ModifyWindow(int id)
+        public ModifyWindow(string cikkszam)
         {
             InitializeComponent();
             modifyPresenter = new ModifyPresenter(this);
-            modifyPresenter.ModifyMegrendeles(id);
+            modifyPresenter.ModifyMegrendeles(cikkszam);
         }
         public string gepCikkszam
         {
@@ -361,8 +361,16 @@ namespace SzerszamgepKereskedelem.Views
 
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
-            modifyPresenter.saveModify();
-            DialogResult = DialogResult.OK;
+            errorProviderCikkszam.Clear();
+            try
+            {
+                modifyPresenter.saveModify();
+                DialogResult = DialogResult.OK;
+            }
+            catch(ModifyPresenterException mpe)
+            {
+                errorProviderCikkszam.SetError(textBoxGepCikkszam, mpe.Message);
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

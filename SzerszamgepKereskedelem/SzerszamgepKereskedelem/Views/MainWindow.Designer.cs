@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonAddProjekt = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -50,34 +49,21 @@
             this.comboBoxKeres = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.kilépésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kilepesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProviderModify = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonLapFel = new System.Windows.Forms.Button();
             this.buttonLapLe = new System.Windows.Forms.Button();
             this.numericUpDownOldalszam = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxOldalszam = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).BeginInit();
+            this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOldalszam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewMainTable
-            // 
-            this.dataGridViewMainTable.AllowUserToAddRows = false;
-            this.dataGridViewMainTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridViewMainTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMainTable.Location = new System.Drawing.Point(12, 31);
-            this.dataGridViewMainTable.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridViewMainTable.MultiSelect = false;
-            this.dataGridViewMainTable.Name = "dataGridViewMainTable";
-            this.dataGridViewMainTable.ReadOnly = true;
-            this.dataGridViewMainTable.RowTemplate.Height = 24;
-            this.dataGridViewMainTable.Size = new System.Drawing.Size(1333, 334);
-            this.dataGridViewMainTable.TabIndex = 1;
             // 
             // buttonModify
             // 
@@ -86,7 +72,7 @@
             this.buttonModify.ForeColor = System.Drawing.Color.Black;
             this.buttonModify.Image = ((System.Drawing.Image)(resources.GetObject("buttonModify.Image")));
             this.buttonModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModify.Location = new System.Drawing.Point(22, 101);
+            this.buttonModify.Location = new System.Drawing.Point(439, 110);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonModify.Size = new System.Drawing.Size(155, 44);
@@ -104,7 +90,7 @@
             this.buttonAddProjekt.ForeColor = System.Drawing.Color.Black;
             this.buttonAddProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProjekt.Image")));
             this.buttonAddProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProjekt.Location = new System.Drawing.Point(22, 48);
+            this.buttonAddProjekt.Location = new System.Drawing.Point(439, 57);
             this.buttonAddProjekt.Name = "buttonAddProjekt";
             this.buttonAddProjekt.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddProjekt.Size = new System.Drawing.Size(155, 45);
@@ -121,7 +107,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.Black;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(22, 151);
+            this.buttonDelete.Location = new System.Drawing.Point(439, 160);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(155, 44);
@@ -138,10 +124,10 @@
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
             this.buttonExit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit.Image")));
             this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(1195, 579);
+            this.buttonExit.Location = new System.Drawing.Point(609, 158);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonExit.Size = new System.Drawing.Size(168, 44);
+            this.buttonExit.Size = new System.Drawing.Size(155, 44);
             this.buttonExit.TabIndex = 30;
             this.buttonExit.Text = "Kilépés";
             this.buttonExit.UseCompatibleTextRendering = true;
@@ -155,7 +141,7 @@
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
             this.buttonPrint.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrint.Image")));
             this.buttonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPrint.Location = new System.Drawing.Point(193, 150);
+            this.buttonPrint.Location = new System.Drawing.Point(609, 107);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrint.Size = new System.Drawing.Size(155, 45);
@@ -172,7 +158,7 @@
             this.buttonSaveToFile.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveToFile.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveToFile.Image")));
             this.buttonSaveToFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveToFile.Location = new System.Drawing.Point(193, 100);
+            this.buttonSaveToFile.Location = new System.Drawing.Point(609, 57);
             this.buttonSaveToFile.Name = "buttonSaveToFile";
             this.buttonSaveToFile.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.buttonSaveToFile.Size = new System.Drawing.Size(155, 45);
@@ -193,10 +179,11 @@
             this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Controls.Add(this.buttonModify);
             this.panel1.Controls.Add(this.buttonAddProjekt);
+            this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.buttonDelete);
-            this.panel1.Location = new System.Drawing.Point(12, 446);
+            this.panel1.Location = new System.Drawing.Point(571, 450);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(958, 220);
+            this.panel1.Size = new System.Drawing.Size(781, 220);
             this.panel1.TabIndex = 34;
             // 
             // panel2
@@ -212,9 +199,9 @@
             this.panel2.Controls.Add(this.dateTimePickerTol);
             this.panel2.Controls.Add(this.textBoxKeres);
             this.panel2.Controls.Add(this.comboBoxKeres);
-            this.panel2.Location = new System.Drawing.Point(415, 48);
+            this.panel2.Location = new System.Drawing.Point(11, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(398, 151);
+            this.panel2.Size = new System.Drawing.Size(398, 145);
             this.panel2.TabIndex = 35;
             // 
             // label5
@@ -231,7 +218,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(29, 78);
+            this.label4.Location = new System.Drawing.Point(29, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 44;
@@ -319,7 +306,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Gainsboro;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(578, 15);
+            this.label1.Location = new System.Drawing.Point(172, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 36;
@@ -328,18 +315,18 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kilépésToolStripMenuItem});
+            this.kilepesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1375, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1364, 24);
             this.menuStrip1.TabIndex = 35;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // kilépésToolStripMenuItem
+            // kilepesToolStripMenuItem
             // 
-            this.kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
-            this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.kilépésToolStripMenuItem.Text = "Kilépés";
+            this.kilepesToolStripMenuItem.Name = "kilepesToolStripMenuItem";
+            this.kilepesToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.kilepesToolStripMenuItem.Text = "Kilépés";
             // 
             // errorProviderModify
             // 
@@ -349,9 +336,9 @@
             // 
             this.buttonLapFel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLapFel.Image = ((System.Drawing.Image)(resources.GetObject("buttonLapFel.Image")));
-            this.buttonLapFel.Location = new System.Drawing.Point(747, 380);
+            this.buttonLapFel.Location = new System.Drawing.Point(804, 378);
             this.buttonLapFel.Name = "buttonLapFel";
-            this.buttonLapFel.Size = new System.Drawing.Size(60, 45);
+            this.buttonLapFel.Size = new System.Drawing.Size(50, 40);
             this.buttonLapFel.TabIndex = 36;
             this.buttonLapFel.UseVisualStyleBackColor = true;
             this.buttonLapFel.Click += new System.EventHandler(this.buttonLapFel_Click);
@@ -360,9 +347,9 @@
             // 
             this.buttonLapLe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLapLe.Image = ((System.Drawing.Image)(resources.GetObject("buttonLapLe.Image")));
-            this.buttonLapLe.Location = new System.Drawing.Point(519, 380);
+            this.buttonLapLe.Location = new System.Drawing.Point(593, 378);
             this.buttonLapLe.Name = "buttonLapLe";
-            this.buttonLapLe.Size = new System.Drawing.Size(60, 45);
+            this.buttonLapLe.Size = new System.Drawing.Size(50, 40);
             this.buttonLapLe.TabIndex = 37;
             this.buttonLapLe.UseVisualStyleBackColor = true;
             this.buttonLapLe.Click += new System.EventHandler(this.buttonLapLe_Click);
@@ -370,7 +357,7 @@
             // numericUpDownOldalszam
             // 
             this.numericUpDownOldalszam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDownOldalszam.Location = new System.Drawing.Point(605, 389);
+            this.numericUpDownOldalszam.Location = new System.Drawing.Point(662, 387);
             this.numericUpDownOldalszam.Name = "numericUpDownOldalszam";
             this.numericUpDownOldalszam.Size = new System.Drawing.Size(48, 26);
             this.numericUpDownOldalszam.TabIndex = 38;
@@ -380,7 +367,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(659, 389);
+            this.label6.Location = new System.Drawing.Point(716, 387);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 26);
             this.label6.TabIndex = 39;
@@ -389,34 +376,49 @@
             // textBoxOldalszam
             // 
             this.textBoxOldalszam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxOldalszam.Location = new System.Drawing.Point(684, 390);
+            this.textBoxOldalszam.Location = new System.Drawing.Point(741, 388);
             this.textBoxOldalszam.Name = "textBoxOldalszam";
             this.textBoxOldalszam.ReadOnly = true;
             this.textBoxOldalszam.Size = new System.Drawing.Size(48, 26);
             this.textBoxOldalszam.TabIndex = 40;
             this.textBoxOldalszam.Text = " ";
             // 
+            // dataGridViewMainTable
+            // 
+            this.dataGridViewMainTable.AllowUserToAddRows = false;
+            this.dataGridViewMainTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewMainTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMainTable.Location = new System.Drawing.Point(12, 31);
+            this.dataGridViewMainTable.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewMainTable.MultiSelect = false;
+            this.dataGridViewMainTable.Name = "dataGridViewMainTable";
+            this.dataGridViewMainTable.ReadOnly = true;
+            this.dataGridViewMainTable.RowTemplate.Height = 24;
+            this.dataGridViewMainTable.Size = new System.Drawing.Size(1333, 334);
+            this.dataGridViewMainTable.TabIndex = 1;
+            this.dataGridViewMainTable.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMainTable_RowPostPaint);
+            this.dataGridViewMainTable.Sorted += new System.EventHandler(this.dataGridViewMainTable_Sorted);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1375, 670);
+            this.ClientSize = new System.Drawing.Size(1364, 879);
             this.Controls.Add(this.textBoxOldalszam);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.numericUpDownOldalszam);
             this.Controls.Add(this.buttonLapLe);
             this.Controls.Add(this.buttonLapFel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewMainTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainWindow";
+            this.Text = "Szerszámgépek";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -425,14 +427,13 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOldalszam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewMainTable;
         private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonAddProjekt;
         private System.Windows.Forms.Button buttonDelete;
@@ -445,7 +446,7 @@
         private System.Windows.Forms.ComboBox comboBoxKeres;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem kilépésToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kilepesToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProviderModify;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -454,10 +455,11 @@
         private System.Windows.Forms.Button buttonKeres;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button buttonLapFel;
-        private System.Windows.Forms.Button buttonLapLe;
+        private System.Windows.Forms.TextBox textBoxOldalszam;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDownOldalszam;
-        private System.Windows.Forms.TextBox textBoxOldalszam;
+        private System.Windows.Forms.Button buttonLapLe;
+        private System.Windows.Forms.Button buttonLapFel;
+        private System.Windows.Forms.DataGridView dataGridViewMainTable;
     }
 }

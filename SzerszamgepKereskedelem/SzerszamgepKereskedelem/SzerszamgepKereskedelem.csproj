@@ -109,15 +109,23 @@
     </Compile>
     <Compile Include="Models\Partials\megrendeles_Partial.cs" />
     <Compile Include="Presenters\AddPresenter.cs" />
+    <Compile Include="Presenters\AddPresenterException.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\ModifyPresenter.cs" />
+    <Compile Include="Presenters\ModifyPresenterException.cs" />
+    <Compile Include="Presenters\VevoPresenter.cs" />
+    <Compile Include="Presenters\VevoPresenterException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BeszerzesRepository.cs" />
     <Compile Include="Repositories\EladasRepository.cs" />
     <Compile Include="Repositories\GepRepository.cs" />
     <Compile Include="Repositories\VevoRepository.cs" />
+    <Compile Include="Validations\CikkszamValidation.cs" />
+    <Compile Include="Validations\CikkszamValidationException.cs" />
+    <Compile Include="Validations\VevoNevValidation.cs" />
+    <Compile Include="Validations\VevoNevValidationException.cs" />
     <Compile Include="ViewInterfaces\IAddView.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IMainView.cs" />

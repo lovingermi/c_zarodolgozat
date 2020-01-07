@@ -37,6 +37,7 @@ namespace SzerszamgepKereskedelem.Repositories
         {
             db = new szerszamgepContext();
             vevokLista = db.vevok.ToList();
+            vevoNevLista.Clear();
             foreach (var item in vevokLista)
             {
                 if (item.nev != "")

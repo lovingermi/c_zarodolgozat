@@ -19,49 +19,49 @@ namespace SzerszamgepKereskedelem.Models
             fuvar = pFuvar;
             CMR = pCMR;
         }
-        public bool szamlaUresE(beszerzesek beszerzes)
+        public string szamlaUresE(beszerzesek beszerzes)
         {
             if (string.IsNullOrEmpty(beszerzes.szamla))
             {
-                return false;
+                return "\u2718";
             }
             else
             {
-                return true;
+                return "\u2713";
             }
         }
-        public bool vamUresE(beszerzesek beszerzes)
+        public string vamUresE(beszerzesek beszerzes)
         {
             if (string.IsNullOrEmpty(beszerzes.VAM))
             {
-                return false;
+                return "\u2718";
             }
             else
             {
-                return true;
+                return "\u2713";
             }
         }
-        public bool fuvarUresE(beszerzesek beszerzes)
+        public string fuvarUresE(beszerzesek beszerzes)
         {
             if (string.IsNullOrEmpty(beszerzes.fuvar))
             {
-                return false;
+                return "\u2718";
             }
             else
             {
-                return true;
+                return "\u2713";
             }
         }
-        public bool cmrUresE(beszerzesek beszerzes)
+        public string cmrUresE(beszerzesek beszerzes)
         {
             if (string.IsNullOrEmpty(beszerzes.CMR))
             {
-                return false;
+                return "\u2718";
             }
             else
 
             {
-                return true;
+                return "\u2713";
             }
 
         }

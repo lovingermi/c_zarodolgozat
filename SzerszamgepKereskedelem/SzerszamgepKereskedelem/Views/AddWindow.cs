@@ -16,10 +16,14 @@ namespace SzerszamgepKereskedelem.Views
     public partial class AddWindow : Form, IAddView
     {
         private AddPresenter addPresenter;
+        private VevoPresenter vevoPresenter;
+        private bool vevoAdd;
+        private bool vevoModify;
         public AddWindow()
         {
             InitializeComponent();
             addPresenter = new AddPresenter(this);
+            vevoPresenter = new VevoPresenter(this);
             addPresenter.addMegrendeles();
         }
 
@@ -73,14 +77,26 @@ namespace SzerszamgepKereskedelem.Views
 
         public List<string> vevok
         {
+
             set
             {
                 comboBoxVevoNevLista.DataSource = value;
             }
         }
-
+        public string selectedVevo
+        {
+            set
+            {
+                comboBoxVevoNevLista.Text=value;
+            }
+        }
         public string vevoNev
         {
+            get
+            {
+                return textBoxVevoNev.Text;
+            }
+
             set
             {
                 textBoxVevoNev.Text = value;
@@ -88,6 +104,10 @@ namespace SzerszamgepKereskedelem.Views
         }
         public string vevoOrszag
         {
+            get
+            {
+                return textBoxVevoOrszag.Text;
+            }
             set
             {
                 textBoxVevoOrszag.Text = value;
@@ -95,6 +115,10 @@ namespace SzerszamgepKereskedelem.Views
         }
         public string vevoTelepules
         {
+            get
+            {
+                return textBoxVevoTelepules.Text;
+            }
             set
             {
                 textBoxVevoTelepules.Text = value;
@@ -218,18 +242,43 @@ namespace SzerszamgepKereskedelem.Views
 
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
-            addPresenter.saveMegrendeles();
-            DialogResult = DialogResult.OK;
+
+            if (vevoAdd || vevoModify)
+            {
+
+                errorProviderVevoAdd.SetError(buttonVevoSave, "A vevő adatok módosításai nem lettek elmentve!");
+            }
+            else
+            {
+                try
+                {
+                    addPresenter.saveMegrendeles();
+                    DialogResult = DialogResult.OK;
+                }
+                catch (AddPresenterException ape)
+                {
+                    errorProviderCikkszam.SetError(textBoxGepCikkszam, ape.Message);
+                }
+            }
+            
         }
         private void comboBoxVevoNevLista_SelectedValueChanged(object sender, EventArgs e)
         {
+            errorProviderVevoModify.Clear();
             string vevoNev = comboBoxVevoNevLista.Text;
             addPresenter.GetVevoFromNevLista(vevoNev);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            if (vevoAdd || vevoModify)
+            {
+                errorProviderVevoAdd.SetError(buttonVevoSave, "A vevő adatok módosításai nem lettek elmentve!");
+            }
+            else
+            {
+                DialogResult = DialogResult.Cancel;
+            }              
         }
 
         private void dateTimePickerBeszerzesDatum_CloseUp(object sender, EventArgs e)
@@ -265,6 +314,108 @@ namespace SzerszamgepKereskedelem.Views
             {
                 textBoxTipus.Text = "";
             }
+        }
+
+        private void buttonVevoModify_Click(object sender, EventArgs e)
+        {
+            errorProviderVevoModify.Clear();
+            if (comboBoxVevoNevLista.SelectedIndex != 0)
+            {
+                textBoxVevoNev.ReadOnly = false;
+                textBoxVevoOrszag.ReadOnly = false;
+                textBoxVevoTelepules.ReadOnly = false;
+            }
+            else
+            {
+                errorProviderVevoModify.SetError(comboBoxVevoNevLista, "Nincs kiválasztva vevő!");
+            }
+        }
+
+        private void buttonVevoCancel_Click(object sender, EventArgs e)
+        {
+            errorProviderVevoModify.Clear();
+            errorProviderVevoAdd.Clear();
+            textBoxVevoNev.ReadOnly = true;
+            textBoxVevoOrszag.ReadOnly = true;
+            textBoxVevoTelepules.ReadOnly = true;
+            vevoModify = false;
+            vevoAdd = false;
+        }
+
+        private void buttonVevoAdd_Click(object sender, EventArgs e)
+        {
+            vevoAdd = true;
+            textBoxVevoNev.ReadOnly = false;
+            textBoxVevoOrszag.ReadOnly = false;
+            textBoxVevoTelepules.ReadOnly = false;
+            textBoxVevoNev.Text = "";
+            textBoxVevoOrszag.Text = "";
+            textBoxVevoTelepules.Text = "";
+            comboBoxVevoNevLista.SelectedIndex = 0;
+
+        }
+
+        private void buttonVevoDelete_Click(object sender, EventArgs e)
+        {
+            errorProviderVevoModify.Clear();
+            if (comboBoxVevoNevLista.SelectedIndex != 0)
+            {
+                DialogResult myResult;
+                myResult = MessageBox.Show("Biztos törli a kiválasztott vevőt?"+"\n"+textBoxVevoNev.Text, "Törlés megerősítés", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (myResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        vevoPresenter.DeleteVevo(textBoxVevoNev.Text);
+                        comboBoxVevoNevLista.SelectedIndex = 0;
+                    }
+                    catch (VevoPresenterException vpe)
+                    {
+                        errorProviderVevoModify.SetError(buttonVevoDelete, vpe.Message);
+                    }
+                }
+                else
+                {
+                    //No delete
+                }
+            }
+            else
+            {
+                errorProviderVevoModify.SetError(comboBoxVevoNevLista, "Nincs kiválasztva vevő!");
+            }
+        }
+
+        private void AddWindow_Load(object sender, EventArgs e)
+        {
+            vevoAdd = false;
+            vevoModify = false;
+        }
+
+        private void buttonVevoSave_Click(object sender, EventArgs e)
+        {
+            errorProviderVevoModify.Clear();
+            errorProviderVevoAdd.Clear();
+            if (vevoAdd)
+            {
+                try
+                {
+                    vevoPresenter.AddVevo();
+                    vevoAdd = false;
+                    textBoxVevoNev.ReadOnly = true;
+                    textBoxVevoOrszag.ReadOnly = true;
+                    textBoxVevoTelepules.ReadOnly = true;
+                }
+                catch (VevoPresenterException vpe)
+                {
+                    errorProviderVevoAdd.SetError(textBoxVevoNev, vpe.Message);
+                }
+            }
+            if (vevoModify)
+            {
+
+            }
+            vevoAdd = false;
+            vevoModify = false;
         }
     }
 }

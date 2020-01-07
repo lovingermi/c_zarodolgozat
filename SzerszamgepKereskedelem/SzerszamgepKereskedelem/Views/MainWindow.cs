@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SzerszamgepKereskedelem.Models;
 using SzerszamgepKereskedelem.Presenters;
 using SzerszamgepKereskedelem.ViewInterfaces;
 
@@ -32,6 +31,7 @@ namespace SzerszamgepKereskedelem.Views
             {
                 dataGridViewMainTable.DataSource = value;
                 emptyCells();
+                dataGridViewMainTable.ClearSelection();
             }
         }
 
@@ -80,26 +80,25 @@ namespace SzerszamgepKereskedelem.Views
         }
         private void TableColumnsAndFontSetup()
         {
-
-            // dataGridViewMainTable.DefaultCellStyle.ForeColor = Color.Blue;
-            //dataGridViewMainTable.DefaultCellStyle.BackColor = Color.Beige;
-            //dataGridViewMainTable.RowTemplate.Resizable = DataGridViewTriState.True;
+            dataGridViewMainTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewMainTable.RowTemplate.MinimumHeight = 30;
-            dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
-            dataGridViewMainTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewMainTable.DefaultCellStyle.SelectionForeColor = Color.Black;  
+            dataGridViewMainTable.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#e5e7e9");// ColorTranslator.FromHtml(" #1e7bd1");//#4c6cf3
 
+
+            dataGridViewMainTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
 
             dataGridViewMainTable.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml(" #d6eaf8 ");//("#9CFABD");
             dataGridViewMainTable.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml( "#aed6f1 ");//("#DFEFE5");
 
-            dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSlateGray;
+            dataGridViewMainTable.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSlateBlue;
             dataGridViewMainTable.EnableHeadersVisualStyles = false;
             dataGridViewMainTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            //dataGridViewMainTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewMainTable.RowHeadersVisible = false;
 
             dataGridViewMainTable.Columns[0].Width = 50;
+
             dataGridViewMainTable.Columns[0].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewMainTable.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -137,18 +136,26 @@ namespace SzerszamgepKereskedelem.Views
             dataGridViewMainTable.Columns[7].Width = 50;
             dataGridViewMainTable.Columns[7].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[7].DefaultCellStyle.Font= new Font("Segoe UI", 14, FontStyle.Bold );
 
             dataGridViewMainTable.Columns[8].Width = 50;
             dataGridViewMainTable.Columns[8].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[8].DefaultCellStyle.Font = new Font("Segoe UI", 14, FontStyle.Bold);
 
             dataGridViewMainTable.Columns[9].Width = 50;
             dataGridViewMainTable.Columns[9].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[9].DefaultCellStyle.Font = new Font("Segoe UI", 14, FontStyle.Bold);
 
             dataGridViewMainTable.Columns[10].Width = 50;
             dataGridViewMainTable.Columns[10].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
             dataGridViewMainTable.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMainTable.Columns[10].DefaultCellStyle.Font = new Font("Segoe UI", 14, FontStyle.Bold);
 
             dataGridViewMainTable.Columns[11].Width = 80;
             dataGridViewMainTable.Columns[11].HeaderCell.Style.Font = new Font("Verdana", 8, FontStyle.Bold);
@@ -182,13 +189,14 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
-            int id = getSelectedMegrendelesId();
-            if (id > -1)
+            string cikkszam = getSelectedMegrendelesCikkszam();
+            if (cikkszam!=string.Empty)
             {
-                ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesId());
+                ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesCikkszam());
                 if (modifywindow.ShowDialog() == DialogResult.OK)
                 {
                     mainPresenter.LoadData();
+                    getListak();
                 }
             }
             else
@@ -199,11 +207,20 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             errorProviderModify.Clear();
-            int id = getSelectedMegrendelesId();
-            if (id > -1)
+            string cikkszam = getSelectedMegrendelesCikkszam();
+            if (cikkszam != string.Empty)
             {
-                mainPresenter.DeleteMegrendeles(getSelectedMegrendelesId());
-                dataGridViewMainTable.ClearSelection();
+                DialogResult myResult;//Törlés megerősítés
+                myResult = MessageBox.Show("Biztos törli a kijelölt megrendelést?" + "\n"+"Cikszám: "+cikkszam , "Törlés megerősítés", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (myResult == DialogResult.OK)
+                {
+                    mainPresenter.DeleteMegrendeles(getSelectedMegrendelesCikkszam());
+                }
+                else
+                {
+                    //No delete
+                }
+
             }
             else
             {
@@ -211,7 +228,7 @@ namespace SzerszamgepKereskedelem.Views
             }
             
         }
-        private int getSelectedMegrendelesId()
+        private string getSelectedMegrendelesCikkszam()
         {
             errorProviderModify.Clear();
             int selectedRowIndex;
@@ -219,43 +236,66 @@ namespace SzerszamgepKereskedelem.Views
             {
                 selectedRowIndex = dataGridViewMainTable.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridViewMainTable.Rows[selectedRowIndex];
-                int megrenelesId = Convert.ToInt32(selectedRow.Cells[0].Value);
-                return megrenelesId;
+                string megrenelesCikkszam =(selectedRow.Cells[1].Value).ToString();
+                return megrenelesCikkszam;
             }
             catch (Exception)
             {
-                return -1;
+                return string.Empty;
             }
             
         }
+ 
         private void emptyCells()
         {
-            int count = 0;
+            
             foreach (DataGridViewRow row in dataGridViewMainTable.Rows)
             {
-                bool o7 = Convert.ToBoolean(row.Cells[7].Value);
-                bool o8 = Convert.ToBoolean(row.Cells[8].Value);
-                bool o9 = Convert.ToBoolean(row.Cells[9].Value);
-                bool o10 = Convert.ToBoolean(row.Cells[10].Value);
-                if (!o7)
-                {
-                    row.Cells[7].Style.BackColor = Color.Salmon;
 
-                }
-                if (!o8)
+                string o7 = Convert.ToString(row.Cells[7].Value);
+                string o8 = Convert.ToString(row.Cells[8].Value);
+                string o9 = Convert.ToString(row.Cells[9].Value);
+                string o10 = Convert.ToString(row.Cells[10].Value);
+                if (o7 == "\u2713")
                 {
-                    row.Cells[8].Style.BackColor = Color.Salmon;
-
+                    row.Cells[7].Style.ForeColor = Color.Green;
+                    row.Cells[7].Style.SelectionForeColor=Color.Green;
                 }
-                if (!o9)
+                else
                 {
-                    row.Cells[9].Style.BackColor = Color.Salmon;
+                    row.Cells[7].Style.ForeColor = Color.Red;
+                    row.Cells[7].Style.SelectionForeColor = Color.Red;
                 }
-                if (!o10)
+                if (o8 == "\u2713")
                 {
-                    row.Cells[10].Style.BackColor = Color.Salmon;
+                    row.Cells[8].Style.ForeColor = Color.Green;
+                    row.Cells[8].Style.SelectionForeColor = Color.Green;
                 }
-                count++;
+                else
+                {
+                    row.Cells[8].Style.ForeColor = Color.Red;
+                    row.Cells[8].Style.SelectionForeColor = Color.Red;
+                }
+                if (o9 == "\u2713")
+                {
+                    row.Cells[9].Style.ForeColor = Color.Green;
+                    row.Cells[9].Style.SelectionForeColor = Color.Green;
+                }
+                else
+                {
+                    row.Cells[9].Style.ForeColor = Color.Red;
+                    row.Cells[9].Style.SelectionForeColor = Color.Red;
+                }
+                if (o10 == "\u2713")
+                {
+                    row.Cells[10].Style.ForeColor = Color.Green;
+                    row.Cells[10].Style.SelectionForeColor = Color.Green;
+                }
+                else
+                {
+                    row.Cells[10].Style.ForeColor = Color.Red;
+                    row.Cells[10].Style.SelectionForeColor = Color.Red;
+                }
             }
         }
         private void buttonAddProjekt_Click(object sender, EventArgs e)
@@ -331,8 +371,6 @@ namespace SzerszamgepKereskedelem.Views
                 aktualisLapSzam++;
                 numericUpDownOldalszam.Value = aktualisLapSzam+1;
                 getListak();
-
-
             }
         }
 
@@ -385,6 +423,31 @@ namespace SzerszamgepKereskedelem.Views
                 aktualisLapSzam = Convert.ToInt32(numericUpDownOldalszam.Value)-1;
                 getListak();
             }
+        }
+
+        private void dataGridViewMainTable_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (dataGridViewMainTable.Rows[e.RowIndex].Selected)
+            {
+                using (Pen pen = new Pen(Color.Red))
+                {
+                    int penWidth = 2;
+
+                    pen.Width = penWidth;
+
+                    int x = e.RowBounds.Left + (penWidth / 2);
+                    int y = e.RowBounds.Top + (penWidth / 2);
+                    int width = e.RowBounds.Width - penWidth;
+                    int height = e.RowBounds.Height - penWidth;
+
+                    e.Graphics.DrawRectangle(pen, x, y, width, height);
+                }
+            }
+        }
+
+        private void dataGridViewMainTable_Sorted(object sender, EventArgs e)
+        {
+            emptyCells();
         }
     }
 }

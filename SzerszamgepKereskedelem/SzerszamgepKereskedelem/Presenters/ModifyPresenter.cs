@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SzerszamgepKereskedelem.Models;
 using SzerszamgepKereskedelem.Repositories;
+using SzerszamgepKereskedelem.Validations;
 using SzerszamgepKereskedelem.ViewInterfaces;
 
 namespace SzerszamgepKereskedelem.Presenters
@@ -23,16 +24,18 @@ namespace SzerszamgepKereskedelem.Presenters
         private beszerzesek modifyBeszerzes;
         private eladasok modifyEladas;
         private vevok modifyVevo;
+        private CikkszamValidation cikkszamValidation;
         public ModifyPresenter(IModifyView param)
         {
             db = new szerszamgepContext();
             modifyView = param;
         }
         
-        public void ModifyMegrendeles(int id)
+        public void ModifyMegrendeles(string cikkszam)// Kiválasztot megrendeléshez tartozó gép cikkszám
         {
-            modifyMegrendeles = db.megrendeles.Find(id);
-            modifyGep = db.gepek.Find(modifyMegrendeles.gep_Id);
+           
+            modifyGep = db.gepek.SingleOrDefault(m => m.cikkszam.Contains(cikkszam));//Cikkszám alapján gép megkeresése az adatbázisban
+            modifyMegrendeles = db.megrendeles.SingleOrDefault(m => m.gep_Id == modifyGep.id);//Gép id alapján megrendelés megkeresése az adatbázisban
             modifyBeszerzes = db.beszerzesek.Find(modifyMegrendeles.beszerzes_Id);
             modifyEladas = db.eladasok.Find(modifyMegrendeles.eladas_Id);
             modifyVevo = db.vevok.Find(modifyMegrendeles.vevo_Id);
@@ -70,7 +73,17 @@ namespace SzerszamgepKereskedelem.Presenters
         public void saveModify()
         {
             //-----------------gépek------------------
-            modifyGep.cikkszam = modifyView.gepCikkszam;
+            //db = new szerszamgepContext();
+            try
+            {
+                cikkszamValidation = new CikkszamValidation(modifyView.gepCikkszam);//Cikkszám ellenőrzés 
+                cikkszamValidation.cikkszamValidation();
+                modifyGep.cikkszam = modifyView.gepCikkszam;
+            }
+            catch (CikkszamValidationException cve)
+            {
+                throw new ModifyPresenterException(cve.Message);
+            }
             modifyGep.megnevezes = modifyView.gepMegnevezes;
             modifyGep.gyarto = modifyView.selectedGyartoTexbox;
             modifyGep.tipus = modifyView.selectedTipusTexbox;
@@ -122,6 +135,8 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void GetVevoFromNevLista(string vevoNev)
         {
+            //db = new szerszamgepContext();
+            
             vevok selectedVevo = (from v in db.vevok where v.nev == vevoNev select v).FirstOrDefault();
             if (selectedVevo != null)
             {

@@ -27,11 +27,12 @@ namespace SzerszamgepKereskedelem.Presenters
         private IQueryable query_2;
         public MainPresenter(IMainView param)
         {
-            mainView = param;
+            
             db = new szerszamgepContext();
-            CreateDataTable();
+            mainView = param;
             query = db.megrendeles.OrderBy(x => x.id);
             query_2 = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id).Skip(0).Take(10);
+            CreateDataTable();
             LoadData();          
         }
         public void CreateDataTable()
@@ -44,10 +45,10 @@ namespace SzerszamgepKereskedelem.Presenters
             dataTableFoTabla.Columns.Add("Besz. Dátum", typeof(DateTime));
             dataTableFoTabla.Columns.Add("Besz. Típus", typeof(string));
             dataTableFoTabla.Columns.Add("Besz. EKAR szám", typeof(string));
-            dataTableFoTabla.Columns.Add("Számla", typeof(bool));
-            dataTableFoTabla.Columns.Add("Vám", typeof(bool));
-            dataTableFoTabla.Columns.Add("Fuvar", typeof(bool));
-            dataTableFoTabla.Columns.Add("CMR", typeof(bool));
+            dataTableFoTabla.Columns.Add("Számla", typeof(string));
+            dataTableFoTabla.Columns.Add("Vám", typeof(string));
+            dataTableFoTabla.Columns.Add("Fuvar", typeof(string));
+            dataTableFoTabla.Columns.Add("CMR", typeof(string));
             dataTableFoTabla.Columns.Add("El. Dátum", typeof(DateTime));
             dataTableFoTabla.Columns.Add("Eladás típusa", typeof(string));
             dataTableFoTabla.Columns.Add("Számlaszám", typeof(string));
@@ -55,6 +56,7 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void LoadData()
         {
+
             db = new szerszamgepContext();
             double sorok = 0;
             foreach (megrendeles megrendeles in query) //Az aktuális lekérdezés sorainak megszámolása
@@ -65,8 +67,11 @@ namespace SzerszamgepKereskedelem.Presenters
             mainView.lapok = Convert.ToInt32(lapok);// Main form felé elküldeve a lapok száma
             LoadData_2();
         }
+        
         public void LoadData_2()
         {
+            int sorok = 1;
+            
             dataTableFoTabla.Clear();
             foreach (megrendeles megrendeles in query_2) //Az aktuális lekérdezés oldalakra bontott megjelenítése .Skip(aktualisLapSzam * 10).Take(10);
             {
@@ -90,14 +95,17 @@ namespace SzerszamgepKereskedelem.Presenters
                     eladas.tipus,
                     eladas.szamlaszam,
                     eladas.EKAR_Szam);
+                sorok++;
             }
+            
             mainView.dataTableFoTabla = dataTableFoTabla;
         }
-        public void DeleteMegrendeles(int id)
+        public void DeleteMegrendeles(string cikkszam)//Kiválasztott megrendelés gép cikkszám
         {
             db = new szerszamgepContext();
-            var tmegrendeles = db.megrendeles.Find(id);
-            var gep = db.gepek.Find(tmegrendeles.gep_Id);
+
+            var gep = db.gepek.SingleOrDefault(m => m.cikkszam.Contains(cikkszam));//Cikkszám alapján gép megkeresése az adatbázisban
+            var tmegrendeles = db.megrendeles.SingleOrDefault(m => m.gep_Id == gep.id);//Gép id alapján megrendelés megkeresése az adatbázisban
             var beszerzes = db.beszerzesek.Find(tmegrendeles.beszerzes_Id);
             var eladas = db.eladasok.Find(tmegrendeles.eladas_Id);
 
@@ -148,7 +156,6 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void getAlapLista(int aktualisLapSzam)
         {
-
             query = db.megrendeles.OrderBy(x => x.id);
             LoadData();
             query_2 = db.megrendeles.OrderBy(x => x.id).Skip(aktualisLapSzam*10).Take(10);
