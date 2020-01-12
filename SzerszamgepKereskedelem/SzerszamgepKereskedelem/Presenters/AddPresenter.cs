@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,14 +102,19 @@ namespace SzerszamgepKereskedelem.Presenters
 
                 db.SaveChanges();
             }
+            catch (DbUpdateException)
+            {
+                throw new AddPresenterException("Ez a cikkszám már létezik az adatbázisban!");//Még átnézni
+
+            }
             catch (Exception)
             {
-
-                throw;
+                throw new AddPresenterException("Nem sikerült a változásokat elmenteni.");
             }
         }
         public void GetVevoFromNevLista(string vevoNev)
         {
+            db = new szerszamgepContext();
             selectedVevo = (from v in db.vevok where v.nev == vevoNev select v).FirstOrDefault();
             if (selectedVevo != null)
             {
@@ -122,40 +129,5 @@ namespace SzerszamgepKereskedelem.Presenters
                 addView.vevoTelepules = "";
             }
         }
-        /*public void AddVevo()
-        {
-            vevok newVevo;
-            try
-            {
-                vevoNevValidation = new VevoNevValidation(addView.vevoNev);
-                vevoNevValidation.vevoNevValidation();
-                string nev = addView.vevoNev;
-                string orszag = addView.vevoOrszag;
-                string telepules = addView.vevoTelepules;
-                int vevoId = db.vevok.Select(v => v.id).DefaultIfEmpty(0).Max() + 1;
-                newVevo = new vevok(vevoId, nev, orszag, telepules, true);
-
-            }
-            catch (VevoNevValidationException vve)
-            {
-
-                throw new AddPresenterException(vve.Message); ;
-            }
-            db.vevok.Add(newVevo);
-            try
-            {
-                // Adatbázis frissítése
-
-                db.SaveChanges();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            
-            addView.vevok = vevoRepository.getVevoNevLista();
-            addView.selectedVevo = newVevo.nev;
-        }*/
     }    
 }

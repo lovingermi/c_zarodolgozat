@@ -17,8 +17,8 @@ namespace SzerszamgepKereskedelem.Repositories
         {
             
             vevoNevLista = new List<string>();
-            //db = new szerszamgepContext();
-            //vevokLista = db.vevok.ToList();
+            db = new szerszamgepContext();
+            vevokLista = db.vevok.ToList();
         }
         public vevok getVevoById(int vevoId)
         {

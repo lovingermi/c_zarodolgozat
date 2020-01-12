@@ -74,6 +74,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxGepCikkszam = new System.Windows.Forms.TextBox();
             this.panelVevo = new System.Windows.Forms.Panel();
+            this.buttonVevoCancel = new System.Windows.Forms.Button();
+            this.buttonVevoSave = new System.Windows.Forms.Button();
             this.buttonVevoModify = new System.Windows.Forms.Button();
             this.buttonVevoAdd = new System.Windows.Forms.Button();
             this.buttonVevoDelete = new System.Windows.Forms.Button();
@@ -89,11 +91,15 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSaveAndClose = new System.Windows.Forms.Button();
             this.errorProviderCikkszam = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderVevoModify = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderVevoAdd = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelEladas.SuspendLayout();
             this.panelBeszerzes.SuspendLayout();
             this.panelGepek.SuspendLayout();
             this.panelVevo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCikkszam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVevoModify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVevoAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEladas
@@ -556,6 +562,8 @@
             // panelVevo
             // 
             this.panelVevo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelVevo.Controls.Add(this.buttonVevoCancel);
+            this.panelVevo.Controls.Add(this.buttonVevoSave);
             this.panelVevo.Controls.Add(this.buttonVevoModify);
             this.panelVevo.Controls.Add(this.buttonVevoAdd);
             this.panelVevo.Controls.Add(this.buttonVevoDelete);
@@ -574,35 +582,75 @@
             this.panelVevo.Size = new System.Drawing.Size(433, 313);
             this.panelVevo.TabIndex = 30;
             // 
+            // buttonVevoCancel
+            // 
+            this.buttonVevoCancel.BackColor = System.Drawing.Color.White;
+            this.buttonVevoCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonVevoCancel.ForeColor = System.Drawing.Color.Black;
+            this.buttonVevoCancel.Location = new System.Drawing.Point(316, 271);
+            this.buttonVevoCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonVevoCancel.Name = "buttonVevoCancel";
+            this.buttonVevoCancel.Size = new System.Drawing.Size(110, 30);
+            this.buttonVevoCancel.TabIndex = 26;
+            this.buttonVevoCancel.Text = "Mégse";
+            this.buttonVevoCancel.UseVisualStyleBackColor = false;
+            this.buttonVevoCancel.Click += new System.EventHandler(this.buttonVevoCancel_Click);
+            // 
+            // buttonVevoSave
+            // 
+            this.buttonVevoSave.BackColor = System.Drawing.Color.White;
+            this.buttonVevoSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonVevoSave.ForeColor = System.Drawing.Color.Green;
+            this.buttonVevoSave.Location = new System.Drawing.Point(179, 271);
+            this.buttonVevoSave.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonVevoSave.Name = "buttonVevoSave";
+            this.buttonVevoSave.Size = new System.Drawing.Size(110, 30);
+            this.buttonVevoSave.TabIndex = 25;
+            this.buttonVevoSave.Text = "Mentés";
+            this.buttonVevoSave.UseVisualStyleBackColor = false;
+            this.buttonVevoSave.Click += new System.EventHandler(this.buttonVevoSave_Click);
+            // 
             // buttonVevoModify
             // 
-            this.buttonVevoModify.Location = new System.Drawing.Point(307, 256);
+            this.buttonVevoModify.BackColor = System.Drawing.Color.White;
+            this.buttonVevoModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonVevoModify.ForeColor = System.Drawing.Color.Blue;
+            this.buttonVevoModify.Location = new System.Drawing.Point(14, 235);
             this.buttonVevoModify.Margin = new System.Windows.Forms.Padding(2);
             this.buttonVevoModify.Name = "buttonVevoModify";
-            this.buttonVevoModify.Size = new System.Drawing.Size(106, 19);
-            this.buttonVevoModify.TabIndex = 19;
+            this.buttonVevoModify.Size = new System.Drawing.Size(132, 30);
+            this.buttonVevoModify.TabIndex = 24;
             this.buttonVevoModify.Text = "Vevő módosítása";
-            this.buttonVevoModify.UseVisualStyleBackColor = true;
+            this.buttonVevoModify.UseVisualStyleBackColor = false;
+            this.buttonVevoModify.Click += new System.EventHandler(this.buttonVevoModify_Click);
             // 
             // buttonVevoAdd
             // 
-            this.buttonVevoAdd.Location = new System.Drawing.Point(307, 232);
+            this.buttonVevoAdd.BackColor = System.Drawing.Color.White;
+            this.buttonVevoAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonVevoAdd.ForeColor = System.Drawing.Color.Blue;
+            this.buttonVevoAdd.Location = new System.Drawing.Point(14, 199);
             this.buttonVevoAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonVevoAdd.Name = "buttonVevoAdd";
-            this.buttonVevoAdd.Size = new System.Drawing.Size(106, 19);
-            this.buttonVevoAdd.TabIndex = 18;
+            this.buttonVevoAdd.Size = new System.Drawing.Size(132, 30);
+            this.buttonVevoAdd.TabIndex = 23;
             this.buttonVevoAdd.Text = "Vevő hozzáadása";
-            this.buttonVevoAdd.UseVisualStyleBackColor = true;
+            this.buttonVevoAdd.UseVisualStyleBackColor = false;
+            this.buttonVevoAdd.Click += new System.EventHandler(this.buttonVevoAdd_Click);
             // 
             // buttonVevoDelete
             // 
-            this.buttonVevoDelete.Location = new System.Drawing.Point(307, 280);
+            this.buttonVevoDelete.BackColor = System.Drawing.Color.White;
+            this.buttonVevoDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonVevoDelete.ForeColor = System.Drawing.Color.Red;
+            this.buttonVevoDelete.Location = new System.Drawing.Point(14, 271);
             this.buttonVevoDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonVevoDelete.Name = "buttonVevoDelete";
-            this.buttonVevoDelete.Size = new System.Drawing.Size(106, 19);
-            this.buttonVevoDelete.TabIndex = 17;
+            this.buttonVevoDelete.Size = new System.Drawing.Size(132, 30);
+            this.buttonVevoDelete.TabIndex = 22;
             this.buttonVevoDelete.Text = "Vevő törlése";
-            this.buttonVevoDelete.UseVisualStyleBackColor = true;
+            this.buttonVevoDelete.UseVisualStyleBackColor = false;
+            this.buttonVevoDelete.Click += new System.EventHandler(this.buttonVevoDelete_Click);
             // 
             // label10
             // 
@@ -639,6 +687,7 @@
             this.textBoxVevoTelepules.Location = new System.Drawing.Point(16, 169);
             this.textBoxVevoTelepules.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoTelepules.Name = "textBoxVevoTelepules";
+            this.textBoxVevoTelepules.ReadOnly = true;
             this.textBoxVevoTelepules.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoTelepules.TabIndex = 9;
             // 
@@ -657,6 +706,7 @@
             this.textBoxVevoOrszag.Location = new System.Drawing.Point(16, 119);
             this.textBoxVevoOrszag.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoOrszag.Name = "textBoxVevoOrszag";
+            this.textBoxVevoOrszag.ReadOnly = true;
             this.textBoxVevoOrszag.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoOrszag.TabIndex = 7;
             // 
@@ -687,6 +737,7 @@
             this.textBoxVevoNev.Location = new System.Drawing.Point(16, 64);
             this.textBoxVevoNev.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVevoNev.Name = "textBoxVevoNev";
+            this.textBoxVevoNev.ReadOnly = true;
             this.textBoxVevoNev.Size = new System.Drawing.Size(168, 20);
             this.textBoxVevoNev.TabIndex = 1;
             // 
@@ -714,6 +765,14 @@
             // 
             this.errorProviderCikkszam.ContainerControl = this;
             // 
+            // errorProviderVevoModify
+            // 
+            this.errorProviderVevoModify.ContainerControl = this;
+            // 
+            // errorProviderVevoAdd
+            // 
+            this.errorProviderVevoAdd.ContainerControl = this;
+            // 
             // ModifyWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,7 +786,7 @@
             this.Controls.Add(this.panelVevo);
             this.Name = "ModifyWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModifyWindow";
+            this.Text = "Megrendelés módosítása";
             this.panelEladas.ResumeLayout(false);
             this.panelEladas.PerformLayout();
             this.panelBeszerzes.ResumeLayout(false);
@@ -737,6 +796,8 @@
             this.panelVevo.ResumeLayout(false);
             this.panelVevo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCikkszam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVevoModify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderVevoAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -780,9 +841,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxGepCikkszam;
         private System.Windows.Forms.Panel panelVevo;
-        private System.Windows.Forms.Button buttonVevoModify;
-        private System.Windows.Forms.Button buttonVevoAdd;
-        private System.Windows.Forms.Button buttonVevoDelete;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBoxVevoNevLista;
         private System.Windows.Forms.Label label9;
@@ -803,5 +861,12 @@
         private System.Windows.Forms.TextBox textBoxEladasDatum;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ErrorProvider errorProviderCikkszam;
+        private System.Windows.Forms.Button buttonVevoCancel;
+        private System.Windows.Forms.Button buttonVevoSave;
+        private System.Windows.Forms.Button buttonVevoModify;
+        private System.Windows.Forms.Button buttonVevoAdd;
+        private System.Windows.Forms.Button buttonVevoDelete;
+        private System.Windows.Forms.ErrorProvider errorProviderVevoModify;
+        private System.Windows.Forms.ErrorProvider errorProviderVevoAdd;
     }
 }

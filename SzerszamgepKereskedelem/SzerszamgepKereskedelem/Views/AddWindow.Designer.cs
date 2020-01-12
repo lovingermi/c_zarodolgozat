@@ -74,6 +74,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxGepCikkszam = new System.Windows.Forms.TextBox();
             this.panelVevo = new System.Windows.Forms.Panel();
+            this.buttonVevoCancel = new System.Windows.Forms.Button();
             this.buttonVevoSave = new System.Windows.Forms.Button();
             this.buttonVevoModify = new System.Windows.Forms.Button();
             this.buttonVevoAdd = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@
             this.buttonSaveAndClose = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.errorProviderVevoModify = new System.Windows.Forms.ErrorProvider(this.components);
-            this.buttonVevoCancel = new System.Windows.Forms.Button();
             this.errorProviderCikkszam = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderVevoAdd = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelEladas.SuspendLayout();
@@ -582,6 +582,20 @@
             this.panelVevo.Size = new System.Drawing.Size(433, 313);
             this.panelVevo.TabIndex = 34;
             // 
+            // buttonVevoCancel
+            // 
+            this.buttonVevoCancel.BackColor = System.Drawing.Color.White;
+            this.buttonVevoCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonVevoCancel.ForeColor = System.Drawing.Color.Black;
+            this.buttonVevoCancel.Location = new System.Drawing.Point(318, 271);
+            this.buttonVevoCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonVevoCancel.Name = "buttonVevoCancel";
+            this.buttonVevoCancel.Size = new System.Drawing.Size(110, 30);
+            this.buttonVevoCancel.TabIndex = 21;
+            this.buttonVevoCancel.Text = "Mégse";
+            this.buttonVevoCancel.UseVisualStyleBackColor = false;
+            this.buttonVevoCancel.Click += new System.EventHandler(this.buttonVevoCancel_Click);
+            // 
             // buttonVevoSave
             // 
             this.buttonVevoSave.BackColor = System.Drawing.Color.White;
@@ -758,20 +772,6 @@
             // 
             this.errorProviderVevoModify.ContainerControl = this;
             // 
-            // buttonVevoCancel
-            // 
-            this.buttonVevoCancel.BackColor = System.Drawing.Color.White;
-            this.buttonVevoCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonVevoCancel.ForeColor = System.Drawing.Color.Black;
-            this.buttonVevoCancel.Location = new System.Drawing.Point(318, 271);
-            this.buttonVevoCancel.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonVevoCancel.Name = "buttonVevoCancel";
-            this.buttonVevoCancel.Size = new System.Drawing.Size(110, 30);
-            this.buttonVevoCancel.TabIndex = 21;
-            this.buttonVevoCancel.Text = "Mégse";
-            this.buttonVevoCancel.UseVisualStyleBackColor = false;
-            this.buttonVevoCancel.Click += new System.EventHandler(this.buttonVevoCancel_Click);
-            // 
             // errorProviderCikkszam
             // 
             this.errorProviderCikkszam.ContainerControl = this;
@@ -792,7 +792,7 @@
             this.Controls.Add(this.panelGepek);
             this.Controls.Add(this.panelVevo);
             this.Name = "AddWindow";
-            this.Text = " ";
+            this.Text = " Megrendelés hozzáadása";
             this.Load += new System.EventHandler(this.AddWindow_Load);
             this.panelEladas.ResumeLayout(false);
             this.panelEladas.PerformLayout();

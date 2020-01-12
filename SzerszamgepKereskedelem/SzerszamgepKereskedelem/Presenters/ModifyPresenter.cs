@@ -34,7 +34,7 @@ namespace SzerszamgepKereskedelem.Presenters
         public void ModifyMegrendeles(string cikkszam)// Kiválasztot megrendeléshez tartozó gép cikkszám
         {
            
-            modifyGep = db.gepek.SingleOrDefault(m => m.cikkszam.Contains(cikkszam));//Cikkszám alapján gép megkeresése az adatbázisban
+            modifyGep = db.gepek.SingleOrDefault(m => m.cikkszam==(cikkszam));//Cikkszám alapján gép megkeresése az adatbázisban
             modifyMegrendeles = db.megrendeles.SingleOrDefault(m => m.gep_Id == modifyGep.id);//Gép id alapján megrendelés megkeresése az adatbázisban
             modifyBeszerzes = db.beszerzesek.Find(modifyMegrendeles.beszerzes_Id);
             modifyEladas = db.eladasok.Find(modifyMegrendeles.eladas_Id);

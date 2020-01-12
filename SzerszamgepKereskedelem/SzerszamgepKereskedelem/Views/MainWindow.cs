@@ -188,15 +188,16 @@ namespace SzerszamgepKereskedelem.Views
         }
         private void buttonModify_Click(object sender, EventArgs e)
         {
-
+            int selectedRowIndex;
             string cikkszam = getSelectedMegrendelesCikkszam();
             if (cikkszam!=string.Empty)
             {
+                selectedRowIndex = dataGridViewMainTable.SelectedCells[0].RowIndex;
                 ModifyWindow modifywindow = new ModifyWindow(getSelectedMegrendelesCikkszam());
                 if (modifywindow.ShowDialog() == DialogResult.OK)
                 {
-                    mainPresenter.LoadData();
-                    getListak();
+                    getListak();//mainPresenter.LoadData();
+                    dataGridViewMainTable.Rows[selectedRowIndex].Selected = true;
                 }
             }
             else
@@ -303,8 +304,16 @@ namespace SzerszamgepKereskedelem.Views
             AddWindow addWindow = new AddWindow();
             if (addWindow.ShowDialog() == DialogResult.OK)
             {
-                mainPresenter.LoadData();               
-            }            
+                getListak();//frissüljön a tábla
+                aktualisLapSzam = lapokSzama - 1;
+                numericUpDownOldalszam.Value = aktualisLapSzam + 1;
+                int lastRowIndex = dataGridViewMainTable.Rows.Count - 1;
+                dataGridViewMainTable.Rows[lastRowIndex].Selected = true;
+            }
+            else
+            {
+                getListak();//Ha csak a vevő adatok lettek módosítva akkor is frissüljön a tábla
+            }
         }
         private void textBoxkeres_KeyUp(object sender, KeyEventArgs e)
         {

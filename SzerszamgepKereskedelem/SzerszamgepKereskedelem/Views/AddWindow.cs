@@ -319,11 +319,14 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonVevoModify_Click(object sender, EventArgs e)
         {
             errorProviderVevoModify.Clear();
+            vevoAdd = false;
             if (comboBoxVevoNevLista.SelectedIndex != 0)
             {
+                vevoModify = true;
                 textBoxVevoNev.ReadOnly = false;
                 textBoxVevoOrszag.ReadOnly = false;
                 textBoxVevoTelepules.ReadOnly = false;
+                vevoPresenter.selectVevoToModify(textBoxVevoNev.Text);//A jelenlegi név alapján a vevő presenter megkeresi és eltárolja a vevő Id-t
             }
             else
             {
@@ -345,6 +348,7 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonVevoAdd_Click(object sender, EventArgs e)
         {
             vevoAdd = true;
+            vevoModify = false;
             textBoxVevoNev.ReadOnly = false;
             textBoxVevoOrszag.ReadOnly = false;
             textBoxVevoTelepules.ReadOnly = false;
@@ -373,10 +377,6 @@ namespace SzerszamgepKereskedelem.Views
                     {
                         errorProviderVevoModify.SetError(buttonVevoDelete, vpe.Message);
                     }
-                }
-                else
-                {
-                    //No delete
                 }
             }
             else
@@ -412,10 +412,12 @@ namespace SzerszamgepKereskedelem.Views
             }
             if (vevoModify)
             {
-
+                vevoPresenter.modifyVevo();
+                vevoModify = false;
+                textBoxVevoNev.ReadOnly = true;
+                textBoxVevoOrszag.ReadOnly = true;
+                textBoxVevoTelepules.ReadOnly = true;
             }
-            vevoAdd = false;
-            vevoModify = false;
         }
     }
 }

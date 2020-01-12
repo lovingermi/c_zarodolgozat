@@ -24,16 +24,17 @@ namespace SzerszamgepKereskedelem.Presenters
         private szerszamgepContext db;
         private IMainView mainView;
         private IQueryable query;
-        private IQueryable query_2;
+        double sorokSzama;//Aktuális lekérdezés sorainak száma
         public MainPresenter(IMainView param)
         {
             
             db = new szerszamgepContext();
             mainView = param;
-            query = db.megrendeles.OrderBy(x => x.id);
-            query_2 = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id).Skip(0).Take(10);
+            sorokSzama = db.megrendeles.Count();
+            query = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id).Skip(0).Take(10);
             CreateDataTable();
-            LoadData();          
+            getLekerdezesLapokszama(sorokSzama);
+            LoadData();
         }
         public void CreateDataTable()
         {
@@ -54,26 +55,17 @@ namespace SzerszamgepKereskedelem.Presenters
             dataTableFoTabla.Columns.Add("Számlaszám", typeof(string));
             dataTableFoTabla.Columns.Add("El. EKAR", typeof(string));
         }
-        public void LoadData()
+        public void getLekerdezesLapokszama(double sorokSzama)//Az aktuális lekérdezés sorainak oldalakra bontása tizessével
         {
-
-            db = new szerszamgepContext();
-            double sorok = 0;
-            foreach (megrendeles megrendeles in query) //Az aktuális lekérdezés sorainak megszámolása
-            {
-                sorok++;
-            }
-            double lapok = Math.Ceiling(sorok / 10);//A sorok alapján oldalakra bontás (tizessével) és felkerekítés (8 sor = 1 oldal).
-            mainView.lapok = Convert.ToInt32(lapok);// Main form felé elküldeve a lapok száma
-            LoadData_2();
+            double lapok = Math.Ceiling(sorokSzama / 10);//A sorok alapján oldalakra bontás (tizessével) és felkerekítés (8 sor = 1 oldal).
+            mainView.lapok = Convert.ToInt32(lapok);// Main form felé elküldeve a lapok száma          
         }
         
-        public void LoadData_2()
+        public void LoadData()//Az aktuális lekérdezés oldalakra bontott megjelenítése .Skip(aktualisLapSzam * 10).Take(10);
         {
-            int sorok = 1;
-            
+            db = new szerszamgepContext();
             dataTableFoTabla.Clear();
-            foreach (megrendeles megrendeles in query_2) //Az aktuális lekérdezés oldalakra bontott megjelenítése .Skip(aktualisLapSzam * 10).Take(10);
+            foreach (megrendeles megrendeles in query) 
             {
                 gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
                 vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
@@ -95,7 +87,6 @@ namespace SzerszamgepKereskedelem.Presenters
                     eladas.tipus,
                     eladas.szamlaszam,
                     eladas.EKAR_Szam);
-                sorok++;
             }
             
             mainView.dataTableFoTabla = dataTableFoTabla;
@@ -104,7 +95,7 @@ namespace SzerszamgepKereskedelem.Presenters
         {
             db = new szerszamgepContext();
 
-            var gep = db.gepek.SingleOrDefault(m => m.cikkszam.Contains(cikkszam));//Cikkszám alapján gép megkeresése az adatbázisban
+            var gep = db.gepek.SingleOrDefault(m => m.cikkszam==(cikkszam));//Ide kellene try ctatch !!!//Cikkszám alapján gép megkeresése az adatbázisban
             var tmegrendeles = db.megrendeles.SingleOrDefault(m => m.gep_Id == gep.id);//Gép id alapján megrendelés megkeresése az adatbázisban
             var beszerzes = db.beszerzesek.Find(tmegrendeles.beszerzes_Id);
             var eladas = db.eladasok.Find(tmegrendeles.eladas_Id);
@@ -125,62 +116,63 @@ namespace SzerszamgepKereskedelem.Presenters
                 throw;
             }
 
+            getLekerdezesLapokszama(sorokSzama);
             LoadData();
         }
         public void getCikkszam(int aktualisLapSzam)
         {
 
             string cikkszam = mainView.query;
-            query = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam);
+            sorokSzama = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).Count();
+            getLekerdezesLapokszama(sorokSzama);
+            query = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam).Skip(aktualisLapSzam * 10).Take(10);
             LoadData();
-            query_2 = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam).Skip(aktualisLapSzam * 10).Take(10);
-            LoadData_2();
         }
         public void getVevo(int aktualisLapSzam)
         {
 
             string vevoNev = mainView.query;
-            query = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev);
+            sorokSzama = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).Count();
+            getLekerdezesLapokszama(sorokSzama);
+            query = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev).Skip(aktualisLapSzam * 10).Take(10);
             LoadData();
-            query_2 = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev).Skip(aktualisLapSzam * 10).Take(10);
-            LoadData_2();
         }
         public void getGyarto(int aktualisLapSzam)
         {
 
             string gyarto = mainView.query;
-            query = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto);
+            sorokSzama = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).Count();
+            getLekerdezesLapokszama(sorokSzama);
+            query = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto).Skip(aktualisLapSzam * 10).Take(10); 
             LoadData();
-            query_2 = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto).Skip(aktualisLapSzam * 10).Take(10); 
-            LoadData_2();
         }
         public void getAlapLista(int aktualisLapSzam)
         {
-            query = db.megrendeles.OrderBy(x => x.id);
+            sorokSzama = db.megrendeles.Count();
+            getLekerdezesLapokszama(sorokSzama);
+            query = db.megrendeles.OrderBy(x => x.id).Skip(aktualisLapSzam*10).Take(10);
             LoadData();
-            query_2 = db.megrendeles.OrderBy(x => x.id).Skip(aktualisLapSzam*10).Take(10);
-            LoadData_2();
         }
         public void getBeszerzesDatum(int aktualisLapSzam)
         {
             DateTime kezdoDatum = mainView.kezdoDatum;
             DateTime zaroDatum = mainView.zaroDatum;
-            query = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum &&  m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum);
-            LoadData();
-            query_2 = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum).
+            sorokSzama = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).Count();
+            getLekerdezesLapokszama(sorokSzama);
+            query = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum).
                 Skip(aktualisLapSzam * 10).Take(10);
-            LoadData_2();
+            LoadData();
         }
         public void getEladasDatum(int aktualisLapSzam)
         {
 
             DateTime kezdoDatum = mainView.kezdoDatum;
             DateTime zaroDatum = mainView.zaroDatum;
-            query = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum);
-            LoadData();
-            query_2 = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum).
+            sorokSzama = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).Count();
+            getLekerdezesLapokszama(sorokSzama);
+            query = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum).
                 Skip(aktualisLapSzam * 10).Take(10);
-            LoadData_2();
+            LoadData();
         }
     }
 }
