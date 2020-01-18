@@ -185,6 +185,7 @@ namespace SzerszamgepKereskedelem.Views
                 pi.SetValue(dataGridViewMainTable, true, null);
             }
             comboBoxKeres.Text = "Teljes lista";
+            
         }
         private void buttonModify_Click(object sender, EventArgs e)
         {
@@ -458,5 +459,23 @@ namespace SzerszamgepKereskedelem.Views
         {
             emptyCells();
         }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            errorProviderModify.Clear();
+            string cikkszam = getSelectedMegrendelesCikkszam();
+            if (cikkszam != string.Empty)
+            {
+                ReportWindow reportWindow = new ReportWindow(getSelectedMegrendelesCikkszam());
+                reportWindow.Show();
+            }
+            else
+            {
+                errorProviderModify.SetError(buttonPrint, "Nincs megrendelés kiválasztva!");
+            }
+        }
+        
+
     }
 }
+

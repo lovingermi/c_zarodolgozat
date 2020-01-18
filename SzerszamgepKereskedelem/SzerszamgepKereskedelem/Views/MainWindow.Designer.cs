@@ -72,7 +72,7 @@
             this.buttonModify.ForeColor = System.Drawing.Color.Black;
             this.buttonModify.Image = ((System.Drawing.Image)(resources.GetObject("buttonModify.Image")));
             this.buttonModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModify.Location = new System.Drawing.Point(439, 110);
+            this.buttonModify.Location = new System.Drawing.Point(430, 110);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonModify.Size = new System.Drawing.Size(155, 44);
@@ -90,7 +90,7 @@
             this.buttonAddProjekt.ForeColor = System.Drawing.Color.Black;
             this.buttonAddProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProjekt.Image")));
             this.buttonAddProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProjekt.Location = new System.Drawing.Point(439, 57);
+            this.buttonAddProjekt.Location = new System.Drawing.Point(430, 57);
             this.buttonAddProjekt.Name = "buttonAddProjekt";
             this.buttonAddProjekt.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddProjekt.Size = new System.Drawing.Size(155, 45);
@@ -107,7 +107,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.Black;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(439, 160);
+            this.buttonDelete.Location = new System.Drawing.Point(430, 160);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(155, 44);
@@ -124,7 +124,7 @@
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
             this.buttonExit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit.Image")));
             this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(609, 158);
+            this.buttonExit.Location = new System.Drawing.Point(600, 158);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonExit.Size = new System.Drawing.Size(155, 44);
@@ -141,7 +141,7 @@
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
             this.buttonPrint.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrint.Image")));
             this.buttonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPrint.Location = new System.Drawing.Point(609, 107);
+            this.buttonPrint.Location = new System.Drawing.Point(600, 107);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrint.Size = new System.Drawing.Size(155, 45);
@@ -149,6 +149,7 @@
             this.buttonPrint.Text = "Nyomtatás";
             this.buttonPrint.UseCompatibleTextRendering = true;
             this.buttonPrint.UseVisualStyleBackColor = false;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // buttonSaveToFile
             // 
@@ -158,7 +159,7 @@
             this.buttonSaveToFile.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveToFile.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveToFile.Image")));
             this.buttonSaveToFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveToFile.Location = new System.Drawing.Point(609, 57);
+            this.buttonSaveToFile.Location = new System.Drawing.Point(600, 57);
             this.buttonSaveToFile.Name = "buttonSaveToFile";
             this.buttonSaveToFile.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.buttonSaveToFile.Size = new System.Drawing.Size(155, 45);

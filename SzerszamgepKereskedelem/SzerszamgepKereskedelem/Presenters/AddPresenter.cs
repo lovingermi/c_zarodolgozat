@@ -28,7 +28,6 @@ namespace SzerszamgepKereskedelem.Presenters
         {
             db = new szerszamgepContext();
             addView = param;
-
         }
         public void addMegrendeles()
         {
@@ -41,76 +40,71 @@ namespace SzerszamgepKereskedelem.Presenters
 
         }
         public void saveMegrendeles()
-        {
-            int megrendelesId = db.megrendeles.Select(m => m.id).DefaultIfEmpty(0).Max() + 1; // Ha üres a tábla, akkor az alapértelmezett érték 0
-            int gepId = db.gepek.Select(g => g.id).DefaultIfEmpty(0).Max() + 1;
-            int beszerzesId = db.beszerzesek.Select(b => b.id).DefaultIfEmpty(0).Max() + 1;
-            int eladasId = db.eladasok.Select(e => e.id).DefaultIfEmpty(0).Max() + 1;
-
-            //---------------gépek---------------
-            string cikkszam;
+        {            
+            db = new szerszamgepContext();
             try
             {
+                int megrendelesId = db.megrendeles.Select(m => m.id).DefaultIfEmpty(0).Max() + 1; // Ha üres a tábla, akkor az alapértelmezett érték 0
+                int gepId = db.gepek.Select(g => g.id).DefaultIfEmpty(0).Max() + 1;
+                int beszerzesId = db.beszerzesek.Select(b => b.id).DefaultIfEmpty(0).Max() + 1;
+                int eladasId = db.eladasok.Select(e => e.id).DefaultIfEmpty(0).Max() + 1;
+
+                //---------------gépek---------------
+                string megnevezes = addView.gepMegnevezes;
+                string gyarto = addView.gepGyatro;
+                string tipus = addView.gepTipus;
+                string cikkszam;
                 cikkszamValidation = new CikkszamValidation(addView.gepCikkszam);//Cikkszám ellenőrzés 
                 cikkszamValidation.cikkszamValidation();
                 cikkszam = addView.gepCikkszam;
+                gepek newGep = new gepek(gepId, cikkszam, megnevezes, tipus, gyarto);
+                int vevoId;
+                if (selectedVevo != null)//ha van kiválasztott vevő
+                {
+                    vevoId = selectedVevo.id;
+                }
+                else
+                {
+                    vevoId = -1; //ha nincs kiválasztott vevő, a vevő táblából az üres rekordra mutat;
+                }
+                //----------beszerzés------------------
+                DateTime bDatum = addView.bDatum;
+                string bTipus = addView.bTipus;
+                string bEKAR = addView.bEKAR;
+                string bSzamla = addView.bSzamla;
+                string bVAM = addView.bVAM;
+                string bFuvar = addView.bFuvar;
+                string bCMR = addView.bCMR;
+                beszerzesek beszerzes = new beszerzesek(beszerzesId, bDatum, bTipus, bEKAR, bSzamla, bVAM, bFuvar, bCMR);
+                //----------eladás------------------
+                DateTime edatum = addView.eDatum;
+                string eTipus = addView.eTipus;
+                string eSzamla = addView.eSzamla;
+                string eEKAR = addView.eEKAR;
+                eladasok eladas = new eladasok(eladasId, edatum, eTipus, eSzamla, eEKAR);
+                
+                db.beszerzesek.Add(beszerzes);
+                db.eladasok.Add(eladas);
+                db.gepek.Add(newGep);
+                megrendeles newMegrendeles = new megrendeles(megrendelesId, gepId, vevoId, beszerzesId, eladasId);
+                db.megrendeles.Add(newMegrendeles);
+                db.SaveChanges();// Adatbázis frissítése
             }
             catch (CikkszamValidationException cve)
             {
                 throw new AddPresenterException(cve.Message);
             }
-            string megnevezes = addView.gepMegnevezes;
-            string gyarto = addView.gepGyatro;
-            string tipus = addView.gepTipus;
-            gepek newGep = new gepek(gepId, cikkszam, megnevezes, tipus, gyarto);
-            //-------------vevő------------------
-            int vevoId;
-            if (selectedVevo != null)//ha van kiválasztott vevő
-            {
-                vevoId = selectedVevo.id;
-            }
-            else
-            {
-                vevoId = -1; //ha nincs kiválasztott vevő, a vevő táblából az üres rekordra mutat;
-            }
-            //----------beszerzés------------------
-            DateTime bDatum = addView.bDatum;
-            string bTipus = addView.bTipus;
-            string bEKAR = addView.bEKAR;
-            string bSzamla = addView.bSzamla;
-            string bVAM = addView.bVAM;
-            string bFuvar = addView.bFuvar;
-            string bCMR = addView.bCMR;
-            beszerzesek beszerzes = new beszerzesek(beszerzesId, bDatum, bTipus, bEKAR, bSzamla, bVAM, bFuvar, bCMR);
-            //----------eladás------------------
-            DateTime edatum = addView.eDatum;
-            string eTipus = addView.eTipus;
-            string eSzamla = addView.eSzamla;
-            string eEKAR = addView.eEKAR;
-            eladasok eladas = new eladasok(eladasId, edatum, eTipus, eSzamla, eEKAR);
-
-            db.beszerzesek.Add(beszerzes);
-            db.eladasok.Add(eladas);
-            db.gepek.Add(newGep);
-
-            //megrendeles newMegrendeles; 
-            megrendeles newMegrendeles = new megrendeles(megrendelesId, gepId, vevoId, beszerzesId, eladasId);
-            db.megrendeles.Add(newMegrendeles);
-            try
-            {
-                // Adatbázis frissítése
-
-                db.SaveChanges();
-            }
             catch (DbUpdateException)
             {
+                
                 throw new AddPresenterException("Ez a cikkszám már létezik az adatbázisban!");//Még átnézni
-
+                
             }
             catch (Exception)
             {
                 throw new AddPresenterException("Nem sikerült a változásokat elmenteni.");
             }
+      
         }
         public void GetVevoFromNevLista(string vevoNev)
         {

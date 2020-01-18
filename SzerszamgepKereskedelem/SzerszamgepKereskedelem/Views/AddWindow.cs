@@ -243,6 +243,8 @@ namespace SzerszamgepKereskedelem.Views
         private void buttonSaveAndClose_Click(object sender, EventArgs e)
         {
 
+            errorProviderCikkszam.Clear();
+            errorProviderVevoAdd.Clear();
             if (vevoAdd || vevoModify)
             {
 
