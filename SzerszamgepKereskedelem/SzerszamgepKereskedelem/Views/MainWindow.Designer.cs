@@ -57,6 +57,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxOldalszam = new System.Windows.Forms.TextBox();
             this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
+            this.radioButtonASC = new System.Windows.Forms.RadioButton();
+            this.radioButtonDESC = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -72,7 +74,7 @@
             this.buttonModify.ForeColor = System.Drawing.Color.Black;
             this.buttonModify.Image = ((System.Drawing.Image)(resources.GetObject("buttonModify.Image")));
             this.buttonModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModify.Location = new System.Drawing.Point(430, 110);
+            this.buttonModify.Location = new System.Drawing.Point(529, 110);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonModify.Size = new System.Drawing.Size(155, 44);
@@ -90,7 +92,7 @@
             this.buttonAddProjekt.ForeColor = System.Drawing.Color.Black;
             this.buttonAddProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProjekt.Image")));
             this.buttonAddProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProjekt.Location = new System.Drawing.Point(430, 57);
+            this.buttonAddProjekt.Location = new System.Drawing.Point(529, 57);
             this.buttonAddProjekt.Name = "buttonAddProjekt";
             this.buttonAddProjekt.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddProjekt.Size = new System.Drawing.Size(155, 45);
@@ -107,7 +109,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.Black;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(430, 160);
+            this.buttonDelete.Location = new System.Drawing.Point(529, 160);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(155, 44);
@@ -124,7 +126,7 @@
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
             this.buttonExit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit.Image")));
             this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(600, 158);
+            this.buttonExit.Location = new System.Drawing.Point(699, 158);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonExit.Size = new System.Drawing.Size(155, 44);
@@ -141,7 +143,7 @@
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
             this.buttonPrint.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrint.Image")));
             this.buttonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPrint.Location = new System.Drawing.Point(600, 107);
+            this.buttonPrint.Location = new System.Drawing.Point(699, 107);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrint.Size = new System.Drawing.Size(155, 45);
@@ -159,7 +161,7 @@
             this.buttonSaveToFile.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveToFile.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveToFile.Image")));
             this.buttonSaveToFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveToFile.Location = new System.Drawing.Point(600, 57);
+            this.buttonSaveToFile.Location = new System.Drawing.Point(699, 57);
             this.buttonSaveToFile.Name = "buttonSaveToFile";
             this.buttonSaveToFile.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.buttonSaveToFile.Size = new System.Drawing.Size(155, 45);
@@ -182,15 +184,17 @@
             this.panel1.Controls.Add(this.buttonAddProjekt);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.buttonDelete);
-            this.panel1.Location = new System.Drawing.Point(571, 450);
+            this.panel1.Location = new System.Drawing.Point(463, 450);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(781, 220);
+            this.panel1.Size = new System.Drawing.Size(889, 220);
             this.panel1.TabIndex = 34;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.radioButtonDESC);
+            this.panel2.Controls.Add(this.radioButtonASC);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.buttonKeres);
@@ -200,16 +204,16 @@
             this.panel2.Controls.Add(this.dateTimePickerTol);
             this.panel2.Controls.Add(this.textBoxKeres);
             this.panel2.Controls.Add(this.comboBoxKeres);
-            this.panel2.Location = new System.Drawing.Point(11, 57);
+            this.panel2.Location = new System.Drawing.Point(54, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(398, 145);
+            this.panel2.Size = new System.Drawing.Size(459, 145);
             this.panel2.TabIndex = 35;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(228, 23);
+            this.label5.Location = new System.Drawing.Point(307, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 13);
             this.label5.TabIndex = 45;
@@ -219,7 +223,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(29, 23);
+            this.label4.Location = new System.Drawing.Point(103, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 44;
@@ -230,7 +234,7 @@
             this.buttonKeres.Enabled = false;
             this.buttonKeres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonKeres.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonKeres.Location = new System.Drawing.Point(222, 98);
+            this.buttonKeres.Location = new System.Drawing.Point(301, 105);
             this.buttonKeres.Name = "buttonKeres";
             this.buttonKeres.Size = new System.Drawing.Size(100, 28);
             this.buttonKeres.TabIndex = 43;
@@ -243,7 +247,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(333, 77);
+            this.label3.Location = new System.Drawing.Point(412, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 15);
             this.label3.TabIndex = 42;
@@ -253,7 +257,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(329, 50);
+            this.label2.Location = new System.Drawing.Point(408, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 15);
             this.label2.TabIndex = 41;
@@ -263,7 +267,7 @@
             // 
             this.dateTimePickerIg.Enabled = false;
             this.dateTimePickerIg.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerIg.Location = new System.Drawing.Point(222, 72);
+            this.dateTimePickerIg.Location = new System.Drawing.Point(301, 79);
             this.dateTimePickerIg.Name = "dateTimePickerIg";
             this.dateTimePickerIg.Size = new System.Drawing.Size(100, 20);
             this.dateTimePickerIg.TabIndex = 40;
@@ -272,14 +276,14 @@
             // 
             this.dateTimePickerTol.Enabled = false;
             this.dateTimePickerTol.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTol.Location = new System.Drawing.Point(222, 46);
+            this.dateTimePickerTol.Location = new System.Drawing.Point(301, 53);
             this.dateTimePickerTol.Name = "dateTimePickerTol";
             this.dateTimePickerTol.Size = new System.Drawing.Size(100, 20);
             this.dateTimePickerTol.TabIndex = 39;
             // 
             // textBoxKeres
             // 
-            this.textBoxKeres.Location = new System.Drawing.Point(27, 95);
+            this.textBoxKeres.Location = new System.Drawing.Point(106, 102);
             this.textBoxKeres.Name = "textBoxKeres";
             this.textBoxKeres.Size = new System.Drawing.Size(121, 20);
             this.textBoxKeres.TabIndex = 38;
@@ -296,7 +300,7 @@
             "Vevő",
             "Beszerzés dátum",
             "Eladás dátum"});
-            this.comboBoxKeres.Location = new System.Drawing.Point(27, 46);
+            this.comboBoxKeres.Location = new System.Drawing.Point(106, 53);
             this.comboBoxKeres.Name = "comboBoxKeres";
             this.comboBoxKeres.Size = new System.Drawing.Size(121, 21);
             this.comboBoxKeres.TabIndex = 37;
@@ -400,6 +404,29 @@
             this.dataGridViewMainTable.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMainTable_RowPostPaint);
             this.dataGridViewMainTable.Sorted += new System.EventHandler(this.dataGridViewMainTable_Sorted);
             // 
+            // radioButtonASC
+            // 
+            this.radioButtonASC.AutoSize = true;
+            this.radioButtonASC.Checked = true;
+            this.radioButtonASC.Location = new System.Drawing.Point(22, 56);
+            this.radioButtonASC.Name = "radioButtonASC";
+            this.radioButtonASC.Size = new System.Drawing.Size(69, 17);
+            this.radioButtonASC.TabIndex = 46;
+            this.radioButtonASC.TabStop = true;
+            this.radioButtonASC.Text = "Növekvő";
+            this.radioButtonASC.UseVisualStyleBackColor = true;
+            this.radioButtonASC.CheckedChanged += new System.EventHandler(this.radioButtonASC_CheckedChanged);
+            // 
+            // radioButtonDESC
+            // 
+            this.radioButtonDESC.AutoSize = true;
+            this.radioButtonDESC.Location = new System.Drawing.Point(22, 103);
+            this.radioButtonDESC.Name = "radioButtonDESC";
+            this.radioButtonDESC.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonDESC.TabIndex = 47;
+            this.radioButtonDESC.Text = "Csökkenő";
+            this.radioButtonDESC.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,5 +489,7 @@
         private System.Windows.Forms.Button buttonLapLe;
         private System.Windows.Forms.Button buttonLapFel;
         private System.Windows.Forms.DataGridView dataGridViewMainTable;
+        private System.Windows.Forms.RadioButton radioButtonDESC;
+        private System.Windows.Forms.RadioButton radioButtonASC;
     }
 }

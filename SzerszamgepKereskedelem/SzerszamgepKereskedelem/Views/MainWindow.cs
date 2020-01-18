@@ -18,6 +18,7 @@ namespace SzerszamgepKereskedelem.Views
         private MainPresenter mainPresenter;
         private int lapokSzama;
         private int aktualisLapSzam;
+        private bool ASC = true;//rendezéshez
         public MainWindow()
         {
             InitializeComponent();
@@ -185,7 +186,7 @@ namespace SzerszamgepKereskedelem.Views
                 pi.SetValue(dataGridViewMainTable, true, null);
             }
             comboBoxKeres.Text = "Teljes lista";
-            
+            //ASC = true;//Alapértelmezett rendezés
         }
         private void buttonModify_Click(object sender, EventArgs e)
         {
@@ -305,11 +306,23 @@ namespace SzerszamgepKereskedelem.Views
             AddWindow addWindow = new AddWindow();
             if (addWindow.ShowDialog() == DialogResult.OK)
             {
+                comboBoxKeres.SelectedIndex = 0;
                 getListak();//frissüljön a tábla
-                aktualisLapSzam = lapokSzama - 1;
-                numericUpDownOldalszam.Value = aktualisLapSzam + 1;
-                int lastRowIndex = dataGridViewMainTable.Rows.Count - 1;
-                dataGridViewMainTable.Rows[lastRowIndex].Selected = true;
+                               
+                if (ASC)
+                {
+                    aktualisLapSzam = lapokSzama - 1;
+                    numericUpDownOldalszam.Value = aktualisLapSzam + 1;
+                    int lastRowIndex = dataGridViewMainTable.Rows.Count - 1;
+                    dataGridViewMainTable.Rows[lastRowIndex].Selected = true;
+                }
+                else
+                {
+                    aktualisLapSzam = 0;
+                    numericUpDownOldalszam.Value = aktualisLapSzam + 1;
+                    dataGridViewMainTable.Rows[0].Selected = true;
+                }
+                
             }
             else
             {
@@ -320,17 +333,17 @@ namespace SzerszamgepKereskedelem.Views
         {
             if (comboBoxKeres.Text == "Vevő")
             {
-                mainPresenter.getVevo(aktualisLapSzam);
+                mainPresenter.getVevo(aktualisLapSzam, ASC);
             }
             else
             if (comboBoxKeres.Text == "Cikkszám")
             {
-                mainPresenter.getCikkszam(aktualisLapSzam);
+                mainPresenter.getCikkszam(aktualisLapSzam, ASC);
             }
             else
             if (comboBoxKeres.Text == "Gyártó")
             {
-                mainPresenter.getGyarto(aktualisLapSzam);
+                mainPresenter.getGyarto(aktualisLapSzam, ASC);
             }
         }
         private void comboBoxKeres_SelectedValueChanged(object sender, EventArgs e)
@@ -366,11 +379,11 @@ namespace SzerszamgepKereskedelem.Views
         {
             if (comboBoxKeres.Text == "Beszerzés dátum")
             {
-                mainPresenter.getBeszerzesDatum(aktualisLapSzam);
+                mainPresenter.getBeszerzesDatum(aktualisLapSzam, ASC);
             }
             if (comboBoxKeres.Text == "Eladás dátum")
             {
-                mainPresenter.getEladasDatum(aktualisLapSzam);
+                mainPresenter.getEladasDatum(aktualisLapSzam, ASC);
             }
         }
 
@@ -398,31 +411,31 @@ namespace SzerszamgepKereskedelem.Views
         {
             if (comboBoxKeres.Text == "Teljes lista")
             {
-                mainPresenter.getAlapLista(aktualisLapSzam);
+                mainPresenter.getAlapLista(aktualisLapSzam,ASC);
             }
             else
                 if (comboBoxKeres.Text == "Vevő")
             {
-                mainPresenter.getVevo(aktualisLapSzam);
+                mainPresenter.getVevo(aktualisLapSzam,ASC);
             }
             else
                 if (comboBoxKeres.Text == "Cikkszám")
             {
-                mainPresenter.getCikkszam(aktualisLapSzam);
+                mainPresenter.getCikkszam(aktualisLapSzam,ASC);
             }
             else
                 if (comboBoxKeres.Text == "Gyártó")
             {
-                mainPresenter.getGyarto(aktualisLapSzam);
+                mainPresenter.getGyarto(aktualisLapSzam,ASC);
             }
             if (comboBoxKeres.Text == "Beszerzés dátum")
             {
-                mainPresenter.getBeszerzesDatum(aktualisLapSzam);
+                mainPresenter.getBeszerzesDatum(aktualisLapSzam,ASC);
             }
             else
             if (comboBoxKeres.Text == "Eladás dátum")
             {
-                mainPresenter.getEladasDatum(aktualisLapSzam);
+                mainPresenter.getEladasDatum(aktualisLapSzam,ASC);
             }
         }
 
@@ -474,8 +487,19 @@ namespace SzerszamgepKereskedelem.Views
                 errorProviderModify.SetError(buttonPrint, "Nincs megrendelés kiválasztva!");
             }
         }
-        
 
+        private void radioButtonASC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonASC.Checked)
+            {
+                ASC = true;
+            }
+            else
+            {
+                ASC = false;
+            }
+            getListak();
+        }
     }
 }
 
