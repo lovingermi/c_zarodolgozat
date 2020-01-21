@@ -34,6 +34,30 @@ namespace SzerszamgepKereskedelem.Presenters
             reportView.gepMegnevezes = selectedGep.megnevezes;
             reportView.gepGyarto = selectedGep.gyarto;
             reportView.gepTipus = selectedGep.tipus;
+            string bDatum = selectedBeszerzes.datum.ToString("yyyy/MM/dd");//nem irja ki az óra percet nyomtatáskor
+            if (bDatum == "0001. 01. 01")//Ha üres a beszerzés mező
+            {
+                bDatum = "";
+            }
+            reportView.beszDatum = bDatum;
+            reportView.beszEKAR = selectedBeszerzes.EKAR_Szam;
+            reportView.beszTipus = selectedBeszerzes.beszerzes_Tipus;
+            reportView.beszSzamla = selectedBeszerzes.szamla;
+            reportView.VAMHatarozat = selectedBeszerzes.VAM;
+            reportView.beszFuvar = selectedBeszerzes.fuvar;
+            reportView.beszCMR = selectedBeszerzes.CMR;
+            reportView.vevoNev = selectedVevo.nev;
+            reportView.vevoOrszag = selectedVevo.orszag;
+            reportView.vevoTelepules = selectedVevo.varos;
+            string eDatum = selectedEladas.datum.ToString("yyyy/MM/dd");//nem irja ki az óra percet nyomtatáskor
+            if (eDatum == "0001. 01. 01")//Ha üres a beszerzés mező
+            {
+                eDatum = "";
+            }
+            reportView.eladasDatum = eDatum;
+            reportView.eladasTipus = selectedEladas.tipus;
+            reportView.eladasEKAR = selectedEladas.EKAR_Szam;
+            reportView.eladasSzamla = selectedEladas.szamlaszam;
         }
     }
 }

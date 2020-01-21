@@ -38,6 +38,8 @@
             this.buttonSaveToFile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButtonDESC = new System.Windows.Forms.RadioButton();
+            this.radioButtonASC = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonKeres = new System.Windows.Forms.Button();
@@ -57,8 +59,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxOldalszam = new System.Windows.Forms.TextBox();
             this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
-            this.radioButtonASC = new System.Windows.Forms.RadioButton();
-            this.radioButtonDESC = new System.Windows.Forms.RadioButton();
+            this.reportViewerMain = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -170,6 +171,7 @@
             this.buttonSaveToFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSaveToFile.UseCompatibleTextRendering = true;
             this.buttonSaveToFile.UseVisualStyleBackColor = false;
+            this.buttonSaveToFile.Click += new System.EventHandler(this.buttonSaveToFile_Click);
             // 
             // panel1
             // 
@@ -184,7 +186,8 @@
             this.panel1.Controls.Add(this.buttonAddProjekt);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.buttonDelete);
-            this.panel1.Location = new System.Drawing.Point(463, 450);
+            this.panel1.Controls.Add(this.reportViewerMain);
+            this.panel1.Location = new System.Drawing.Point(456, 450);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(889, 220);
             this.panel1.TabIndex = 34;
@@ -208,6 +211,29 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(459, 145);
             this.panel2.TabIndex = 35;
+            // 
+            // radioButtonDESC
+            // 
+            this.radioButtonDESC.AutoSize = true;
+            this.radioButtonDESC.Location = new System.Drawing.Point(22, 103);
+            this.radioButtonDESC.Name = "radioButtonDESC";
+            this.radioButtonDESC.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonDESC.TabIndex = 47;
+            this.radioButtonDESC.Text = "Csökkenő";
+            this.radioButtonDESC.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonASC
+            // 
+            this.radioButtonASC.AutoSize = true;
+            this.radioButtonASC.Checked = true;
+            this.radioButtonASC.Location = new System.Drawing.Point(22, 56);
+            this.radioButtonASC.Name = "radioButtonASC";
+            this.radioButtonASC.Size = new System.Drawing.Size(69, 17);
+            this.radioButtonASC.TabIndex = 46;
+            this.radioButtonASC.TabStop = true;
+            this.radioButtonASC.Text = "Növekvő";
+            this.radioButtonASC.UseVisualStyleBackColor = true;
+            this.radioButtonASC.CheckedChanged += new System.EventHandler(this.radioButtonASC_CheckedChanged);
             // 
             // label5
             // 
@@ -311,7 +337,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Gainsboro;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(172, 15);
+            this.label1.Location = new System.Drawing.Point(236, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 36;
@@ -404,28 +430,16 @@
             this.dataGridViewMainTable.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMainTable_RowPostPaint);
             this.dataGridViewMainTable.Sorted += new System.EventHandler(this.dataGridViewMainTable_Sorted);
             // 
-            // radioButtonASC
+            // reportViewerMain
             // 
-            this.radioButtonASC.AutoSize = true;
-            this.radioButtonASC.Checked = true;
-            this.radioButtonASC.Location = new System.Drawing.Point(22, 56);
-            this.radioButtonASC.Name = "radioButtonASC";
-            this.radioButtonASC.Size = new System.Drawing.Size(69, 17);
-            this.radioButtonASC.TabIndex = 46;
-            this.radioButtonASC.TabStop = true;
-            this.radioButtonASC.Text = "Növekvő";
-            this.radioButtonASC.UseVisualStyleBackColor = true;
-            this.radioButtonASC.CheckedChanged += new System.EventHandler(this.radioButtonASC_CheckedChanged);
-            // 
-            // radioButtonDESC
-            // 
-            this.radioButtonDESC.AutoSize = true;
-            this.radioButtonDESC.Location = new System.Drawing.Point(22, 103);
-            this.radioButtonDESC.Name = "radioButtonDESC";
-            this.radioButtonDESC.Size = new System.Drawing.Size(73, 17);
-            this.radioButtonDESC.TabIndex = 47;
-            this.radioButtonDESC.Text = "Csökkenő";
-            this.radioButtonDESC.UseVisualStyleBackColor = true;
+            this.reportViewerMain.DocumentMapWidth = 8;
+            this.reportViewerMain.LocalReport.ReportEmbeddedResource = "SzerszamgepKereskedelem.Report1.rdlc";
+            this.reportViewerMain.Location = new System.Drawing.Point(774, 14);
+            this.reportViewerMain.Name = "reportViewerMain";
+            this.reportViewerMain.ServerReport.BearerToken = null;
+            this.reportViewerMain.Size = new System.Drawing.Size(80, 37);
+            this.reportViewerMain.TabIndex = 41;
+            this.reportViewerMain.Visible = false;
             // 
             // MainWindow
             // 
@@ -491,5 +505,6 @@
         private System.Windows.Forms.DataGridView dataGridViewMainTable;
         private System.Windows.Forms.RadioButton radioButtonDESC;
         private System.Windows.Forms.RadioButton radioButtonASC;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewerMain;
     }
 }
