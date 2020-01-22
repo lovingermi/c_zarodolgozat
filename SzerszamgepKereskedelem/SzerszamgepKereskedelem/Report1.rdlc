@@ -161,7 +161,7 @@
             <Top>4.84108cm</Top>
             <Left>3.93992cm</Left>
             <Height>1.63188cm</Height>
-            <Width>5.19871cm</Width>
+            <Width>5.48978cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -191,7 +191,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
             <Top>3.70337cm</Top>
-            <Left>9.31502cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>1.6269cm</Width>
             <ZIndex>5</ZIndex>
@@ -223,9 +223,9 @@
             </Paragraphs>
             <rd:DefaultName>gyarto</rd:DefaultName>
             <Top>3.70337cm</Top>
-            <Left>12.57352cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.79236cm</Width>
+            <Width>3.39549cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -255,7 +255,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>5.15858cm</Top>
-            <Left>9.31502cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>1.23cm</Width>
             <ZIndex>7</ZIndex>
@@ -287,9 +287,9 @@
             </Paragraphs>
             <rd:DefaultName>tipus</rd:DefaultName>
             <Top>5.15858cm</Top>
-            <Left>12.57352cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.79236cm</Width>
+            <Width>3.39549cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -459,7 +459,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>10.52318cm</Top>
-            <Left>9.23564cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>2.02375cm</Width>
             <ZIndex>14</ZIndex>
@@ -491,9 +491,9 @@
             </Paragraphs>
             <rd:DefaultName>beszTipus</rd:DefaultName>
             <Top>10.52318cm</Top>
-            <Left>12.49617cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.79236cm</Width>
+            <Width>3.31814cm</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -523,7 +523,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
             <Top>11.58151cm</Top>
-            <Left>9.23564cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>2.89688cm</Width>
             <ZIndex>16</ZIndex>
@@ -555,9 +555,9 @@
             </Paragraphs>
             <rd:DefaultName>beszSzamla</rd:DefaultName>
             <Top>11.58151cm</Top>
-            <Left>12.49617cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.79236cm</Width>
+            <Width>3.31814cm</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -651,7 +651,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>12.58693cm</Top>
-            <Left>9.23564cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>2.63229cm</Width>
             <ZIndex>20</ZIndex>
@@ -683,9 +683,9 @@
             </Paragraphs>
             <rd:DefaultName>beszFuvar</rd:DefaultName>
             <Top>12.58693cm</Top>
-            <Left>12.49617cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.79236cm</Width>
+            <Width>3.31814cm</Width>
             <ZIndex>21</ZIndex>
             <Style>
               <Border>
@@ -787,7 +787,7 @@
           </Line>
           <Line Name="Line4">
             <Top>10.02604cm</Top>
-            <Left>0.61229cm</Left>
+            <Left>0.98274cm</Left>
             <Height>0cm</Height>
             <Width>15.80653cm</Width>
             <ZIndex>26</ZIndex>
@@ -917,7 +917,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox174</rd:DefaultName>
             <Top>8.80661cm</Top>
-            <Left>9.31502cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>1.94438cm</Width>
             <ZIndex>30</ZIndex>
@@ -981,9 +981,9 @@
             </Paragraphs>
             <rd:DefaultName>vevoTelepules</rd:DefaultName>
             <Top>8.80661cm</Top>
-            <Left>12.57352cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.71501cm</Width>
+            <Width>3.31814cm</Width>
             <ZIndex>32</ZIndex>
             <Style>
               <Border>
@@ -1045,7 +1045,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>15.48556cm</Top>
-            <Left>9.23564cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>2.02375cm</Width>
             <ZIndex>34</ZIndex>
@@ -1109,7 +1109,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
             <Top>16.46452cm</Top>
-            <Left>9.23564cm</Left>
+            <Left>9.60609cm</Left>
             <Height>0.6cm</Height>
             <Width>3.18792cm</Width>
             <ZIndex>36</ZIndex>
@@ -1173,9 +1173,9 @@
             </Paragraphs>
             <rd:DefaultName>eladasTipus</rd:DefaultName>
             <Top>15.48556cm</Top>
-            <Left>12.57352cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.71501cm</Width>
+            <Width>3.31814cm</Width>
             <ZIndex>38</ZIndex>
             <Style>
               <Border>
@@ -1237,9 +1237,9 @@
             </Paragraphs>
             <rd:DefaultName>eladasSzamla</rd:DefaultName>
             <Top>16.46452cm</Top>
-            <Left>12.57352cm</Left>
+            <Left>12.9704cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.71501cm</Width>
+            <Width>3.31814cm</Width>
             <ZIndex>40</ZIndex>
             <Style>
               <Border>

@@ -36,6 +36,7 @@ namespace SzerszamgepKereskedelem.Presenters
                 if (user!=null)
                 {
                     LoginSucces = true;
+                    view.bejelentkezettFelhasznalo = user.vezeteknev+" "+user.keresztnev;//Bejelentkezett felhasználó megjelenítése a main formon     
                 }
                 else
                 {

@@ -11,5 +11,6 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         string ErrorMessage { set; }
         string UserName { get; }
         string Password { get; }
+        string bejelentkezettFelhasznalo { set; }//Bejelentkezett felhasználó név
     }
 }

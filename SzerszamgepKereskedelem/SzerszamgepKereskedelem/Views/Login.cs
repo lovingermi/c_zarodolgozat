@@ -15,6 +15,7 @@ namespace SzerszamgepKereskedelem.Views
     public partial class Login : Form, ILoginView
     {
         private LoginPresenter presenter;
+        private string felhasznaloNev;
         public Login()
         {
             InitializeComponent();
@@ -32,13 +33,19 @@ namespace SzerszamgepKereskedelem.Views
             presenter.Authenticate();
             if (presenter.LoginSucces)
             {
-                var mw = new MainWindow();
+                var mw = new MainWindow(felhasznaloNev);
                 Hide();
                 mw.ShowDialog();
                 Close();
             }
         }
-
+        public string bejelentkezettFelhasznalo
+        {
+            set
+            {
+                felhasznaloNev = " Bejelentkezett felhasználó: " + value;//vezetéknév+keresztnév
+            }
+        }
         private void textBoxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode==Keys.Enter)

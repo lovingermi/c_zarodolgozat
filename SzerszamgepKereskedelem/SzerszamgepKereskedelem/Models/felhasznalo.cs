@@ -18,5 +18,7 @@ namespace SzerszamgepKereskedelem.Models
         public string felhasznalonev { get; set; }
         public string jelszo { get; set; }
         public bool modositas { get; set; }
+        public string vezeteknev { get; set; }
+        public string keresztnev { get; set; }
     }
 }

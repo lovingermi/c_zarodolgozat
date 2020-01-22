@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using SzerszamgepKereskedelem.Presenters;
 using SzerszamgepKereskedelem.ViewInterfaces;
 
+
 namespace SzerszamgepKereskedelem.Views
 {
     public partial class MainWindow : Form, IMainView, IReportView
@@ -24,13 +25,13 @@ namespace SzerszamgepKereskedelem.Views
         private int lapokSzama;
         private int aktualisLapSzam;
         private bool ASC = true;//rendezéshez
-        public MainWindow()
+        public MainWindow(string felhasznaloNev)//Sikeres bejelentkezésnél a felhasználónév paraméterként megérkezik
         {
             InitializeComponent();
             mainPresenter = new MainPresenter(this);
             reportPresenter = new ReportPresenter(this);
             TableColumnsAndFontSetup();
-            
+            this.Text += String.Format("{0,200}", felhasznaloNev);
         }
         public DataTable dataTableFoTabla
         {
@@ -64,6 +65,7 @@ namespace SzerszamgepKereskedelem.Views
                 return dateTimePickerIg.Value;
             }
         }
+       
         public int lapok
         {
             set
@@ -746,6 +748,7 @@ namespace SzerszamgepKereskedelem.Views
             }
         }
         #endregion
+        
     }
 }
 

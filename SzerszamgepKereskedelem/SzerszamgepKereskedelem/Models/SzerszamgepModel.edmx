@@ -35,6 +35,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="felhasznalonev" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="jelszo" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="vezeteknev" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="keresztnev" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="modositas" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="gepek">
@@ -176,6 +178,8 @@
           <Property Name="felhasznalonev" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="jelszo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="modositas" Type="Boolean" Nullable="false" />
+          <Property Name="vezeteknev" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="keresztnev" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="gepek">
           <Key>
@@ -319,6 +323,8 @@
           <EntitySetMapping Name="felhasznalo">
             <EntityTypeMapping TypeName="szerszamgepModel.felhasznalo">
               <MappingFragment StoreEntitySet="felhasznalo">
+                <ScalarProperty Name="keresztnev" ColumnName="keresztnev" />
+                <ScalarProperty Name="vezeteknev" ColumnName="vezeteknev" />
                 <ScalarProperty Name="modositas" ColumnName="modositas" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="felhasznalonev" ColumnName="felhasznalonev" />
