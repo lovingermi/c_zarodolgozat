@@ -84,3 +84,6 @@ C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\Szerszamgep
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.csprojAssemblyReference.cache
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.Views.ReportWindow.resources
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\CryptSharp.dll
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\CryptSharp.pdb
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\CryptSharp.xml

@@ -25,13 +25,15 @@ namespace SzerszamgepKereskedelem.Views
         private int lapokSzama;
         private int aktualisLapSzam;
         private bool ASC = true;//rendezéshez
-        public MainWindow(string felhasznaloNev)//Sikeres bejelentkezésnél a felhasználónév paraméterként megérkezik
+        private bool felhasznaloJogosultsag;
+        public MainWindow(string felhasznaloNev, bool fJogosultsag)//Sikeres bejelentkezésnél a felhasználónév paraméterként megérkezik
         {
             InitializeComponent();
             mainPresenter = new MainPresenter(this);
             reportPresenter = new ReportPresenter(this);
             TableColumnsAndFontSetup();
             this.Text += String.Format("{0,200}", felhasznaloNev);
+            felhasznaloJogosultsag = fJogosultsag;//bejelentkezés alapján felhasználó jogosultság meghatározva
         }
         public DataTable dataTableFoTabla
         {
@@ -194,7 +196,19 @@ namespace SzerszamgepKereskedelem.Views
                 pi.SetValue(dataGridViewMainTable, true, null);
             }
             comboBoxKeres.Text = "Teljes lista";
-           // this.reportViewerMain.RefreshReport();
+            // this.reportViewerMain.RefreshReport();
+            if (felhasznaloJogosultsag)
+            {
+                buttonAddProjekt.Enabled = true;
+                buttonDelete.Enabled = true;
+                buttonModify.Enabled = true;
+            }
+            else
+            {
+                buttonAddProjekt.Enabled = false;
+                buttonDelete.Enabled = false;
+                buttonModify.Enabled = false;
+            }
         }
         private void buttonModify_Click(object sender, EventArgs e)
         {
@@ -748,7 +762,20 @@ namespace SzerszamgepKereskedelem.Views
             }
         }
         #endregion
-        
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            List<string> megrendelesLista = mainPresenter.exportCSV();
+            using (StreamWriter sr = new StreamWriter(File.Create("megrendeles.csv"), Encoding.UTF8))
+            {
+                foreach (var item in megrendelesLista)
+                {
+                    sr.WriteLine(item);
+                }
+                sr.Close();
+            }
+
+        }
     }
 }
 

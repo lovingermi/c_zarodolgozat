@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -135,6 +138,7 @@
     <Compile Include="Repositories\EladasRepository.cs" />
     <Compile Include="Repositories\GepRepository.cs" />
     <Compile Include="Repositories\VevoRepository.cs" />
+    <Compile Include="Services\Hash.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validations\CikkszamValidation.cs" />
     <Compile Include="Validations\CikkszamValidationException.cs" />

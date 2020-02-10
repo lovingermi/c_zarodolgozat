@@ -16,6 +16,7 @@ namespace SzerszamgepKereskedelem.Views
     {
         private LoginPresenter presenter;
         private string felhasznaloNev;
+        private bool fJogosultsag;
         public Login()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace SzerszamgepKereskedelem.Views
             presenter.Authenticate();
             if (presenter.LoginSucces)
             {
-                var mw = new MainWindow(felhasznaloNev);
+                var mw = new MainWindow(felhasznaloNev,fJogosultsag);
                 Hide();
                 mw.ShowDialog();
                 Close();
@@ -46,6 +47,15 @@ namespace SzerszamgepKereskedelem.Views
                 felhasznaloNev = " Bejelentkezett felhasználó: " + value;//vezetéknév+keresztnév
             }
         }
+
+        public bool felhasznaloJogosultsag
+        {
+            set
+            {
+                fJogosultsag = value;
+            }
+        }
+
         private void textBoxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode==Keys.Enter)

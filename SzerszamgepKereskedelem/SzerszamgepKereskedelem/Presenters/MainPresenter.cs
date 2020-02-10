@@ -24,6 +24,7 @@ namespace SzerszamgepKereskedelem.Presenters
         private szerszamgepContext db;
         private IMainView mainView;
         private IQueryable query;
+        private IQueryable exportQuery;
         private double sorokSzama;//Aktuális lekérdezés sorainak száma
         //private int aktualisLap;
         public MainPresenter(IMainView param)
@@ -33,6 +34,7 @@ namespace SzerszamgepKereskedelem.Presenters
             mainView = param;
             sorokSzama = db.megrendeles.Count();
             query = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id).Skip(0).Take(10);
+            exportQuery = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id);
             CreateDataTable();
             getLekerdezesLapokszama(sorokSzama);
             LoadData();
@@ -166,10 +168,12 @@ namespace SzerszamgepKereskedelem.Presenters
             if (ASC)
             {
                 query = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderBy(x => x.gepek.gyarto);
             }
             else
             {
                 query = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderByDescending(x => x.gepek.gyarto).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.gepek.gyarto.Contains(gyarto)).OrderByDescending(x => x.gepek.gyarto);
             }
             //aktualisLap = aktualisLapSzam;
             LoadData();
@@ -229,6 +233,22 @@ namespace SzerszamgepKereskedelem.Presenters
             }
             //aktualisLap = aktualisLapSzam;
             LoadData();
+        }
+        public List<string>  exportCSV()
+        {
+            List<string> megrendelesLista = new List<string>();
+            megrendelesLista.Add("id" + ";" + "Cikkszám");
+            foreach (megrendeles megrendeles in exportQuery)
+            {
+                gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
+                vevok vevo = vevoRepository.getVevoById(megrendeles.vevo_Id);
+                beszerzesek beszerzes = beszerzesRepository.getBeszerzesById(megrendeles.beszerzes_Id);
+                eladasok eladas = eladasRepository.getEladasById(megrendeles.eladas_Id);
+                megrendelesLista.Add(megrendeles.id + ";" +
+                    gep.cikkszam.Trim() + ";"+
+                    gep.megnevezes.Trim() + ";");
+            }
+            return megrendelesLista;
         }
     }
 }

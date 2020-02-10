@@ -77,5 +77,14 @@ namespace SzerszamgepKereskedelem.Properties {
                 return ResourceManager.GetString("LoginHiba", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ez a felhasználó nem létezik!.
+        /// </summary>
+        internal static string UserHiba {
+            get {
+                return ResourceManager.GetString("UserHiba", resourceCulture);
+            }
+        }
     }
 }

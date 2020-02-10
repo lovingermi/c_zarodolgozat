@@ -123,4 +123,7 @@
   <data name="LoginHiba" xml:space="preserve">
     <value>Hibás felhasználónév vagy jelszó!</value>
   </data>
+  <data name="UserHiba" xml:space="preserve">
+    <value>Ez a felhasználó nem létezik!</value>
+  </data>
 </root>

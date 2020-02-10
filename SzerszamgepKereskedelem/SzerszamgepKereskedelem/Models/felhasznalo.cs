@@ -11,7 +11,8 @@ namespace SzerszamgepKereskedelem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
+
     public partial class felhasznalo
     {
         public int Id { get; set; }

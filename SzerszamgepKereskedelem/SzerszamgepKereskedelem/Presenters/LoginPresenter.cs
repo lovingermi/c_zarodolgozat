@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CryptSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SzerszamgepKereskedelem.Models;
 using SzerszamgepKereskedelem.Properties;
+using SzerszamgepKereskedelem.Services;
 using SzerszamgepKereskedelem.ViewInterfaces;
 
 namespace SzerszamgepKereskedelem.Presenters
@@ -30,17 +32,34 @@ namespace SzerszamgepKereskedelem.Presenters
             }
             else
             {
-                var user = db.felhasznalo.SingleOrDefault(x => x.felhasznalonev == view.UserName &&
-                 x.jelszo == view.Password && x.modositas==true);
-
+                /*var user = db.felhasznalo.SingleOrDefault(x => x.felhasznalonev == view.UserName &&
+                 x.jelszo == view.Password && x.modositas==true);*/
+                var user = db.felhasznalo.SingleOrDefault(x => x.felhasznalonev == view.UserName);
                 if (user!=null)
                 {
-                    LoginSucces = true;
-                    view.bejelentkezettFelhasznalo = user.vezeteknev+" "+user.keresztnev;//Bejelentkezett felhasználó megjelenítése a main formon     
+                    //----------
+                    //var salt = user.felhasznalonev;//ha simán sikerül próba salt 
+                    //var hash = Hash.GetMD5(view.Password);//(view.Password + salt);
+                    bool matchesPwd = Crypter.CheckPassword(view.Password, user.jelszo);
+                    var hUser = db.
+                        felhasznalo.SingleOrDefault(x =>
+                        x.felhasznalonev == view.UserName &&
+                           matchesPwd);//&& matchesPwd);//hashx.jelszo.Equals(hash)
+                    if (hUser != null) 
+                    
+                    {
+                        LoginSucces = true;
+                        view.bejelentkezettFelhasznalo = user.vezeteknev + " " + user.keresztnev;//Bejelentkezett felhasználó megjelenítése a main formon 
+                        view.felhasznaloJogosultsag = user.modositas;
+                    }
+                    else
+                    {
+                        view.ErrorMessage = Resources.LoginHiba;
+                    }            
                 }
                 else
                 {
-                    view.ErrorMessage = Resources.LoginHiba;
+                    view.ErrorMessage = Resources.UserHiba;
                 }
             }
         }

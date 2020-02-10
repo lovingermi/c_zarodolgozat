@@ -50,6 +50,7 @@
             this.textBoxKeres = new System.Windows.Forms.TextBox();
             this.comboBoxKeres = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.reportViewerMain = new Microsoft.Reporting.WinForms.ReportViewer();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kilepesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProviderModify = new System.Windows.Forms.ErrorProvider(this.components);
@@ -59,7 +60,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxOldalszam = new System.Windows.Forms.TextBox();
             this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
-            this.reportViewerMain = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.buttonExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -75,7 +76,7 @@
             this.buttonModify.ForeColor = System.Drawing.Color.Black;
             this.buttonModify.Image = ((System.Drawing.Image)(resources.GetObject("buttonModify.Image")));
             this.buttonModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModify.Location = new System.Drawing.Point(529, 110);
+            this.buttonModify.Location = new System.Drawing.Point(743, 111);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonModify.Size = new System.Drawing.Size(155, 44);
@@ -93,7 +94,7 @@
             this.buttonAddProjekt.ForeColor = System.Drawing.Color.Black;
             this.buttonAddProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProjekt.Image")));
             this.buttonAddProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProjekt.Location = new System.Drawing.Point(529, 57);
+            this.buttonAddProjekt.Location = new System.Drawing.Point(743, 58);
             this.buttonAddProjekt.Name = "buttonAddProjekt";
             this.buttonAddProjekt.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddProjekt.Size = new System.Drawing.Size(155, 45);
@@ -110,7 +111,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.Black;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(529, 160);
+            this.buttonDelete.Location = new System.Drawing.Point(743, 159);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(155, 44);
@@ -127,7 +128,7 @@
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
             this.buttonExit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit.Image")));
             this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(699, 158);
+            this.buttonExit.Location = new System.Drawing.Point(913, 159);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonExit.Size = new System.Drawing.Size(155, 44);
@@ -144,7 +145,7 @@
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
             this.buttonPrint.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrint.Image")));
             this.buttonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPrint.Location = new System.Drawing.Point(699, 107);
+            this.buttonPrint.Location = new System.Drawing.Point(573, 158);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrint.Size = new System.Drawing.Size(155, 45);
@@ -162,7 +163,7 @@
             this.buttonSaveToFile.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveToFile.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveToFile.Image")));
             this.buttonSaveToFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveToFile.Location = new System.Drawing.Point(699, 57);
+            this.buttonSaveToFile.Location = new System.Drawing.Point(573, 110);
             this.buttonSaveToFile.Name = "buttonSaveToFile";
             this.buttonSaveToFile.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.buttonSaveToFile.Size = new System.Drawing.Size(155, 45);
@@ -178,6 +179,7 @@
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.buttonExport);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.buttonSaveToFile);
             this.panel1.Controls.Add(this.label1);
@@ -187,9 +189,9 @@
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.reportViewerMain);
-            this.panel1.Location = new System.Drawing.Point(456, 450);
+            this.panel1.Location = new System.Drawing.Point(255, 505);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 220);
+            this.panel1.Size = new System.Drawing.Size(1090, 220);
             this.panel1.TabIndex = 34;
             // 
             // panel2
@@ -207,7 +209,7 @@
             this.panel2.Controls.Add(this.dateTimePickerTol);
             this.panel2.Controls.Add(this.textBoxKeres);
             this.panel2.Controls.Add(this.comboBoxKeres);
-            this.panel2.Location = new System.Drawing.Point(54, 57);
+            this.panel2.Location = new System.Drawing.Point(99, 58);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(459, 145);
             this.panel2.TabIndex = 35;
@@ -337,11 +339,22 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Gainsboro;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(236, 15);
+            this.label1.Location = new System.Drawing.Point(283, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 36;
             this.label1.Text = "Keresés";
+            // 
+            // reportViewerMain
+            // 
+            this.reportViewerMain.DocumentMapWidth = 8;
+            this.reportViewerMain.LocalReport.ReportEmbeddedResource = "SzerszamgepKereskedelem.Report1.rdlc";
+            this.reportViewerMain.Location = new System.Drawing.Point(988, 15);
+            this.reportViewerMain.Name = "reportViewerMain";
+            this.reportViewerMain.ServerReport.BearerToken = null;
+            this.reportViewerMain.Size = new System.Drawing.Size(80, 37);
+            this.reportViewerMain.TabIndex = 41;
+            this.reportViewerMain.Visible = false;
             // 
             // menuStrip1
             // 
@@ -430,16 +443,21 @@
             this.dataGridViewMainTable.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMainTable_RowPostPaint);
             this.dataGridViewMainTable.Sorted += new System.EventHandler(this.dataGridViewMainTable_Sorted);
             // 
-            // reportViewerMain
+            // buttonExport
             // 
-            this.reportViewerMain.DocumentMapWidth = 8;
-            this.reportViewerMain.LocalReport.ReportEmbeddedResource = "SzerszamgepKereskedelem.Report1.rdlc";
-            this.reportViewerMain.Location = new System.Drawing.Point(774, 14);
-            this.reportViewerMain.Name = "reportViewerMain";
-            this.reportViewerMain.ServerReport.BearerToken = null;
-            this.reportViewerMain.Size = new System.Drawing.Size(80, 37);
-            this.reportViewerMain.TabIndex = 41;
-            this.reportViewerMain.Visible = false;
+            this.buttonExport.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonExport.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.Image")));
+            this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExport.Location = new System.Drawing.Point(573, 58);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonExport.Size = new System.Drawing.Size(155, 45);
+            this.buttonExport.TabIndex = 41;
+            this.buttonExport.Text = "Exportálás";
+            this.buttonExport.UseCompatibleTextRendering = true;
+            this.buttonExport.UseVisualStyleBackColor = false;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // MainWindow
             // 
@@ -506,5 +524,6 @@
         private System.Windows.Forms.RadioButton radioButtonDESC;
         private System.Windows.Forms.RadioButton radioButtonASC;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewerMain;
+        private System.Windows.Forms.Button buttonExport;
     }
 }
