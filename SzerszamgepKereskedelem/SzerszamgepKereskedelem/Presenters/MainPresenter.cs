@@ -133,10 +133,12 @@ namespace SzerszamgepKereskedelem.Presenters
             if (ASC)
             {
                 query = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderBy(x => x.gepek.cikkszam);
             }
             else
             {
                 query = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderByDescending(x => x.gepek.cikkszam).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.gepek.cikkszam.Contains(cikkszam)).OrderByDescending(x => x.gepek.cikkszam);
             }
             
             //aktualisLap = aktualisLapSzam;
@@ -151,10 +153,12 @@ namespace SzerszamgepKereskedelem.Presenters
             if (ASC)
             {
                 query = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderBy(x => x.vevok.nev);
             }
             else
             {
                 query = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderByDescending(x => x.vevok.nev).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.vevok.nev.Contains(vevoNev)).OrderByDescending(x => x.vevok.nev);
             }
             //aktualisLap = aktualisLapSzam;
             LoadData();
@@ -185,10 +189,12 @@ namespace SzerszamgepKereskedelem.Presenters
             if (ASC)
             {
                 query = db.megrendeles.OrderBy(x => x.id).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.OrderBy(x => x.id);
             }
             else
             {
                 query = db.megrendeles.OrderByDescending(x => x.id).Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.OrderByDescending(x => x.id);
             }
             
             //aktualisLap = aktualisLapSzam;
@@ -205,11 +211,13 @@ namespace SzerszamgepKereskedelem.Presenters
             {
                 query = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum).
                 Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderBy(x => x.beszerzesek.datum);
             }
             else
             {
                 query = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderByDescending(x => x.beszerzesek.datum).
                 Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.beszerzesek.datum >= kezdoDatum && m.beszerzesek.datum <= zaroDatum).OrderByDescending(x => x.beszerzesek.datum);
             }
             //aktualisLap = aktualisLapSzam;
             LoadData();
@@ -225,11 +233,13 @@ namespace SzerszamgepKereskedelem.Presenters
             {
                 query = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum).
                 Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderBy(x => x.eladasok.datum);
             }
             else
             {
                 query = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderByDescending(x => x.eladasok.datum).
                 Skip(aktualisLapSzam * 10).Take(10);
+                exportQuery = db.megrendeles.Where(m => m.eladasok.datum >= kezdoDatum && m.eladasok.datum <= zaroDatum).OrderByDescending(x => x.eladasok.datum);
             }
             //aktualisLap = aktualisLapSzam;
             LoadData();
@@ -237,7 +247,10 @@ namespace SzerszamgepKereskedelem.Presenters
         public List<string>  exportCSV()
         {
             List<string> megrendelesLista = new List<string>();
-            megrendelesLista.Add("id" + ";" + "Cikkszám");
+            megrendelesLista.Add("id" + ";" + "Cikkszám"+";"+"Megnevezés"+";"+"Gyártó"+";"+"Gép típus"+";"+
+                "Vevő név"+";"+"Ország"+";"+"Település"+";"+
+                "Besz. dátum"+";"+"Besz. típus"+";"+"Besz. EKAR"+";"+"Besz. számlaszám"+";"+"Besz. VÁM"+";"+"Besz. Fuvar"+";"+"Besz. CMR"+";"+
+                "El. dátum"+";"+"El. típus"+";"+"El. számlaszám"+";"+"El. EKAR");
             foreach (megrendeles megrendeles in exportQuery)
             {
                 gepek gep = gepRepository.getGepById(megrendeles.gep_Id);
@@ -246,7 +259,23 @@ namespace SzerszamgepKereskedelem.Presenters
                 eladasok eladas = eladasRepository.getEladasById(megrendeles.eladas_Id);
                 megrendelesLista.Add(megrendeles.id + ";" +
                     gep.cikkszam.Trim() + ";"+
-                    gep.megnevezes.Trim() + ";");
+                    gep.megnevezes.Trim() + ";"+
+                    gep.gyarto.Trim() + ";"+
+                    gep.tipus.Trim() +";"+
+                    vevo.nev.Trim() +";"+
+                    vevo.orszag.Trim() +";"+
+                    vevo.varos.Trim() +";"+
+                    beszerzes.datum.ToShortDateString() +";"+
+                    beszerzes.beszerzes_Tipus.Trim()+";"+
+                    beszerzes.EKAR_Szam.Trim()+";"+
+                    beszerzes.szamla.Trim()+";"+
+                    beszerzes.VAM.Trim()+";"+
+                    beszerzes.fuvar.Trim()+";"+
+                    beszerzes.CMR.Trim()+";"+
+                    eladas.datum.ToShortDateString() + ";"+
+                    eladas.tipus.Trim()+";"+
+                    eladas.szamlaszam.Trim()+";"+
+                    eladas.EKAR_Szam.Trim());
             }
             return megrendelesLista;
         }

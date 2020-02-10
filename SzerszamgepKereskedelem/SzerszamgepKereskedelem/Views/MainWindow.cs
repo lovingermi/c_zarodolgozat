@@ -765,16 +765,21 @@ namespace SzerszamgepKereskedelem.Views
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            List<string> megrendelesLista = mainPresenter.exportCSV();
-            using (StreamWriter sr = new StreamWriter(File.Create("megrendeles.csv"), Encoding.UTF8))
+            SaveFileDialog saveFileDialogCSV = new SaveFileDialog();
+            saveFileDialogCSV.Filter = "CSV file (*.csv)|*.csv| All Files (*.*)|*.*";
+            saveFileDialogCSV.Title = "Állomány mentése CSV formátumban";
+            if (saveFileDialogCSV.ShowDialog() == DialogResult.OK)
             {
-                foreach (var item in megrendelesLista)
+                List<string> megrendelesLista = mainPresenter.exportCSV();
+                using (StreamWriter sr = new StreamWriter(File.Create(saveFileDialogCSV.FileName + ".csv"), Encoding.UTF8))
                 {
-                    sr.WriteLine(item);
+                    foreach (var item in megrendelesLista)
+                    {
+                        sr.WriteLine(item);
+                    }
+                    sr.Close();
                 }
-                sr.Close();
             }
-
         }
     }
 }

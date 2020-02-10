@@ -1,23 +1,23 @@
-﻿id;Cikkszám
-1;CIKK0000999;Ermaksan CNC Brake SB Pro 1270×40 élhajlító gép,00025205-ERH;
-2;CIKK0000566;Bendmak PRO 55 profilhengerítő,SN:50143;
-3;CIKK0000567;Bendmak CY4R-HHS 160/20-6.0 Hengerítő,SN:SY160-130;
-4;CIKK0000602;Bendmak CY4R-HHS 140-15/6.0 lemezhengeríto,2018/SY140-032;
-5;CIKK0000668;Safan Darley E-Brake 35-1250 élhajlító M5846;
-6;CIKK0000582;Ermaksan CNC HGS 2100x8 hidr.táblalemezolló,00025527-ERH;
-7;CIKK0000652;Fresan FP 10P excenteres présgép;
-8;CIKK0000749;Ermaksan CNC HGS 3100x6 hidraulikus táblalemezolló 00026248-ERH;
-9;CIKK0000741;Hidroliksan CFS 100-600x500 hidraulikus présgép SN.C100UT16/112;
-10;CIKK0000889;Demmeler EcoLine hegesztőasztal 2000×1000×850mm;
-11;CIKK0000734;Cesurbend gyártmányú PBNC-65 típusú NC vezérlésu csőhajlító gép;
-12;CIKK0001019;Great Dragon DW50 NCBL csőhajlítógép;
-13;CIKK0000769;Great Dragon SL0632D esztergagép;
-14;CIKK0000960;Mitsubishi lézer;
-15;CIKK0001027;Sahinler HPK-80 hengerítőgép;
-16;CIKK0001067;IMAS Cuteral PAR 280 M fém szalagfűrész gép;
-17;CIKK0000636;Ermaksan SpeedBend PRO 3100-320 élhajlító SN:27238-ERH;
-18;CIKK0001095;LoyalMak gyártmányú ECOCUT 1500×3000 plazmavágó gép+elszívó;
-19;CIKK0001127;OPTIMUM MB4PFúró-maró gép;
-20;CIKK0001197;Imas CSM 550 Automata fémfűrész;
-113;CIKK3333333;óóóóóóóóöáéíuoooééúúoouu;
-183;CIKK9988765;Nem Ahinox;
+﻿id;Cikkszám;Megnevezés;Gyártó;Gép típus;Vevő név;Ország;Település;Besz. dátum;Besz. típus;Besz. EKAR;Besz. számlaszám;Besz. VÁM;Besz. Fuvar;Besz. CMR;El. dátum;El. típus;El számlaszám;El. EKAR
+1;CIKK0000999;Ermaksan CNC Brake SB Pro 1270×40 élhajlító gép,00025205-ERH;Ermaksan;Élhajlító;Control Bt.;Magyarország;Pécs;2018. 09. 11. 0:00:00;Belföldi;E1901082F4CFFB3;1257845;1901082;;sdfdfsdfsdf;2018. 11. 16. 0:00:00;Közösségi;5465436;658768
+2;CIKK0000566;Bendmak PRO 55 profilhengerítő,SN:50143;Bendmak;Profilhengerítő;Best Trade;Németország;Berlin;2017. 02. 22. 0:00:00;Háromszögügylet;E19051333D22B22;76478352;2345567;76424652;45545756;2019. 09. 10. 0:00:00;Háromszögügylet;3465621;E19053034800A48
+3;CIKK0000567;Bendmak CY4R-HHS 160/20-6.0 Hengerítő,SN:SY160-130;Bendmak;Hengerítő;METAL Spec. Kft.;Magyarország;Budapest;2016. 08. 23. 0:00:00;Közösségi;E190507339A1A10;5784652;564567658;346248;8736543;2019. 10. 15. 0:00:00;Export;457568;E1901252FD26892
+4;CIKK0000602;Bendmak CY4R-HHS 140-15/6.0 lemezhengeríto,2018/SY140-032;Bendmak;Lemezhengeríto;Precise Laser;Magyarország;Pécs;2018. 10. 09. 0:00:00;Import;E190712362B4DB9;6577999;;6787687;56678989;2019. 03. 19. 0:00:00;Belföldi;4587698;E1901152F7A2CB5
+5;CIKK0000668;Safan Darley E-Brake 35-1250 élhajlító M5846;Safan Darley;Élhajlító;TTC Kft.;Ausztria;Bécs;2018. 02. 15. 0:00:00;Belföldi;E190926393047C4;687698;99857654;5656889;;2019. 08. 13. 0:00:00;Közösségi;4980214;E1901292FF230B3
+6;CIKK0000582;Ermaksan CNC HGS 2100x8 hidr.táblalemezolló,00025527-ERH;Ermaksan;Táblalemezolló;Precise Laser;Magyarország;Pécs;2017. 07. 19. 0:00:00;Import;E19021330716680;587794523;65457688;4567687;87656848;2018. 12. 18. 0:00:00;Export;8102446;E190507339A1A10
+7;CIKK0000652;Fresan FP 10P excenteres présgép;Fresan;Excenteres présgép;METAL Spec. Kft.;Magyarország;Budapest;2018. 05. 29. 0:00:00;Közösségi;E199248735746;54646758;675678;;5679435;2019. 06. 18. 0:00:00;Háromszögügylet;1023456;E190530347B4C02
+8;CIKK0000749;Ermaksan CNC HGS 3100x6 hidraulikus táblalemezolló 00026248-ERH;Ermaksan;Hidraulikus táblalemezolló;Control Bt.;Magyarország;Pécs;2019. 01. 22. 0:00:00;Háromszögügylet;E1901252AB26892;4565778;2355767;2357586;289786;2019. 10. 23. 0:00:00;Közösségi;1022447;E1907093600D1F5
+9;CIKK0000741;Hidroliksan CFS 100-600x500 hidraulikus présgép SN.C100UT16/112;Hidroliksan;Hidraulikus présgép;Best Trade;Németország;Berlin;2018. 07. 18. 0:00:00;Közösségi;E2205303480CD48;;34536778;1248997;568874535;2019. 11. 11. 0:00:00;Háromszögügylet;9701325;E19092639306C12
+10;CIKK0000889;Demmeler EcoLine hegesztőasztal 2000×1000×850mm;Demeler;Hegesztoasztalka;Metal Pro II;Ausztria;Graz;2019. 03. 07. 0:00:00;Belföldi;E445687472367;345676658;72453445;;999877654;2019. 04. 19. 0:00:00;Export;67721002;E190926393047C4
+11;CIKK0000734;Cesurbend gyártmányú PBNC-65 típusú NC vezérlésu csőhajlító gép;Cesurbend;Csőhajlító;Precise Laser;Magyarország;Pécs;2017. 12. 06. 0:00:00;Közösségi;E899996523354;4556744;6456434;43634666;33567899;2019. 12. 10. 0:00:00;Belföldi;78945012;E220926393047C4
+12;CIKK0001019;Great Dragon DW50 NCBL csőhajlítógép;Great Dragon;Csőhajlítógép;TTC Kft.;Ausztria;Bécs;2019. 01. 20. 0:00:00;Háromszögügylet;E76548432784;453657;6988324545;45346577;656436567;2019. 05. 15. 0:00:00;Háromszögügylet;89564545;E23053034800B48
+13;CIKK0000769;Great Dragon SL0632D esztergagép;Great Dragon;Esztergagép;Precise Laser;Magyarország;Pécs;2019. 05. 30. 0:00:00;Belföldi;E6544739845;4579823;32212200;2303245;55452100;2019. 01. 16. 0:00:00;Export;102132345;E19021330722680
+14;CIKK0000960;Mitsubishi lézer;Mitsubishi;Lézervágó;METAL Spec. Kft.;Magyarország;Budapest;2018. 09. 14. 0:00:00;Belföldi;E6980013435;;2101034;35232100;23423504;2019. 08. 21. 0:00:00;Háromszögügylet;6678901;E200329322812F2
+15;CIKK0001027;Sahinler HPK-80 hengerítőgép;Sahinler;Hengerítogép;Mega Bt.;Törökország;Törökország;2019. 02. 06. 0:00:00;Közösségi;E99112233456;54656;;3454656;;2019. 09. 10. 0:00:00;Belföldi;62120021;E2001072F4CFFB3
+16;CIKK0001067;IMAS Cuteral PAR 280 M fém szalagfűrész gép;IMAS;Szalagfurész2;Best Trade;Németország;Berlin;2017. 10. 18. 0:00:00;Import;E100034546;676654;997767;;;2019. 11. 26. 0:00:00;Közösségi;100223;E1801252FD26892
+17;CIKK0000636;Ermaksan SpeedBend PRO 3100-320 élhajlító SN:27238-ERH;Ermaksan;Élhajlító;METAL Spec. Kft.;Magyarország;Budapest;2018. 11. 19. 0:00:00;Háromszögügylet;E897AB45435;;;4536677542;22225647;2019. 07. 16. 0:00:00;Export;12366889;E180221211E9467
+18;CIKK0001095;LoyalMak gyártmányú ECOCUT 1500×3000 plazmavágó gép+elszívó;LoyalMak;Plazmavágó;Precise Laser;Magyarország;Pécs;2019. 04. 15. 0:00:00;Import;E002235767A;;12345;2345456;;2019. 05. 14. 0:00:00;Háromszögügylet;10025888;E20021440716650
+19;CIKK0001127;OPTIMUM MB4PFúró-maró gép;OPTIMUM;Fúró-maró gép;TTC Kft.;Ausztria;Bécs;2017. 04. 19. 0:00:00;Belföldi;E23A466886;34656;645655665;45344346;4567;2019. 01. 22. 0:00:00;Közösségi;0277865;E19053034802344
+20;CIKK0001197;Imas CSM 550 Automata fémfűrész;IMAS;Automata fémfűrész;Metal Pro II;Ausztria;Graz;2019. 03. 14. 0:00:00;Közösségi;E44675676A2;;2324455;;;2019. 10. 16. 0:00:00;Belföldi;3454633;E20054434800A48
+113;CIKK3333333;óóóóóóóóöáéíuoooééúúoouu;nem gg;nem tt;Best Trade;Németország;Berlin;2019. 12. 26. 0:00:00;Háromszögügylet;ekar99;9999999999999;vámvám;;ccmmrrrrr;2019. 12. 26. 0:00:00;Közösségi;eszamla;eekar
+183;CIKK9988765;Nem Ahinox;OPTIMUM;Élhajlító;Valami;Magyarország;Magyarország;2019. 12. 16. 0:00:00;Import;;;111111111;;;2020. 01. 08. 0:00:00;Export;111111111;
