@@ -37,6 +37,7 @@
             this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonSaveToFile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonExport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButtonDESC = new System.Windows.Forms.RadioButton();
             this.radioButtonASC = new System.Windows.Forms.RadioButton();
@@ -53,6 +54,9 @@
             this.reportViewerMain = new Microsoft.Reporting.WinForms.ReportViewer();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kilepesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.felhasználóToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sajatAdatokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UjFelhasznalo = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProviderModify = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonLapFel = new System.Windows.Forms.Button();
             this.buttonLapLe = new System.Windows.Forms.Button();
@@ -60,7 +64,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxOldalszam = new System.Windows.Forms.TextBox();
             this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
-            this.buttonExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -193,6 +196,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 220);
             this.panel1.TabIndex = 34;
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonExport.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.Image")));
+            this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExport.Location = new System.Drawing.Point(573, 58);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonExport.Size = new System.Drawing.Size(155, 45);
+            this.buttonExport.TabIndex = 41;
+            this.buttonExport.Text = "Exportálás";
+            this.buttonExport.UseCompatibleTextRendering = true;
+            this.buttonExport.UseVisualStyleBackColor = false;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // panel2
             // 
@@ -359,7 +378,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kilepesToolStripMenuItem});
+            this.kilepesToolStripMenuItem,
+            this.felhasználóToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1364, 24);
@@ -371,6 +391,28 @@
             this.kilepesToolStripMenuItem.Name = "kilepesToolStripMenuItem";
             this.kilepesToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.kilepesToolStripMenuItem.Text = "Kilépés";
+            // 
+            // felhasználóToolStripMenuItem
+            // 
+            this.felhasználóToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sajatAdatokToolStripMenuItem,
+            this.UjFelhasznalo});
+            this.felhasználóToolStripMenuItem.Name = "felhasználóToolStripMenuItem";
+            this.felhasználóToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.felhasználóToolStripMenuItem.Text = "Felhasználó";
+            // 
+            // sajatAdatokToolStripMenuItem
+            // 
+            this.sajatAdatokToolStripMenuItem.Name = "sajatAdatokToolStripMenuItem";
+            this.sajatAdatokToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.sajatAdatokToolStripMenuItem.Text = "Adatok megtekintése";
+            this.sajatAdatokToolStripMenuItem.Click += new System.EventHandler(this.sajatAdatokToolStripMenuItem_Click);
+            // 
+            // UjFelhasznalo
+            // 
+            this.UjFelhasznalo.Name = "UjFelhasznalo";
+            this.UjFelhasznalo.Size = new System.Drawing.Size(209, 22);
+            this.UjFelhasznalo.Text = "Új felhasználó létrehozása";
             // 
             // errorProviderModify
             // 
@@ -443,22 +485,6 @@
             this.dataGridViewMainTable.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMainTable_RowPostPaint);
             this.dataGridViewMainTable.Sorted += new System.EventHandler(this.dataGridViewMainTable_Sorted);
             // 
-            // buttonExport
-            // 
-            this.buttonExport.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonExport.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.Image")));
-            this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExport.Location = new System.Drawing.Point(573, 58);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonExport.Size = new System.Drawing.Size(155, 45);
-            this.buttonExport.TabIndex = 41;
-            this.buttonExport.Text = "Exportálás";
-            this.buttonExport.UseCompatibleTextRendering = true;
-            this.buttonExport.UseVisualStyleBackColor = false;
-            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,5 +551,8 @@
         private System.Windows.Forms.RadioButton radioButtonASC;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewerMain;
         private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.ToolStripMenuItem felhasználóToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sajatAdatokToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UjFelhasznalo;
     }
 }

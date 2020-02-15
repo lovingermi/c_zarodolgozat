@@ -26,7 +26,8 @@ namespace SzerszamgepKereskedelem.Views
         private int aktualisLapSzam;
         private bool ASC = true;//rendezéshez
         private bool felhasznaloJogosultsag;
-        public MainWindow(string felhasznaloNev, bool fJogosultsag)//Sikeres bejelentkezésnél a felhasználónév paraméterként megérkezik
+        private int userId;
+        public MainWindow(string felhasznaloNev, bool fJogosultsag, int uId)//Sikeres bejelentkezésnél a felhasználónév paraméterként megérkezik
         {
             InitializeComponent();
             mainPresenter = new MainPresenter(this);
@@ -34,6 +35,7 @@ namespace SzerszamgepKereskedelem.Views
             TableColumnsAndFontSetup();
             this.Text += String.Format("{0,200}", felhasznaloNev);
             felhasznaloJogosultsag = fJogosultsag;//bejelentkezés alapján felhasználó jogosultság meghatározva
+            userId = uId;
         }
         public DataTable dataTableFoTabla
         {
@@ -779,6 +781,15 @@ namespace SzerszamgepKereskedelem.Views
                     }
                     sr.Close();
                 }
+            }
+        }
+
+        private void sajatAdatokToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserWindow userWindow = new UserWindow(userId);
+            if (userWindow.ShowDialog() == DialogResult.OK)
+            {
+
             }
         }
     }

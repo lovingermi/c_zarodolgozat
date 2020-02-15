@@ -125,11 +125,16 @@
     <Compile Include="Models\Partials\megrendeles_Partial.cs" />
     <Compile Include="Presenters\AddPresenter.cs" />
     <Compile Include="Presenters\AddPresenterException.cs" />
+    <Compile Include="Presenters\confirmPasswordPresenterException.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\ModifyPresenter.cs" />
     <Compile Include="Presenters\ModifyPresenterException.cs" />
+    <Compile Include="Presenters\newPasswordPresenterException.cs" />
     <Compile Include="Presenters\ReportPresenter.cs" />
+    <Compile Include="Presenters\UserOldPasswordPresenterException.cs" />
+    <Compile Include="Presenters\UserPresenter.cs" />
+    <Compile Include="Presenters\UserNamePresenterException.cs" />
     <Compile Include="Presenters\VevoPresenter.cs" />
     <Compile Include="Presenters\VevoPresenterException.cs" />
     <Compile Include="Program.cs" />
@@ -140,6 +145,18 @@
     <Compile Include="Repositories\VevoRepository.cs" />
     <Compile Include="Services\Hash.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Validations\confirmPasswordValidationException.cs" />
+    <Compile Include="Validations\newPasswordValidationException.cs" />
+    <Compile Include="Validations\UserNameValidationException.cs" />
+    <Compile Include="Validations\UserOldPasswordValidationException.cs" />
+    <Compile Include="Validations\UserValidation.cs" />
+    <Compile Include="ViewInterfaces\IUserView.cs" />
+    <Compile Include="Views\UserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserWindow.Designer.cs">
+      <DependentUpon>UserWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validations\CikkszamValidation.cs" />
     <Compile Include="Validations\CikkszamValidationException.cs" />
     <Compile Include="Validations\VevoNevValidation.cs" />
@@ -204,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportWindow.resx">
       <DependentUpon>ReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserWindow.resx">
+      <DependentUpon>UserWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\SzerszamgepModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

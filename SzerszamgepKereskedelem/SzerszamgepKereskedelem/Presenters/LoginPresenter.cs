@@ -40,7 +40,7 @@ namespace SzerszamgepKereskedelem.Presenters
                     //----------
                     //var salt = user.felhasznalonev;//ha simán sikerül próba salt 
                     //var hash = Hash.GetMD5(view.Password);//(view.Password + salt);
-                    bool matchesPwd = Crypter.CheckPassword(view.Password, user.jelszo);
+                    bool matchesPwd =Crypter.CheckPassword(view.Password, user.jelszo);
                     var hUser = db.
                         felhasznalo.SingleOrDefault(x =>
                         x.felhasznalonev == view.UserName &&
@@ -51,6 +51,7 @@ namespace SzerszamgepKereskedelem.Presenters
                         LoginSucces = true;
                         view.bejelentkezettFelhasznalo = user.vezeteknev + " " + user.keresztnev;//Bejelentkezett felhasználó megjelenítése a main formon 
                         view.felhasznaloJogosultsag = user.modositas;
+                        view.UserId = user.Id;
                     }
                     else
                     {

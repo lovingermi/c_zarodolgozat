@@ -8,13 +8,28 @@ using System.Threading.Tasks;
 
 namespace SzerszamgepKereskedelem.Services
 {
-    class Hash
+    public static class Hash
     {
-        /*public static bool GetHash(string input)
+        public static string Encrypt(string input)
         {
-            
-            
-        }*/
-        
+            var sha256 = SHA256.Create();
+            // char[] = string
+            // bájt tömbbé alakítjuk a stringet
+            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+            // Itt megtörténik a kódolás
+            var hash = sha256.ComputeHash(inputBytes);
+
+            // Egy string készítése
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                // hozzáfűzze a stringhez
+                // X2-vel nem számok lesznek, hanem betűk
+                sb.Append(hash[i].ToString("X2"));
+            }
+
+            return sb.ToString();
+        }
+
     }
 }

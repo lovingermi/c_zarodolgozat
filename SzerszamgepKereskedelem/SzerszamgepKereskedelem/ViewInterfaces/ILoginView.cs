@@ -13,5 +13,6 @@ namespace SzerszamgepKereskedelem.ViewInterfaces
         string Password { get; }
         string bejelentkezettFelhasznalo { set; }//Bejelentkezett felhasználó név
         bool felhasznaloJogosultsag { set; }//Bejelentkezett felhasználó jogosultság jelenleg 1 vagy 0
+        int UserId { set; }
     }
 }

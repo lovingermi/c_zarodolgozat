@@ -87,3 +87,4 @@ C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\Szerszamgep
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\CryptSharp.dll
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\CryptSharp.pdb
 C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\bin\Debug\CryptSharp.xml
+C:\Users\ProBook 455\Desktop\c#_zarodolgozat\SzerszamgepKereskedelem\SzerszamgepKereskedelem\obj\Debug\SzerszamgepKereskedelem.UserWindow.resources

@@ -16,6 +16,7 @@ namespace SzerszamgepKereskedelem.Views
     {
         private LoginPresenter presenter;
         private string felhasznaloNev;
+        private int userId;
         private bool fJogosultsag;
         public Login()
         {
@@ -34,7 +35,7 @@ namespace SzerszamgepKereskedelem.Views
             presenter.Authenticate();
             if (presenter.LoginSucces)
             {
-                var mw = new MainWindow(felhasznaloNev,fJogosultsag);
+                var mw = new MainWindow(felhasznaloNev,fJogosultsag, userId);
                 Hide();
                 mw.ShowDialog();
                 Close();
@@ -53,6 +54,14 @@ namespace SzerszamgepKereskedelem.Views
             set
             {
                 fJogosultsag = value;
+            }
+        }
+
+        public int UserId
+        {
+            set
+            {
+                userId = value;
             }
         }
 
