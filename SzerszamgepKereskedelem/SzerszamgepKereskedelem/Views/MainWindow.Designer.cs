@@ -391,6 +391,7 @@
             this.kilepesToolStripMenuItem.Name = "kilepesToolStripMenuItem";
             this.kilepesToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.kilepesToolStripMenuItem.Text = "Kilépés";
+            this.kilepesToolStripMenuItem.Click += new System.EventHandler(this.kilepesToolStripMenuItem_Click);
             // 
             // felhasználóToolStripMenuItem
             // 
@@ -413,6 +414,7 @@
             this.UjFelhasznalo.Name = "UjFelhasznalo";
             this.UjFelhasznalo.Size = new System.Drawing.Size(209, 22);
             this.UjFelhasznalo.Text = "Új felhasználó létrehozása";
+            this.UjFelhasznalo.Click += new System.EventHandler(this.UjFelhasznalo_Click);
             // 
             // errorProviderModify
             // 

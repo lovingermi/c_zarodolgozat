@@ -100,11 +100,11 @@ namespace SzerszamgepKereskedelem.Presenters
                 throw new UserNamePresenterException("A megadott felhasználónév már létezik!");
             }
         }
-        public void getOldData()//mégsem gomb megnyomásakor beolvassa az eredeti adatokat
+       /* public void getOldData()//mégsem gomb megnyomásakor beolvassa az eredeti adatokat
         {
             userView.lastName = _felhasznalo.keresztnev;
             userView.firstName = _felhasznalo.vezeteknev;
             userView.userName = _felhasznalo.felhasznalonev;
-        }
+        }*/
     }
 }

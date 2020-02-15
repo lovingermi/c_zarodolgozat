@@ -204,12 +204,14 @@ namespace SzerszamgepKereskedelem.Views
                 buttonAddProjekt.Enabled = true;
                 buttonDelete.Enabled = true;
                 buttonModify.Enabled = true;
+                UjFelhasznalo.Enabled = true;
             }
             else
             {
                 buttonAddProjekt.Enabled = false;
                 buttonDelete.Enabled = false;
                 buttonModify.Enabled = false;
+                UjFelhasznalo.Enabled = false;
             }
         }
         private void buttonModify_Click(object sender, EventArgs e)
@@ -791,6 +793,20 @@ namespace SzerszamgepKereskedelem.Views
             {
 
             }
+        }
+
+        private void UjFelhasznalo_Click(object sender, EventArgs e)
+        {
+            NewUserWindow newUserWindow = new NewUserWindow();
+            if (newUserWindow.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void kilepesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

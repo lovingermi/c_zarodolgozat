@@ -17,7 +17,7 @@ namespace SzerszamgepKereskedelem.Validations
         private int fId;
         private szerszamgepContext db;
         private felhasznalo _felhasznalo;
-        public UserValidation(string userName, string oldPassword, string newPassword, string confirmPassword, int id)
+        public UserValidation(string userName, string oldPassword, string newPassword, string confirmPassword, int id)//Teljes módosítás
         {
             this.UserName = userName;
             this.OldPassword = oldPassword;
@@ -27,9 +27,15 @@ namespace SzerszamgepKereskedelem.Validations
             db = new szerszamgepContext();
             _felhasznalo = db.felhasznalo.SingleOrDefault(f => f.Id == (fId));
         }
-        public UserValidation(string userName)
+        public UserValidation(string userName)//Módosítás jelszó nélkül
         {
             this.UserName = userName;
+        }
+        public UserValidation(string userName, string newPassword, string confirmPassword)// Új felhasználó létrehozás
+        {
+            this.UserName = userName;
+            this.NewPassword = newPassword;
+            this.ConfirmPassword = confirmPassword;
         }
         public void userNameValidation()
         {
@@ -74,7 +80,7 @@ namespace SzerszamgepKereskedelem.Validations
         private bool oldPasswordIsFalse()
         {
             bool matchesPwd = Crypter.CheckPassword(OldPassword, _felhasznalo.jelszo);//jelszó összehasonlítása a titkosított jelszóval
-            if (!matchesPwd) //Nem lett kitöltve a user mező
+            if (!matchesPwd) 
             {
                 return true;
             }

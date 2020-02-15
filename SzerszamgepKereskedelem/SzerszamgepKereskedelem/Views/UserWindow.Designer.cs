@@ -33,8 +33,6 @@
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonModifyUser = new System.Windows.Forms.Button();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.errorProviderUserName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderOldPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNewPassword = new System.Windows.Forms.ErrorProvider(this.components);
@@ -57,7 +57,7 @@
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(149, 3);
+            this.textBoxUserName.Location = new System.Drawing.Point(128, 3);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.ReadOnly = true;
             this.textBoxUserName.Size = new System.Drawing.Size(134, 20);
@@ -65,7 +65,7 @@
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(149, 38);
+            this.textBoxFirstName.Location = new System.Drawing.Point(128, 38);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.ReadOnly = true;
             this.textBoxFirstName.Size = new System.Drawing.Size(134, 20);
@@ -73,7 +73,7 @@
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(149, 73);
+            this.textBoxLastName.Location = new System.Drawing.Point(128, 73);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.ReadOnly = true;
             this.textBoxLastName.Size = new System.Drawing.Size(134, 20);
@@ -108,28 +108,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(343, 251);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(294, 251);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(188, 334);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 15;
-            this.buttonSave.Text = "Mentés";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(293, 334);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 14;
-            this.buttonCancel.Text = "Mégse";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // label6
             // 
@@ -146,9 +126,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Új leszó";
+            this.label5.Text = "Új jelszó";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -163,7 +143,7 @@
             // 
             // textBoxNewPassword
             // 
-            this.textBoxNewPassword.Location = new System.Drawing.Point(149, 143);
+            this.textBoxNewPassword.Location = new System.Drawing.Point(128, 143);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.PasswordChar = '*';
             this.textBoxNewPassword.ReadOnly = true;
@@ -172,7 +152,7 @@
             // 
             // textBoxOldPassword
             // 
-            this.textBoxOldPassword.Location = new System.Drawing.Point(149, 108);
+            this.textBoxOldPassword.Location = new System.Drawing.Point(128, 108);
             this.textBoxOldPassword.Name = "textBoxOldPassword";
             this.textBoxOldPassword.PasswordChar = '*';
             this.textBoxOldPassword.ReadOnly = true;
@@ -199,7 +179,7 @@
             // 
             // textBoxConfirmPassword
             // 
-            this.textBoxConfirmPassword.Location = new System.Drawing.Point(149, 178);
+            this.textBoxConfirmPassword.Location = new System.Drawing.Point(128, 178);
             this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             this.textBoxConfirmPassword.PasswordChar = '*';
             this.textBoxConfirmPassword.ReadOnly = true;
@@ -220,7 +200,7 @@
             // 
             this.buttonModifyUser.Location = new System.Drawing.Point(3, 213);
             this.buttonModifyUser.Name = "buttonModifyUser";
-            this.buttonModifyUser.Size = new System.Drawing.Size(75, 23);
+            this.buttonModifyUser.Size = new System.Drawing.Size(97, 23);
             this.buttonModifyUser.TabIndex = 12;
             this.buttonModifyUser.Text = "Módosítás";
             this.buttonModifyUser.UseVisualStyleBackColor = true;
@@ -230,13 +210,34 @@
             // 
             this.checkBoxPassword.AutoSize = true;
             this.checkBoxPassword.Enabled = false;
-            this.checkBoxPassword.Location = new System.Drawing.Point(149, 213);
+            this.checkBoxPassword.Location = new System.Drawing.Point(128, 213);
             this.checkBoxPassword.Name = "checkBoxPassword";
             this.checkBoxPassword.Size = new System.Drawing.Size(107, 17);
             this.checkBoxPassword.TabIndex = 13;
             this.checkBoxPassword.Text = "Jelszó módosítás";
             this.checkBoxPassword.UseVisualStyleBackColor = true;
             this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.AutoSize = true;
+            this.buttonSave.Location = new System.Drawing.Point(28, 334);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(97, 23);
+            this.buttonSave.TabIndex = 15;
+            this.buttonSave.Text = "Mentés";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(212, 334);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.TabIndex = 14;
+            this.buttonClose.Text = "Bezár";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // errorProviderUserName
             // 
@@ -254,10 +255,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 379);
+            this.ClientSize = new System.Drawing.Size(322, 379);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonClose);
             this.Name = "UserWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Felhasználó adatai";
@@ -267,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderOldPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewPassword)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -288,7 +290,7 @@
         private System.Windows.Forms.Button buttonModifyUser;
         private System.Windows.Forms.CheckBox checkBoxPassword;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ErrorProvider errorProviderUserName;
         private System.Windows.Forms.ErrorProvider errorProviderOldPassword;
         private System.Windows.Forms.ErrorProvider errorProviderNewPassword;

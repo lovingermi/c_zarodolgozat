@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="Models\Partials\beszerzesek_Partial.cs" />
     <Compile Include="Models\Partials\eladasok_Partial.cs" />
+    <Compile Include="Models\Partials\felhasznalo_Partial.cs" />
     <Compile Include="Models\Partials\gepek_Partial.cs" />
     <Compile Include="Models\Partials\vevok_Partial.cs" />
     <Compile Include="Models\SzerszamgepModel.Context.cs">
@@ -131,6 +132,7 @@
     <Compile Include="Presenters\ModifyPresenter.cs" />
     <Compile Include="Presenters\ModifyPresenterException.cs" />
     <Compile Include="Presenters\newPasswordPresenterException.cs" />
+    <Compile Include="Presenters\NewUserPresenter.cs" />
     <Compile Include="Presenters\ReportPresenter.cs" />
     <Compile Include="Presenters\UserOldPasswordPresenterException.cs" />
     <Compile Include="Presenters\UserPresenter.cs" />
@@ -150,7 +152,14 @@
     <Compile Include="Validations\UserNameValidationException.cs" />
     <Compile Include="Validations\UserOldPasswordValidationException.cs" />
     <Compile Include="Validations\UserValidation.cs" />
+    <Compile Include="ViewInterfaces\INewUserView.cs" />
     <Compile Include="ViewInterfaces\IUserView.cs" />
+    <Compile Include="Views\NewUserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewUserWindow.Designer.cs">
+      <DependentUpon>NewUserWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModifyWindow.resx">
       <DependentUpon>ModifyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewUserWindow.resx">
+      <DependentUpon>NewUserWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportWindow.resx">
       <DependentUpon>ReportWindow.cs</DependentUpon>

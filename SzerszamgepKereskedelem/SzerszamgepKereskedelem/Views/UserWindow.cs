@@ -118,17 +118,6 @@ namespace SzerszamgepKereskedelem
             }
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            /*textBoxAndErrorProviderClear();
-            textBoxConfirmPassword.Text = "";
-            textBoxOldPassword.Text = "";
-            textBoxNewPassword.Text = "";
-            modify = false;
-            userPresenter.getOldData();*/
-            this.Close();
-        }
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
             try
@@ -144,6 +133,7 @@ namespace SzerszamgepKereskedelem
                     userPresenter.modifyUserWithoutPassword();
                     textBoxAndErrorProviderClear();
                 }
+                modify = false;
             }
             catch (UserNamePresenterException une)
             {
@@ -175,6 +165,24 @@ namespace SzerszamgepKereskedelem
             textBoxOldPassword.ReadOnly = true;
             textBoxNewPassword.ReadOnly = true;
             textBoxConfirmPassword.ReadOnly = true;
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            if (modify)
+            {
+                DialogResult myResult;//Ha módosítás van rákérdez a bezárás elött
+                myResult = MessageBox.Show("Elveti a módosításokat?", "Módosítások visszavonása", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (myResult == DialogResult.OK)
+                {
+                    this.Close();
+                }
+
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }
