@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,7 @@ namespace SzerszamgepKereskedelem.Presenters
         
         public void ModifyMegrendeles(string cikkszam)// Kiválasztot megrendeléshez tartozó gép cikkszám
         {
-           
+            //db = new szerszamgepContext();
             modifyGep = db.gepek.SingleOrDefault(m => m.cikkszam==(cikkszam));//Cikkszám alapján gép megkeresése az adatbázisban
             modifyMegrendeles = db.megrendeles.SingleOrDefault(m => m.gep_Id == modifyGep.id);//Gép id alapján megrendelés megkeresése az adatbázisban
             modifyBeszerzes = db.beszerzesek.Find(modifyMegrendeles.beszerzes_Id);
@@ -130,8 +131,19 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void GetVevoFromNevLista(string vevoNev)
         {
-            //db = new szerszamgepContext();
-            
+            /*var context = ((IObjectContextAdapter)db).ObjectContext;
+            var refreshableObjects = (from entry in context.ObjectStateManager.GetObjectStateEntries(
+                                                       EntityState.Added
+                                                       | EntityState.Deleted
+                                                       | EntityState.Modified
+                                                       | EntityState.Unchanged)
+                                      where entry.EntityKey != null
+                                      select entry.Entity).ToList();
+
+            context.Refresh(RefreshMode.StoreWins, refreshableObjects);*/
+            var context = ((IObjectContextAdapter)db).ObjectContext;//adatbázis frissítése az aktuális vevő adatok megjelenítéséhez
+            var refreshableObjects = db.ChangeTracker.Entries().Select(c => c.Entity).ToList();
+            context.Refresh(RefreshMode.StoreWins, refreshableObjects);
             vevok selectedVevo = (from v in db.vevok where v.nev == vevoNev select v).FirstOrDefault();
             if (selectedVevo != null)
             {
@@ -147,7 +159,7 @@ namespace SzerszamgepKereskedelem.Presenters
                 modifyView.selectedVevoTelepules = "";
 
             }
-
+            
         }
     }
 }

@@ -792,6 +792,7 @@
             this.Controls.Add(this.panelGepek);
             this.Controls.Add(this.panelVevo);
             this.Name = "AddWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Megrendelés hozzáadása";
             this.Load += new System.EventHandler(this.AddWindow_Load);
             this.panelEladas.ResumeLayout(false);

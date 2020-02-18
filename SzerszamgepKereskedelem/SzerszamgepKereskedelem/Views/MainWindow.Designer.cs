@@ -64,12 +64,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxOldalszam = new System.Windows.Forms.TextBox();
             this.dataGridViewMainTable = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOldalszam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonModify
@@ -79,7 +85,7 @@
             this.buttonModify.ForeColor = System.Drawing.Color.Black;
             this.buttonModify.Image = ((System.Drawing.Image)(resources.GetObject("buttonModify.Image")));
             this.buttonModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModify.Location = new System.Drawing.Point(743, 111);
+            this.buttonModify.Location = new System.Drawing.Point(744, 136);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonModify.Size = new System.Drawing.Size(155, 44);
@@ -97,7 +103,7 @@
             this.buttonAddProjekt.ForeColor = System.Drawing.Color.Black;
             this.buttonAddProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProjekt.Image")));
             this.buttonAddProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProjekt.Location = new System.Drawing.Point(743, 58);
+            this.buttonAddProjekt.Location = new System.Drawing.Point(744, 83);
             this.buttonAddProjekt.Name = "buttonAddProjekt";
             this.buttonAddProjekt.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddProjekt.Size = new System.Drawing.Size(155, 45);
@@ -114,7 +120,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.Black;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(743, 159);
+            this.buttonDelete.Location = new System.Drawing.Point(744, 184);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(155, 44);
@@ -131,7 +137,7 @@
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
             this.buttonExit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExit.Image")));
             this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExit.Location = new System.Drawing.Point(913, 159);
+            this.buttonExit.Location = new System.Drawing.Point(914, 184);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonExit.Size = new System.Drawing.Size(155, 44);
@@ -148,7 +154,7 @@
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
             this.buttonPrint.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrint.Image")));
             this.buttonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPrint.Location = new System.Drawing.Point(573, 158);
+            this.buttonPrint.Location = new System.Drawing.Point(574, 183);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrint.Size = new System.Drawing.Size(155, 45);
@@ -166,7 +172,7 @@
             this.buttonSaveToFile.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveToFile.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveToFile.Image")));
             this.buttonSaveToFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveToFile.Location = new System.Drawing.Point(573, 110);
+            this.buttonSaveToFile.Location = new System.Drawing.Point(574, 135);
             this.buttonSaveToFile.Name = "buttonSaveToFile";
             this.buttonSaveToFile.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.buttonSaveToFile.Size = new System.Drawing.Size(155, 45);
@@ -179,6 +185,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -192,9 +199,9 @@
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.reportViewerMain);
-            this.panel1.Location = new System.Drawing.Point(255, 505);
+            this.panel1.Location = new System.Drawing.Point(137, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1090, 220);
+            this.panel1.Size = new System.Drawing.Size(1090, 245);
             this.panel1.TabIndex = 34;
             // 
             // buttonExport
@@ -203,7 +210,7 @@
             this.buttonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonExport.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.Image")));
             this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExport.Location = new System.Drawing.Point(573, 58);
+            this.buttonExport.Location = new System.Drawing.Point(574, 83);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonExport.Size = new System.Drawing.Size(155, 45);
@@ -228,7 +235,7 @@
             this.panel2.Controls.Add(this.dateTimePickerTol);
             this.panel2.Controls.Add(this.textBoxKeres);
             this.panel2.Controls.Add(this.comboBoxKeres);
-            this.panel2.Location = new System.Drawing.Point(99, 58);
+            this.panel2.Location = new System.Drawing.Point(100, 83);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(459, 145);
             this.panel2.TabIndex = 35;
@@ -358,7 +365,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Gainsboro;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(283, 15);
+            this.label1.Location = new System.Drawing.Point(284, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 36;
@@ -368,7 +375,7 @@
             // 
             this.reportViewerMain.DocumentMapWidth = 8;
             this.reportViewerMain.LocalReport.ReportEmbeddedResource = "SzerszamgepKereskedelem.Report1.rdlc";
-            this.reportViewerMain.Location = new System.Drawing.Point(988, 15);
+            this.reportViewerMain.Location = new System.Drawing.Point(989, 40);
             this.reportViewerMain.Name = "reportViewerMain";
             this.reportViewerMain.ServerReport.BearerToken = null;
             this.reportViewerMain.Size = new System.Drawing.Size(80, 37);
@@ -422,9 +429,10 @@
             // 
             // buttonLapFel
             // 
+            this.buttonLapFel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonLapFel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLapFel.Image = ((System.Drawing.Image)(resources.GetObject("buttonLapFel.Image")));
-            this.buttonLapFel.Location = new System.Drawing.Point(804, 378);
+            this.buttonLapFel.Location = new System.Drawing.Point(192, 3);
             this.buttonLapFel.Name = "buttonLapFel";
             this.buttonLapFel.Size = new System.Drawing.Size(50, 40);
             this.buttonLapFel.TabIndex = 36;
@@ -433,9 +441,10 @@
             // 
             // buttonLapLe
             // 
+            this.buttonLapLe.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonLapLe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLapLe.Image = ((System.Drawing.Image)(resources.GetObject("buttonLapLe.Image")));
-            this.buttonLapLe.Location = new System.Drawing.Point(593, 378);
+            this.buttonLapLe.Location = new System.Drawing.Point(3, 3);
             this.buttonLapLe.Name = "buttonLapLe";
             this.buttonLapLe.Size = new System.Drawing.Size(50, 40);
             this.buttonLapLe.TabIndex = 37;
@@ -444,8 +453,9 @@
             // 
             // numericUpDownOldalszam
             // 
+            this.numericUpDownOldalszam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numericUpDownOldalszam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDownOldalszam.Location = new System.Drawing.Point(662, 387);
+            this.numericUpDownOldalszam.Location = new System.Drawing.Point(59, 10);
             this.numericUpDownOldalszam.Name = "numericUpDownOldalszam";
             this.numericUpDownOldalszam.Size = new System.Drawing.Size(48, 26);
             this.numericUpDownOldalszam.TabIndex = 38;
@@ -453,9 +463,10 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(716, 387);
+            this.label6.Location = new System.Drawing.Point(113, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 26);
             this.label6.TabIndex = 39;
@@ -463,8 +474,9 @@
             // 
             // textBoxOldalszam
             // 
+            this.textBoxOldalszam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxOldalszam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxOldalszam.Location = new System.Drawing.Point(741, 388);
+            this.textBoxOldalszam.Location = new System.Drawing.Point(138, 10);
             this.textBoxOldalszam.Name = "textBoxOldalszam";
             this.textBoxOldalszam.ReadOnly = true;
             this.textBoxOldalszam.Size = new System.Drawing.Size(48, 26);
@@ -474,9 +486,10 @@
             // dataGridViewMainTable
             // 
             this.dataGridViewMainTable.AllowUserToAddRows = false;
+            this.dataGridViewMainTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dataGridViewMainTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridViewMainTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMainTable.Location = new System.Drawing.Point(12, 31);
+            this.dataGridViewMainTable.Location = new System.Drawing.Point(15, 12);
             this.dataGridViewMainTable.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewMainTable.MultiSelect = false;
             this.dataGridViewMainTable.Name = "dataGridViewMainTable";
@@ -487,20 +500,59 @@
             this.dataGridViewMainTable.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMainTable_RowPostPaint);
             this.dataGridViewMainTable.Sorted += new System.EventHandler(this.dataGridViewMainTable_Sorted);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 468);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1364, 261);
+            this.tableLayoutPanel1.TabIndex = 41;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dataGridViewMainTable, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1364, 428);
+            this.tableLayoutPanel2.TabIndex = 42;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.buttonLapLe);
+            this.flowLayoutPanel1.Controls.Add(this.numericUpDownOldalszam);
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxOldalszam);
+            this.flowLayoutPanel1.Controls.Add(this.buttonLapFel);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(559, 351);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(245, 74);
+            this.flowLayoutPanel1.TabIndex = 43;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1364, 879);
-            this.Controls.Add(this.textBoxOldalszam);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.numericUpDownOldalszam);
-            this.Controls.Add(this.buttonLapLe);
-            this.Controls.Add(this.buttonLapFel);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridViewMainTable);
+            this.ClientSize = new System.Drawing.Size(1364, 729);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
@@ -516,6 +568,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderModify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOldalszam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMainTable)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,5 +613,8 @@
         private System.Windows.Forms.ToolStripMenuItem felhasználóToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sajatAdatokToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UjFelhasznalo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

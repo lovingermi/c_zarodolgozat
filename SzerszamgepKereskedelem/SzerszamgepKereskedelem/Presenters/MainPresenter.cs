@@ -33,8 +33,8 @@ namespace SzerszamgepKereskedelem.Presenters
             db = new szerszamgepContext();
             mainView = param;
             sorokSzama = db.megrendeles.Count();
-            query = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id).Skip(0).Take(10);
-            exportQuery = db.megrendeles.OrderBy(x => x.id).OrderBy(x => x.id);
+            query = db.megrendeles.OrderBy(x => x.id).Skip(0).Take(10);
+            exportQuery = db.megrendeles.OrderBy(x => x.id);
             CreateDataTable();
             getLekerdezesLapokszama(sorokSzama);
             LoadData();

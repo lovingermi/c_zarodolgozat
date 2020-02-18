@@ -61,7 +61,7 @@ namespace SzerszamgepKereskedelem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Az adatbázis való kapcsolódás sikertelen!.
+        ///   Looks up a localized string similar to Az adatbázishoz való kapcsolódás sikertelen!.
         /// </summary>
         internal static string AdatHiba {
             get {

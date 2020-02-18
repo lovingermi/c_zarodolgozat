@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
@@ -108,7 +109,17 @@ namespace SzerszamgepKereskedelem.Presenters
         }
         public void GetVevoFromNevLista(string vevoNev)
         {
-            db = new szerszamgepContext();
+            //db = new szerszamgepContext();
+            var context = ((IObjectContextAdapter)db).ObjectContext;
+            var refreshableObjects = (from entry in context.ObjectStateManager.GetObjectStateEntries(
+                                                       EntityState.Added
+                                                       | EntityState.Deleted
+                                                       | EntityState.Modified
+                                                       | EntityState.Unchanged)
+                                      where entry.EntityKey != null
+                                      select entry.Entity).ToList();
+
+            context.Refresh(RefreshMode.StoreWins, refreshableObjects);
             selectedVevo = (from v in db.vevok where v.nev == vevoNev select v).FirstOrDefault();
             if (selectedVevo != null)
             {
